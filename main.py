@@ -10,7 +10,6 @@ from gtts import gTTS
 from playsound import playsound
 import os
 import pyttsx3
-import transcribe
 
 engine = pyttsx3.init()
 bot_message = ""
