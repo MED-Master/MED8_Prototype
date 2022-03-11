@@ -48,7 +48,7 @@ os.remove("welcome.mp3")
 
 
 
-while bot_message != "Bye" or bot_message != 'thanks':
+while True:
     r = sr.Recognizer()  # initialize recognizer
     with my_mic as source:  # mention source it will be either Microphone or audio files.
         print("Speak Anything :")
@@ -85,8 +85,8 @@ while bot_message != "Bye" or bot_message != 'thanks':
         print('saved')
         playsound("welcome.mp3")
         os.remove("welcome.mp3")
-    if keyboard.is_pressed('l'):
-        dict = {'Replies': reply_logger}
-        df = pd.DataFrame(dict)
-        df.to_csv('Transcriptions.csv')
-        print("Logging complete")
+
+    dict = {'Replies': reply_logger}
+    df = pd.DataFrame(dict)
+    df.to_csv('Transcriptions.csv')
+    print("Logging complete")
