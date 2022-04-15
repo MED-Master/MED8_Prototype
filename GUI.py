@@ -36,8 +36,8 @@ window.configure(bg = "#121212")
 canvas = Canvas(
     window,
     bg = "#121212",
-    height = 900,
-    width = 1699,
+    height = 1080,
+    width = 1920,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge")
@@ -58,5 +58,14 @@ canvas.create_text(
     fill = "#b7bbc5",
     font = ("RobotoRoman-ExtraBold", int(24.0)))
 
-window.resizable(False, False)
+
+def plotDisplay(j):
+    img = PhotoImage(file='images/'+str(j)+'figure.png')
+    return img
+
+
+img = plotDisplay(1)
+canvas.create_image(1100, 450, image=img)
+
+window.resizable(True, True)
 window.mainloop()
