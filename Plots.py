@@ -1,23 +1,25 @@
-import plotly.express as px
+import seaborn as sns
 import pandas as pd
-import plotly.io as pio
 import os
 
 if not os.path.exists("images"):
     os.mkdir("images")
-
+#data
 df = pd.read_csv("Data.csv")
+#Export settings
+sns.set_theme(style="darkgrid")
+sns.set(rc={"figure.figsize":(19, 8)}) #width=8, height=4
 
-#df = px.data.gapminder().query("continent=='Oceania'")
-
-
-fig = px.line(df, x="Dates", y="DNT (Mean)", color='Hospital')
-
-fig.update_layout(
-    title_text="First plotly",
-    paper_bgcolor = 'rgba(233,233,233, 0)',
-    plot_bgcolor = 'rgba(233,233,233, 0)',
-    template = "plotly_dark"
+# Plot the responses for different events and regions
+plot = sns.lineplot(
+    x="Dates",
+    y="DNT (Mean)",
+    hue="Country",
+    style="Hospital",
+    data=df
 )
-fig.write_image("images/fig1.png")
-fig.show()
+
+plot.figure.savefig('images/save_as_a_png.png')
+
+
+
