@@ -28,7 +28,6 @@ def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 def btn_clicked():
     print("Button Clicked")
 
-
 window = Tk()
 
 window.geometry("1699x900")
@@ -64,8 +63,23 @@ def plotDisplay(j):
     return img
 
 
+def updatePlot(j):
+    img = plotDisplay(j)
+    canvas.itemconfig(
+        plotCanvas,
+        image=img)
+
+
 img = plotDisplay(1)
-canvas.create_image(1100, 450, image=img)
+plotCanvas = canvas.create_image(1100, 450, image=img)
+
+
+button = Button(window, text="Update", command=lambda:canvas.itemconfig(plotCanvas, image=PhotoImage(file ='images/2figure.png')))
+
+
+#updatePlot(2)
+
+button.place(x=0, y=0)
 
 window.resizable(True, True)
 window.mainloop()
