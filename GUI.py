@@ -44,11 +44,19 @@ canvas = Canvas(
 canvas.place(x = 0, y = 0)
 
 canvas.pack()
-RoundRectangle = round_rectangle(25, 25, 25+247, 25+848, radius=20, fill="#272727")
+RoundRectangle = round_rectangle(
+    25,
+    25,
+    25+247,
+    25+848,
+    radius=20,
+    fill="#272727")
+
 canvas.create_text(
     148.5, 62.5,
     text = "HISTORY",
     fill = "#b7bbc5",
     font = ("RobotoRoman-ExtraBold", int(24.0)))
+
 window.resizable(False, False)
 window.mainloop()
