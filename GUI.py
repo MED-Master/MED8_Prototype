@@ -66,20 +66,19 @@ def plotDisplay(j):
 def updatePlot(j):
     img = plotDisplay(j)
     canvas.itemconfig(
-        plotCanvas,
-        image=img)
+       plotCanvas,
+       image=img)
+    canvas.imgref = img
 
 
 img = plotDisplay(1)
 plotCanvas = canvas.create_image(1100, 450, image=img)
 
-
-button = Button(window, text="Update", command=lambda:canvas.itemconfig(plotCanvas, image=PhotoImage(file ='images/2figure.png')))
-
-
-#updatePlot(2)
-
+button = Button(window, text="Update", command=lambda: updatePlot(2))
 button.place(x=0, y=0)
+
+button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
+button2.place(x=100, y=0)
 
 window.resizable(True, True)
 window.mainloop()
