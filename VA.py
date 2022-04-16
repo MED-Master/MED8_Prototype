@@ -83,3 +83,7 @@ class RASA:
             playsound("welcome.mp3")
             os.remove("welcome.mp3")
 
+ #C:\Users\Steff\Documents\GitHub\MED8_RasaTesting>
+
+
+#subprocess.call('rasa run -m models --endpoints endpoints.yml --port 5002 --credentials credentials.yml', shell=True)
