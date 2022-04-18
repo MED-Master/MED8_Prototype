@@ -27,6 +27,43 @@ def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
     return canvas.create_polygon(points, **kwargs, smooth=True)
 
+
+def _on_enter_pressed(event):
+    msg = msg_entry.get()
+    _insert_message(msg, "You")
+
+
+def _talk_to_va(event):
+    msg = RASA.VATalkAndReply()
+    msg_entry.delete(0, END)
+    msg1 = f"You: {msg[0]}\n\n"
+    text_widget.configure(state=NORMAL)
+    text_widget.insert(END, msg1)
+    text_widget.configure(state=DISABLED)
+    text_widget.configure(state=NORMAL)
+    for va in msg[1:]:
+        msg2 = f"Assistant: {va}\n\n"
+        text_widget.insert(END, msg2)
+    text_widget.configure(state=DISABLED)
+    text_widget.see(END)
+
+def _insert_message(msg, sender):
+    if not msg:
+        return
+    msg_entry.delete(0, END)
+    msg1 = f"{sender}: {msg}\n\n"
+    text_widget.configure(state=NORMAL)
+    text_widget.insert(END, msg1)
+    text_widget.configure(state=DISABLED)
+    va_msg = RASA.VAWriteAndReply(msg)
+    text_widget.configure(state=NORMAL)
+    for va in va_msg:
+        msg2 = f"Assistant: {va}\n\n"
+        text_widget.insert(END, msg2)
+    text_widget.configure(state=DISABLED)
+    text_widget.see(END)
+
+
 def btn_clicked():
     print("Button Clicked")
 
@@ -53,28 +90,79 @@ RoundRectangle = round_rectangle(
     radius=20,
     fill="#272727")
 
-test1 = round_rectangle(
+##############################################This code creates the button to send written messages
+send_box = round_rectangle(
     25,
     820-15,
     25+123.5,
     25+848,
     radius=20,
     fill="#AEADAD")
-test2 = round_rectangle(
+send_canvas = Canvas(
+    window,
+    bg = "#AEADAD",
+    height = 68,
+    width = 118.5,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge")
+send_canvas.place(x = 25+5, y = 805)
+send_button = Button(send_canvas, text="Send", font="RobotoRoman-ExtraBold", borderwidth=0,
+                     bg="#AEADAD", command=lambda: _on_enter_pressed(None))
+send_button.place(x=0, y=0, relheight=1, relwidth=1)
+##############################################
+
+##############################################This code creates a button for talking to VA
+record_box = round_rectangle(
     25+123.5,
     820-15,
     25+123.5+123.5,
     25+848,
     radius=20,
     fill="#AEADAD")
-test3 = round_rectangle(
+record_canvas = Canvas(
+    window,
+    bg = "#AEADAD",
+    height = 68,
+    width = 118.5,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge")
+record_canvas.place(x = 25+123.5, y = 805)
+record_button = Button(record_canvas, text="Talk", font="RobotoRoman-ExtraBold", borderwidth=0,
+                     bg="#AEADAD", command=lambda: _talk_to_va(None))
+record_button.place(x=0, y=0, relheight=1, relwidth=1)
+
+record_line = Label(record_canvas, width=450, bg="#000000")
+record_line.place(relwidth=0.012, relx=0.01, relheight=1)
+##############################################
+
+##############################################This code creates the text box for users to write messages in
+msg_entry_box = round_rectangle(
     25,
     750,
     25+247,
-    820-15,
+    820,
     radius=20,
     fill="#AEADAD")
+msg_entry_canvas = Canvas(
+    window,
+    bg = "#AEADAD",
+    height = 55,
+    width = 237,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge")
+msg_entry_canvas.place(x = 25+5, y = 750)
+msg_entry = Entry(msg_entry_canvas, bg="#AEADAD", fg="#FFFFFF", borderwidth=0, font="RobotoRoman-ExtraBold")
+msg_entry.place(relwidth=1, relheight=1, rely=0.008, relx=0.011)
+msg_entry.focus()
 
+entry_line = Label(msg_entry_canvas, width=450, bg="#000000")
+entry_line.place(relwidth=1, rely=0.99, relheight=0.012)
+##############################################
+
+##############################################This code creates the chat log.
 canvas.create_text(
     148.5, 62.5,
     text = "Chat Log",
@@ -99,6 +187,7 @@ text_widget.configure(cursor="arrow", state=DISABLED)
 scrollbar = Scrollbar(text_widget)
 scrollbar.place(relheight=1, relx=0.974)
 scrollbar.configure(command=text_widget.yview)
+##############################################
 
 def plotDisplay(j):
     img = PhotoImage(file='images/'+str(j)+'figure.png')
@@ -122,11 +211,11 @@ button.place(x=0, y=0)
 button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
 button2.place(x=100, y=0)
 
-button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
-button3.place(x=200, y=0)
-
-button4 = Button(window, text="RASA", command=lambda: RASA.VATalkAndReply())
-button4.place(x=300, y=0)
+# button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
+# button3.place(x=200, y=0)
+#
+# button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
+# button4.place(x=300, y=0)
 
 window.resizable(True, True)
 window.mainloop()
