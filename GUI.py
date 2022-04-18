@@ -36,7 +36,7 @@ def _on_enter_pressed(event):
 def _talk_to_va(event):
     msg = RASA.VATalkAndReply()
     msg_entry.delete(0, END)
-    msg1 = f"You: {msg[1]}\n\n"
+    msg1 = f"You: {msg[0]}\n\n"
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
@@ -112,22 +112,25 @@ send_button = Button(send_canvas, text="Send", font="RobotoRoman-ExtraBold", bor
 send_button.place(x=0, y=0, relheight=1, relwidth=1)
 ##############################################
 
-test2 = round_rectangle(
+record_box = round_rectangle(
     25+123.5,
     820-15,
     25+123.5+123.5,
     25+848,
     radius=20,
     fill="#AEADAD")
-test2canvas = Canvas(
+record_canvas = Canvas(
     window,
-    bg = "#000000",
+    bg = "#AEADAD",
     height = 68,
     width = 118.5,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge")
-test2canvas.place(x = 25+123.5, y = 805)
+record_canvas.place(x = 25+123.5, y = 805)
+record_button = Button(record_canvas, text="Talk", font="RobotoRoman-ExtraBold", borderwidth=0,
+                     bg="#AEADAD", command=lambda: _talk_to_va(None))
+record_button.place(x=0, y=0, relheight=1, relwidth=1)
 
 ##############################################This code creates the text box for users to write messages in
 msg_entry_box = round_rectangle(
@@ -200,11 +203,11 @@ button.place(x=0, y=0)
 button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
 button2.place(x=100, y=0)
 
-button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
-button3.place(x=200, y=0)
-
-button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
-button4.place(x=300, y=0)
+# button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
+# button3.place(x=200, y=0)
+#
+# button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
+# button4.place(x=300, y=0)
 
 window.resizable(True, True)
 window.mainloop()
