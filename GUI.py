@@ -30,7 +30,6 @@ def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
 def _on_enter_pressed(event):
     msg = msg_entry.get()
-    RASA.VAWriteAndReply(msg)
     _insert_message(msg, "You")
 
 
@@ -42,7 +41,11 @@ def _insert_message(msg, sender):
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
+    va_msg = RASA.VAWriteAndReply(msg)
     text_widget.configure(state=NORMAL)
+    for va in va_msg:
+        msg2 = f"Assistant: {va}\n\n"
+        text_widget.insert(END, msg2)
     text_widget.configure(state=DISABLED)
     text_widget.see(END)
 

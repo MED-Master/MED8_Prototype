@@ -34,6 +34,7 @@ class RASA:
     r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": "Hello"})
 
 
+
     def VAIntro (self):
         print("Bot says, ", end=' ')
         for i in self.r.json():
@@ -85,6 +86,9 @@ class RASA:
 
 
     def VAWriteAndReply (self, message):
+        VA_msg = []
+        r = sr.Recognizer()  # initialize recognizer
+
         try:
             Logging.reply_logger.append(message)  # storing message string
             print("You said : {}".format(message))
@@ -108,7 +112,9 @@ class RASA:
             print('saved')
             playsound("welcome.mp3")
             os.remove("welcome.mp3")
+            VA_msg.append(self.bot_message)
 
+        return VA_msg
  #C:\Users\Steff\Documents\GitHub\MED8_RasaTesting>
 
 
