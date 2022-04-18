@@ -30,6 +30,7 @@ def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
 def _on_enter_pressed(event):
     msg = msg_entry.get()
+    RASA.VAWriteAndReply(msg)
     _insert_message(msg, "You")
 
 

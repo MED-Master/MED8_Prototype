@@ -83,6 +83,32 @@ class RASA:
             playsound("welcome.mp3")
             os.remove("welcome.mp3")
 
+
+    def VAWriteAndReply (self, message):
+        try:
+            Logging.reply_logger.append(message)  # storing message string
+            print("You said : {}".format(message))
+
+        except sr.UnknownValueError:
+            print("I did not catch that, can you please say it again")
+            r = sr.Recognizer()
+
+        except sr.RequestError as e:
+            print("Could not request results from API; {0}".format(e))
+
+        r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": message})
+
+        print("Bot says, ", end=' ')
+        for i in r.json():
+            self.bot_message = i['text']
+            print(f"{self.bot_message}")
+            Logging.reply_logger.append(self.bot_message)
+            myobj = gTTS(text=self.bot_message)
+            myobj.save("welcome.mp3")
+            print('saved')
+            playsound("welcome.mp3")
+            os.remove("welcome.mp3")
+
  #C:\Users\Steff\Documents\GitHub\MED8_RasaTesting>
 
 
