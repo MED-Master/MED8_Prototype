@@ -50,6 +50,8 @@ class RASA:
         #VAIntro.engine.runAndWait()
 
     def VATalkAndReply (self):
+        va_msg = []
+
         r = sr.Recognizer()  # initialize recognizer
         with self.my_mic as source:  # mention source it will be either Microphone or audio files.
             print("Speak Anything :")
@@ -60,6 +62,7 @@ class RASA:
                 self.message = r.recognize_wit(audio, key=self.WIT_AI_KEY)  # use recognizer to convert our audio into text part.
                 Logging.reply_logger.append(self.message)  # storing message string
                 print("You said : {}".format(self.message))
+                va_msg.append(self.message)
 
             except sr.UnknownValueError:
                 print("I did not catch that, can you please say it again")
@@ -79,10 +82,13 @@ class RASA:
             print(f"{self.bot_message}")
             Logging.reply_logger.append(self.bot_message)
             myobj = gTTS(text=self.bot_message)
+            va_msg.append(self.bot_message)
             myobj.save("welcome.mp3")
             print('saved')
             playsound("welcome.mp3")
             os.remove("welcome.mp3")
+
+        return va_msg
 
 
     def VAWriteAndReply (self, message):

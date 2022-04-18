@@ -33,6 +33,20 @@ def _on_enter_pressed(event):
     _insert_message(msg, "You")
 
 
+def _talk_to_va(event):
+    msg = RASA.VATalkAndReply()
+    msg_entry.delete(0, END)
+    msg1 = f"You: {msg[1]}\n\n"
+    text_widget.configure(state=NORMAL)
+    text_widget.insert(END, msg1)
+    text_widget.configure(state=DISABLED)
+    text_widget.configure(state=NORMAL)
+    for va in msg[1:]:
+        msg2 = f"Assistant: {va}\n\n"
+        text_widget.insert(END, msg2)
+    text_widget.configure(state=DISABLED)
+    text_widget.see(END)
+
 def _insert_message(msg, sender):
     if not msg:
         return
@@ -189,7 +203,7 @@ button2.place(x=100, y=0)
 button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
 button3.place(x=200, y=0)
 
-button4 = Button(window, text="RASA", command=lambda: RASA.VATalkAndReply())
+button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
 button4.place(x=300, y=0)
 
 window.resizable(True, True)
