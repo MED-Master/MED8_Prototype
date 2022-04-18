@@ -112,6 +112,7 @@ send_button = Button(send_canvas, text="Send", font="RobotoRoman-ExtraBold", bor
 send_button.place(x=0, y=0, relheight=1, relwidth=1)
 ##############################################
 
+##############################################This code creates a button for talking to VA
 record_box = round_rectangle(
     25+123.5,
     820-15,
@@ -131,6 +132,10 @@ record_canvas.place(x = 25+123.5, y = 805)
 record_button = Button(record_canvas, text="Talk", font="RobotoRoman-ExtraBold", borderwidth=0,
                      bg="#AEADAD", command=lambda: _talk_to_va(None))
 record_button.place(x=0, y=0, relheight=1, relwidth=1)
+
+record_line = Label(record_canvas, width=450, bg="#000000")
+record_line.place(relwidth=0.012, relx=0.01, relheight=1)
+##############################################
 
 ##############################################This code creates the text box for users to write messages in
 msg_entry_box = round_rectangle(
@@ -152,6 +157,9 @@ msg_entry_canvas.place(x = 25+5, y = 750)
 msg_entry = Entry(msg_entry_canvas, bg="#AEADAD", fg="#FFFFFF", borderwidth=0, font="RobotoRoman-ExtraBold")
 msg_entry.place(relwidth=1, relheight=1, rely=0.008, relx=0.011)
 msg_entry.focus()
+
+entry_line = Label(msg_entry_canvas, width=450, bg="#000000")
+entry_line.place(relwidth=1, rely=0.99, relheight=0.012)
 ##############################################
 
 ##############################################This code creates the chat log.
