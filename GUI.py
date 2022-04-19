@@ -34,16 +34,19 @@ def _on_enter_pressed(event):
 
 
 def _talk_to_va(event):
-    msg = RASA.VATalkAndReply()
+    msg = RASA.VArecord()
     msg_entry.delete(0, END)
-    msg1 = f"You: {msg[0]}\n\n"
+    msg1 = f"You: {msg}\n\n"
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
+
+    va_msg = RASA.VAnlu(msg)
     text_widget.configure(state=NORMAL)
-    for va in msg[1:]:
+    for va in va_msg:
         msg2 = f"Assistant: {va}\n\n"
         text_widget.insert(END, msg2)
+        RASA.VAspeak(va)
     text_widget.configure(state=DISABLED)
     text_widget.see(END)
 
@@ -55,11 +58,17 @@ def _insert_message(msg, sender):
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
-    va_msg = RASA.VAWriteAndReply(msg)
+    text_widget.see(END)
+    _insert_va_message(msg1)
+
+def _insert_va_message(msg):
+    print("BOOP")
+    va_msg = RASA.VAnlu(msg)
     text_widget.configure(state=NORMAL)
     for va in va_msg:
         msg2 = f"Assistant: {va}\n\n"
         text_widget.insert(END, msg2)
+        RASA.VAspeak(va)
     text_widget.configure(state=DISABLED)
     text_widget.see(END)
 
@@ -181,11 +190,11 @@ text_canvas.place(x=27, y=100)
 
 text_widget = Text(text_canvas, width=20, height=1, bg="#272727", fg="#b7bbc5",
                         font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0)
-text_widget.place(relheight=1, relwidth=1)
+text_widget.place(relheight=1, relwidth=0.95)
 text_widget.configure(cursor="arrow", state=DISABLED)
 
-scrollbar = Scrollbar(text_widget)
-scrollbar.place(relheight=1, relx=0.974)
+scrollbar = Scrollbar(text_canvas)
+scrollbar.place(relheight=1, relx=0.95)
 scrollbar.configure(command=text_widget.yview)
 ##############################################
 
