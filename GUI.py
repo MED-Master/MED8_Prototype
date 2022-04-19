@@ -181,11 +181,11 @@ text_canvas.place(x=27, y=100)
 
 text_widget = Text(text_canvas, width=20, height=1, bg="#272727", fg="#b7bbc5",
                         font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0)
-text_widget.place(relheight=1, relwidth=1)
+text_widget.place(relheight=1, relwidth=0.95)
 text_widget.configure(cursor="arrow", state=DISABLED)
 
-scrollbar = Scrollbar(text_widget)
-scrollbar.place(relheight=1, relx=0.974)
+scrollbar = Scrollbar(text_canvas)
+scrollbar.place(relheight=1, relx=0.95)
 scrollbar.configure(command=text_widget.yview)
 ##############################################
 
