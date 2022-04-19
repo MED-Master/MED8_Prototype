@@ -70,10 +70,10 @@ def btn_clicked():
 window = Tk()
 
 window.geometry("1699x900")
-window.configure(bg = "#121212")
+window.configure(bg = "#DEE4E7")
 canvas = Canvas(
     window,
-    bg = "#121212",
+    bg = "#DEE4E7",
     height = 1080,
     width = 1920,
     bd = 0,
@@ -82,13 +82,21 @@ canvas = Canvas(
 canvas.place(x = 0, y = 0)
 
 canvas.pack()
+RoundRectangleborder = round_rectangle(
+    23,
+    23,
+    25+247 +2,
+    25+848+2,
+    radius=20,
+    fill="#000000")
 RoundRectangle = round_rectangle(
     25,
     25,
     25+247,
     25+848,
     radius=20,
-    fill="#272727")
+    fill="#FFFFFF")
+
 
 ##############################################This code creates the button to send written messages
 send_box = round_rectangle(
@@ -97,10 +105,10 @@ send_box = round_rectangle(
     25+123.5,
     25+848,
     radius=20,
-    fill="#AEADAD")
+    fill="#ECEFF1")
 send_canvas = Canvas(
     window,
-    bg = "#AEADAD",
+    bg = "#ECEFF1",
     height = 68,
     width = 118.5,
     bd = 0,
@@ -108,7 +116,7 @@ send_canvas = Canvas(
     relief = "ridge")
 send_canvas.place(x = 25+5, y = 805)
 send_button = Button(send_canvas, text="Send", font="RobotoRoman-ExtraBold", borderwidth=0,
-                     bg="#AEADAD", command=lambda: _on_enter_pressed(None))
+                     bg="#ECEFF1", command=lambda: _on_enter_pressed(None))
 send_button.place(x=0, y=0, relheight=1, relwidth=1)
 ##############################################
 
@@ -119,10 +127,10 @@ record_box = round_rectangle(
     25+123.5+123.5,
     25+848,
     radius=20,
-    fill="#AEADAD")
+    fill="#ECEFF1")
 record_canvas = Canvas(
     window,
-    bg = "#AEADAD",
+    bg = "#ECEFF1",
     height = 68,
     width = 118.5,
     bd = 0,
@@ -130,7 +138,7 @@ record_canvas = Canvas(
     relief = "ridge")
 record_canvas.place(x = 25+123.5, y = 805)
 record_button = Button(record_canvas, text="Talk", font="RobotoRoman-ExtraBold", borderwidth=0,
-                     bg="#AEADAD", command=lambda: _talk_to_va(None))
+                     bg="#ECEFF1", command=lambda: _talk_to_va(None))
 record_button.place(x=0, y=0, relheight=1, relwidth=1)
 
 record_line = Label(record_canvas, width=450, bg="#000000")
@@ -144,17 +152,17 @@ msg_entry_box = round_rectangle(
     25+247,
     820,
     radius=20,
-    fill="#AEADAD")
+    fill="#ECEFF1")
 msg_entry_canvas = Canvas(
     window,
-    bg = "#AEADAD",
+    bg = "#ECEFF1",
     height = 55,
     width = 237,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge")
 msg_entry_canvas.place(x = 25+5, y = 750)
-msg_entry = Entry(msg_entry_canvas, bg="#AEADAD", fg="#FFFFFF", borderwidth=0, font="RobotoRoman-ExtraBold")
+msg_entry = Entry(msg_entry_canvas, bg="#ECEFF1", fg="#000000", borderwidth=0, font="RobotoRoman-ExtraBold")
 msg_entry.place(relwidth=1, relheight=1, rely=0.008, relx=0.011)
 msg_entry.focus()
 
@@ -179,7 +187,7 @@ text_canvas = Canvas(
     relief="ridge")
 text_canvas.place(x=27, y=100)
 
-text_widget = Text(text_canvas, width=20, height=1, bg="#272727", fg="#b7bbc5",
+text_widget = Text(text_canvas, width=20, height=1, bg="#FFFFFF", fg="#b7bbc5",
                         font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0)
 text_widget.place(relheight=1, relwidth=1)
 text_widget.configure(cursor="arrow", state=DISABLED)
@@ -203,7 +211,21 @@ def updatePlot(j):
 
 
 img = plotDisplay(1)
-plotCanvas = canvas.create_image(1100, 450, image=img)
+imageoutline = round_rectangle(
+    400-3,
+    25-3,
+    1875+3,
+    25+848+3,
+    radius=20,
+    fill="#000000")
+imageborder = round_rectangle(
+    400,
+    25,
+    1875,
+    25+848,
+    radius=20,
+    fill="#FFFFFF")
+plotCanvas = canvas.create_image(1115, 430, image=img)
 
 button = Button(window, text="Update", command=lambda: updatePlot(2))
 button.place(x=0, y=0)
