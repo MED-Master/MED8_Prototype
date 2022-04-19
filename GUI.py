@@ -34,16 +34,19 @@ def _on_enter_pressed(event):
 
 
 def _talk_to_va(event):
-    msg = RASA.VATalkAndReply()
+    msg = RASA.VArecord()
     msg_entry.delete(0, END)
-    msg1 = f"You: {msg[0]}\n\n"
+    msg1 = f"You: {msg}\n\n"
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
+
+    va_msg = RASA.VAnlu(msg)
     text_widget.configure(state=NORMAL)
-    for va in msg[1:]:
+    for va in va_msg:
         msg2 = f"Assistant: {va}\n\n"
         text_widget.insert(END, msg2)
+        RASA.VAspeak(va)
     text_widget.configure(state=DISABLED)
     text_widget.see(END)
 
@@ -55,11 +58,17 @@ def _insert_message(msg, sender):
     text_widget.configure(state=NORMAL)
     text_widget.insert(END, msg1)
     text_widget.configure(state=DISABLED)
-    va_msg = RASA.VAWriteAndReply(msg)
+    text_widget.see(END)
+    _insert_va_message(msg1)
+
+def _insert_va_message(msg):
+    print("BOOP")
+    va_msg = RASA.VAnlu(msg)
     text_widget.configure(state=NORMAL)
     for va in va_msg:
         msg2 = f"Assistant: {va}\n\n"
         text_widget.insert(END, msg2)
+        RASA.VAspeak(va)
     text_widget.configure(state=DISABLED)
     text_widget.see(END)
 

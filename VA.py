@@ -90,6 +90,49 @@ class RASA:
 
         return va_msg
 
+    def VArecord(self):
+        r = sr.Recognizer()  # initialize recognizer
+        with self.my_mic as source:  # mention source it will be either Microphone or audio files.
+            print("Speak Anything :")
+            r.adjust_for_ambient_noise(self.my_mic, duration=0.2)
+            audio = r.listen(source)  # listen to the source
+
+            try:
+                self.message = r.recognize_wit(audio, key=self.WIT_AI_KEY)  # use recognizer to convert our audio into text part.
+                Logging.reply_logger.append(self.message)  # storing message string
+                print("You said : {}".format(self.message))
+
+            except sr.UnknownValueError:
+                print("I did not catch that, can you please say it again")
+                r = sr.Recognizer()
+
+            except sr.RequestError as e:
+                print("Could not request results from API; {0}".format(e))
+        return self.message
+
+    def VAnlu(self, message):
+        va_msg = []
+        r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": message})
+
+        for i in r.json():
+            self.bot_message = i['text']
+            print(f"{self.bot_message}")
+            Logging.reply_logger.append(self.bot_message)
+            va_msg.append(self.bot_message)
+
+        return va_msg
+
+    def VAspeak(self, va_msg):
+        print("Bot says, ", end=' ')
+        print(f"{va_msg}")
+        Logging.reply_logger.append(va_msg)
+        myobj = gTTS(text=va_msg)
+        myobj.save("welcome.mp3")
+        print('saved')
+        playsound("welcome.mp3")
+        os.remove("welcome.mp3")
+
+
 
     def VAWriteAndReply (self, message):
         VA_msg = []
