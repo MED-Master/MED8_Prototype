@@ -11,6 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from Plots import plotting
+from foldercreation import folder
 
 
 class ActionHelloWorld(Action):
@@ -37,6 +38,6 @@ class ShowPlot(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the plot!")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, plotting.i)
+        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
         return []

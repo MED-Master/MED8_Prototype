@@ -3,6 +3,8 @@ import pandas as pd
 import os
 from matplotlib import rc
 import matplotlib.pyplot as plt
+import time
+from datetime import datetime
 
 class plotting():
     #if not os.path.exists("images"):
@@ -22,26 +24,30 @@ class plotting():
 
 
     # Plot the responses for different events and regions
-    def linePlot(x, y, hue, style, data, i):
+
+    @staticmethod
+    def linePlot(x, y, hue, style, data, folder):
         plot = sns.lineplot(
             x=x,
             y=y,
             hue=hue,
             style=style,
             data=data)
-        FigureID = 'images/' + str(i) + 'figure.png'
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
         plot.figure.savefig(FigureID)
         plt.clf()
-        plotting.i += 1
 
 
 
-    def boxPlot(x, y, data, i):
+    def boxPlot(self, x, y, data, i):
         plot = sns.boxplot(
             x=x,
             y=y,
             data=data)
-        FigureID = 'images/' + str(i) + 'figure.png'
+        FigureID = self.bassFolder + str(i) + 'figure.png'
         plot.figure.savefig(FigureID)
         plt.clf()
         plotting.i += 1
