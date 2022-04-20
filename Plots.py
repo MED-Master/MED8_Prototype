@@ -47,9 +47,9 @@ class plotting():
         plotting.i += 1
 
 
-plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, plotting.i)
 
-plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
+
+#plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
 
 

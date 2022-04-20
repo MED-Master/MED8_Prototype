@@ -1,11 +1,15 @@
 from tkinter import *
 from VA import RASA
 import os
+from Plots import plotting
 import actions.actions
 
+#setup
 if not os.path.exists("images"):
     os.mkdir("images")
 
+plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, plotting.i)
+print('test')
 RASA = RASA()
 def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
