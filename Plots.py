@@ -4,47 +4,52 @@ import os
 from matplotlib import rc
 import matplotlib.pyplot as plt
 
+class plotting():
+    #if not os.path.exists("images"):
+    #    os.mkdir("images")
 
-if not os.path.exists("images"):
-    os.mkdir("images")
-#data
-df = pd.read_csv("Data.csv")
-#print control
-i = 1
+    #data
+    df = pd.read_csv("Data.csv")
+    #print control
+    i = 1
 
-#Export settings
-sns.set_theme(style="darkgrid")
-sns.set(rc={"figure.figsize":(17, 10)}) #width, height
-plt.rcParams['axes.grid'] = True
-plt.rcParams['savefig.transparent'] = True
-
-
-# Plot the responses for different events and regions
-def linePlot(x, y, hue, style, data, i):
-    plot = sns.lineplot(
-        x=x,
-        y=y,
-        hue=hue,
-        style=style,
-        data=data)
-    FigureID = 'images/' + str(i) + 'figure.png'
-    plot.figure.savefig(FigureID)
-    plt.clf()
+    #Export settings
+    sns.set_theme(style="darkgrid")
+    sns.set(rc={"figure.figsize":(17, 10)}) #width, height
+    plt.rcParams['axes.grid'] = True
+    plt.rcParams['savefig.transparent'] = True
 
 
 
-def boxPlot(x, y, data, i):
-    plot = sns.boxplot(
-        x=x,
-        y=y,
-        data=data)
-    FigureID = 'images/' + str(i) + 'figure.png'
-    plot.figure.savefig(FigureID)
-    plt.clf()
+    # Plot the responses for different events and regions
+    def linePlot(x, y, hue, style, data, i):
+        plot = sns.lineplot(
+            x=x,
+            y=y,
+            hue=hue,
+            style=style,
+            data=data)
+        FigureID = 'images/' + str(i) + 'figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
+        plotting.i += 1
 
-linePlot("Dates", "DNT (Mean)", "Country", "Hospital", df, i)
-i += 1
-boxPlot("Country","DNT (Mean)", df, i)
+
+
+    def boxPlot(x, y, data, i):
+        plot = sns.boxplot(
+            x=x,
+            y=y,
+            data=data)
+        FigureID = 'images/' + str(i) + 'figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
+        plotting.i += 1
+
+
+plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, plotting.i)
+
+plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
 
 

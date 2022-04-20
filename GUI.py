@@ -1,8 +1,10 @@
 from tkinter import *
 from VA import RASA
+import os
 import actions.actions
 
-
+if not os.path.exists("images"):
+    os.mkdir("images")
 
 RASA = RASA()
 def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
