@@ -7,8 +7,9 @@ import actions.actions
 #setup
 if not os.path.exists("images"):
     os.mkdir("images")
-
+print(plotting.i)
 plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, plotting.i)
+print(plotting.i)
 print('test')
 RASA = RASA()
 def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
@@ -210,8 +211,13 @@ def updatePlot(j):
        image=img)
     canvas.imgref = img
 
+#def checkPlotStack(j):
+#    if j
+
+
 
 img = plotDisplay(1)
+print(plotting.i)
 plotCanvas = canvas.create_image(1100, 450, image=img)
 
 button = Button(window, text="Update", command=lambda: updatePlot(2))

@@ -37,9 +37,6 @@ class ShowPlot(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the plot!")
-
         plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, plotting.i)
-
-
 
         return []
