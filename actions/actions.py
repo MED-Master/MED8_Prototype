@@ -71,3 +71,33 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
 
 
         return []
+
+class PlotCompareToCounty(Action): #6
+
+    def name(self) -> Text:
+        return "PlotCompareToCounty"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
+        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+
+
+        return []
+
+class PlotPatientOfImpact(Action): #9
+
+    def name(self) -> Text:
+        return "PlotPatientOfImpact"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
+        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+
+
+        return []

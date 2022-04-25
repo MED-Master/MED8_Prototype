@@ -97,3 +97,16 @@ nlu:
   examples: |
     - compare to another country
     - another country
+
+- intent: Another_performance_indicator #8
+  examples: |
+    - other performance indicator
+    - not DNT
+    - indicator
+    - performance
+    - performance indicator
+
+- intent: Patient_impact #9
+  examples: |
+    - compare to another country
+    - another country

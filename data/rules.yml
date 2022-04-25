@@ -23,6 +23,7 @@ rules:
   - action: PlotTimelineOfDNT
   - action: utter_PlotTimelineOfDNT_response
 
+
 #- rule: show a local timeline of DNT with a reply
 #  steps:
 #  - intent: local_compare_timeline_of_DNT

@@ -40,3 +40,35 @@ stories:
   - action: utter_local_compare_timeline_of_DNT_response
   - intent: no_annotation_of_DNT_with_local_hospitals
   - action: utter_PlotAnnotateDNTLocalHospitals_response
+
+- story: Compare DNT to other countries #6 : from 4 or 5 to 6
+  steps:
+  - action: utter_PlotAnnotateDNTLocalHospitals_response
+  - intent: compare_to_another_country
+  - action: PlotCompareToCounty
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Another performance indicator #8 : from 3 or 8
+  steps:
+  - action: utter_ReasonsForDNTIncrease_response
+  - intent: Another_performance_indicator
+  - action: utter_AnotherPerformanceIndicator_response
+
+- story: Another performance indicator #8 : from 5 or 8
+  steps:
+  - action: utter_PlotAnnotateDNTLocalHospitals_response
+  - intent: Another_performance_indicator
+  - action: utter_AnotherPerformanceIndicator_response
+
+- story: No to more exploring #8 from 8 to 7
+  steps:
+  - action: utter_AnotherPerformanceIndicator_response
+  - intent: deny
+  - action: utter_ReadyForGoalSetting_response
+
+- story: Another performance indicator #9 : from 8 to 9 to 7
+  steps:
+  - action: utter_AnotherPerformanceIndicator_response
+  - intent: affirm
+  - action: PlotPatientOfImpact
+  - action: utter_ReadyForGoalSetting_response
