@@ -110,3 +110,8 @@ nlu:
   examples: |
     - compare to another country
     - another country
+
+- intent: Compare_to_local_hospitals #10
+  examples: |
+    - compare to another hospital
+    - another hospital

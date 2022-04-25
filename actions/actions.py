@@ -101,3 +101,18 @@ class PlotPatientOfImpact(Action): #9
 
 
         return []
+
+class PlotCompareLocalHospitals(Action): #10
+
+    def name(self) -> Text:
+        return "PlotCompareLocalHospitals"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Your Mean DNT is 5 min higher than the average of local hospitals.")
+        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+
+
+        return []

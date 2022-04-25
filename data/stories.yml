@@ -8,9 +8,15 @@ stories:
 #  - action: utter_greet
 #  - intent: mood_great
 #  - action: utter_happy
-
-- story: time of DNT #1
+- story: intro #0
   steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_Intro_response
+
+- story: time of DNT #1 from 0 to 1
+  steps:
+  - action: utter_Intro_response
   - intent: timeline_of_DNT
   - action: PlotTimelineOfDNT
   - action: utter_PlotTimelineOfDNT_response
@@ -72,3 +78,10 @@ stories:
   - intent: affirm
   - action: PlotPatientOfImpact
   - action: utter_ReadyForGoalSetting_response
+
+- story: time of DNT #10 from 0 to 10
+  steps:
+  - action: utter_Intro_response
+  - intent: Compare_to_local_hospitals
+  - action: PlotCompareLocalHospitals
+  - action: utter_PlotCompareLocalHospitals_response
