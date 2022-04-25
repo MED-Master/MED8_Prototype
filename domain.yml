@@ -6,7 +6,11 @@ intents:
   - affirm
   - deny
   - bot_challenge
-  - change_plot
+  - timeline_of_DNT #1
+  - local_compare_timeline_of_DNT #2
+  - brainstorm_reasons_for_increase_in_DNT #3
+  - annotate_DNT_with_local_hospitals #4
+  - no_annotation_of_DNT_with_local_hospitals #5
 
 responses:
   utter_greet:
@@ -21,11 +25,21 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  changing_plot:
-  - text: "Give me second to make the plot."
+  utter_PlotTimelineOfDNT_response: #1
+  - text: "Your DNT has been going up recently, do you want to compare to other local hospitals or would you like to brainstorm why this is happening?"
 
+  utter_local_compare_timeline_of_DNT_response: #2
+    - text: "I can see there's a big bump in 20XX which coincides with REASON, would you like me to annotate it?"
+
+  utter_ReasonsForDNTIncrease_response: #3
+    - text: "Would you like me to show you what might have impacted your DNT?"
+
+  utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
+  - text: "Would you like to look at another country or talk about the results?"
 actions:
-  - show_plot
+  - PlotTimelineOfDNT #1
+  - PlotlocalComparisonsTimelineOfDNT #2
+  - PlotAnnotateDNTLocalHospitals #4 and 5
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

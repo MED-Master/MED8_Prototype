@@ -58,9 +58,42 @@ nlu:
     - am I talking to a human?
 
 
-- intent: change_plot
+- intent: timeline_of_DNT #1
   examples: |
-    - new plot
-    - can i see another plot
-    - can I see another plot
-    - plot
+    - a timeline
+    - timeline of DNT
+    - timeline of dnt
+    - dnt
+    - I would like to see the timeline
+    - I would like to see a timeline
+    - timeline
+
+- intent: local_compare_timeline_of_DNT #2
+  examples: |
+    - Comparisons
+    - Local comparisons
+    - Local compare
+    - I would like to compare to local hospitals
+
+- intent: brainstorm_reasons_for_increase_in_DNT #3
+  examples: |
+    - brainstorm
+    - why did DNT increase
+
+- intent: annotate_DNT_with_local_hospitals #4
+  examples: |
+    - annotate
+    - annotate DNT
+
+- intent: no_annotation_of_DNT_with_local_hospitals #5
+  examples: |
+    - no annotate
+    - no annotate DNT
+    - results
+    - result
+    - yes, results
+
+- intent: compare_to_another_country #6
+  examples: |
+    - compare to another country
+    - another country
