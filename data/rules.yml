@@ -2,10 +2,10 @@ version: "3.0"
 
 rules:
 
-- rule: Say hi anytime the user says hi
-  steps:
-  - intent: greet
-  - action: utter_greet
+#- rule: Say hi anytime the user says hi
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
 
 - rule: Say goodbye anytime the user says goodbye
   steps:
@@ -17,7 +17,20 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: show a new plot when asked
+- rule: show a timeline of DNT with a reply
   steps:
-  - intent: change_plot
-  - action: show_plot
+  - intent: timeline_of_DNT
+  - action: PlotTimelineOfDNT
+  - action: utter_PlotTimelineOfDNT_response
+
+
+#- rule: show a local timeline of DNT with a reply
+#  steps:
+#  - intent: local_compare_timeline_of_DNT
+#  - action: PlotlocalComparisonsTimelineOfDNT
+#  - action: utter_PlotTimelineOfDNT_response
+
+#- rule: Brainstorm reasons for increase in DNT
+#  steps:
+#    - intent: brainstorm_reasons_for_increase_in_DNT
+#    - action: ReasonsForDNTIncrease
