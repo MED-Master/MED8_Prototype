@@ -52,15 +52,16 @@ class plotting():
         plt.clf()
         plotting.i += 1
 
+    @staticmethod
     def dnt_barplot_bycountry(x, y, data, folder):
         barplot_dat = pd.DataFrame(data)
-        barplot_dat = barplot_dat[barplot_dat["Dates"]=="2022 Q1"]
+        barplot_dat = barplot_dat[barplot_dat["Dates"] == "2022 Q1"]
         barplot_dat.groupby("Country").mean()
         plot = sns.barplot(
             x=x,
             y=y,
             data=barplot_dat,
-            color="b",
+            palette=["grey" if x!="France" else "b" for x in barplot_dat.Country],
             ci=None
         )
         now = time.time()
@@ -70,7 +71,25 @@ class plotting():
         plot.figure.savefig(FigureID)
         plt.clf()
 
+    @staticmethod
+    def dnt_timeline(x, y, data, folder, plot_filter=None, filter_category=None):
+        timeline_dat = pd.DataFrame(data)
 
+        if plot_filter is not None:
+            timeline_dat = timeline_dat[timeline_dat[filter_category] == plot_filter]
+
+        plot = sns.lineplot(
+            x=x,
+            y=y,
+            hue="Country",
+            style="Hospital",
+            data=timeline_dat)
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
 
 #plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
