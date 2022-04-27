@@ -15,6 +15,8 @@ intents:
   - Another_performance_indicator #8
   - Patient_impact #9
   - Compare_to_local_hospitals #10
+  - timeline_of_patientsincare #12
+
 
 responses:
   utter_greet:
@@ -38,7 +40,7 @@ responses:
   utter_local_compare_timeline_of_DNT_response: #2
     - text: "I can see there's a big bump in 20XX which coincides with REASON, would you like me to annotate it?"
 
-  utter_ReasonsForDNTIncrease_response: #3
+  utter_ReasonsForDNTIncrease_response: #3 AND #11
     - text: "Would you like me to show you what might have impacted your DNT?"
 
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
@@ -53,14 +55,37 @@ responses:
   utter_PlotCompareLocalHospitals_response: # 10
   - text: "Would you like me to suggest a reason for why?"
 
+  utter_AskForTimeline: #11
+    - text: "Do you want me to show you a timeline of the number of patients in care or door to needle time?"
+
+  utter_AskForClarification: #11
+    - text: "Do you want me to show you a timeline of the number of patients in care or door to needle time?"
+
+  utter_CompareInVsOut: #12
+    - text: "Would you like me to compare patient intake against discharge?"
+
+  utter_comparetoothers: #13
+    - text: "Would you like to see a comparison with either local or international hospitals?"
+
+  utter_CompareToLocal_InVsOut: #14 AND 15
+    - text: "Do you want me to show you a local comparison?"
+
+  utter_CompareToInternational_InVsOut: #14 AND 15
+    - text: "Do you want me to show you an international comparison?"
+
 
 actions:
   - PlotTimelineOfDNT #1
   - PlotlocalComparisonsTimelineOfDNT #2
   - PlotAnnotateDNTLocalHospitals #4 and 5
   - PlotCompareToCounty #6
-  - PlotPatientOfImpact #9
+  - PlotPatientOfImpact_Timeline #9
   - PlotCompareLocalHospitals #10
+  - PlotPatientOfImpact_Barplot #11
+  - PlotTimelineOfPatientsinCare #12
+  - PlotTimelineOfInVsOut #13
+  - CompareInVsOutLocal #14
+  - CompareInVsOutInternational #15
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

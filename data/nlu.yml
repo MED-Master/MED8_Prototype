@@ -68,6 +68,16 @@ nlu:
     - I would like to see a timeline
     - timeline
 
+- intent: timeline_of_patientsincare #12
+  examples: |
+    - timeline of patients
+    - timeline of patients in care
+    - patients in care
+    - I would like to see the timeline of patients in care
+    - I would like to see a timeline of patients in care
+    - timeline of patients in care
+    - patients at my hospital
+
 - intent: local_compare_timeline_of_DNT #2
   examples: |
     - Comparisons

@@ -11,7 +11,8 @@ from foldercreation import folder
 #on the second day God created time by importing
 if __name__ == "__main__":
     folder.Create()
-    plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+    #plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+    plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
     RASA = RASA()
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
@@ -234,6 +235,8 @@ if __name__ == "__main__":
 
     def newestFigure():
         list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
+        #newest = max(list_of_files, key=os.path.getctime)
+        #newest = newest.replace(os.sep, '/')
         return max(list_of_files, key=os.path.getctime)
 
 #    def clock():

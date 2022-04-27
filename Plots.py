@@ -52,6 +52,23 @@ class plotting():
         plt.clf()
         plotting.i += 1
 
+    def dnt_barplot_bycountry(x, y, data, folder):
+        barplot_dat = pd.DataFrame(data)
+        barplot_dat = barplot_dat[barplot_dat["Dates"]=="2022 Q1"]
+        barplot_dat.groupby("Country").mean()
+        plot = sns.barplot(
+            x=x,
+            y=y,
+            data=barplot_dat,
+            color="b",
+            ci=None
+        )
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
 
 
 
