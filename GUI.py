@@ -59,6 +59,7 @@ if __name__ == "__main__":
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
             RASA.VAspeak(va)
+            Logging.reply_logger.append(msg2)  # logging
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(newestFigure()) #updates the dashboard aUtOmAtIcLy
