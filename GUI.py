@@ -89,8 +89,6 @@ if __name__ == "__main__":
         text_widget.see(END)
         updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
 
-    def btn_clicked():
-        print("Button Clicked")
 
     window = Tk()
 
@@ -222,6 +220,7 @@ if __name__ == "__main__":
     ##############################################
 
     def plotDisplay(filename):
+        #print(filename)
         img = PhotoImage(file=filename)
         return img
 
@@ -235,8 +234,6 @@ if __name__ == "__main__":
 
     def newestFigure():
         list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
-        #newest = max(list_of_files, key=os.path.getctime)
-        #newest = newest.replace(os.sep, '/')
         return max(list_of_files, key=os.path.getctime)
 
 #    def clock():
