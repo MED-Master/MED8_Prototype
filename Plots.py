@@ -16,9 +16,10 @@ class plotting():
     i = 1
 
     #Export settings
-    sns.set_theme(style="darkgrid")
+    sns.set_theme(style="whitegrid")
     sns.set(rc={"figure.figsize":(17, 10)}) #width, height
     plt.rcParams['axes.grid'] = True
+    plt.rcParams['grid.color'] = "#000000"
     plt.rcParams['savefig.transparent'] = True
 
 
@@ -40,18 +41,6 @@ class plotting():
         plot.figure.savefig(FigureID)
         plt.clf()
 
-
-
-    def boxPlot(self, x, y, data, i):
-        plot = sns.boxplot(
-            x=x,
-            y=y,
-            data=data)
-        FigureID = self.bassFolder + str(i) + 'figure.png'
-        plot.figure.savefig(FigureID)
-        plt.clf()
-        plotting.i += 1
-
     @staticmethod
     def dnt_barplot_bycountry(x, y, data, folder):
         barplot_dat = pd.DataFrame(data)
@@ -61,9 +50,17 @@ class plotting():
             x=x,
             y=y,
             data=barplot_dat,
-            palette=["grey" if x!="France" else "b" for x in barplot_dat.Country],
+            palette=["grey" if (x!="France") and (x!="Lyon (your hospital)") else "b" if (x=="France") else "orange" for
+                     x in barplot_dat.Country],
             ci=None
         )
+        for p in plot.patches:
+            plot.annotate(format(p.get_height(), '.1f'),
+                           (p.get_x() + p.get_width() / 2., p.get_height()),
+                           ha='center', va='center',
+                           size=15,
+                           xytext=(0, -20),
+                           textcoords='offset points')
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -78,12 +75,16 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category] == plot_filter]
 
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+                   timeline_dat.Country.unique()}
         plot = sns.lineplot(
             x=x,
             y=y,
             hue="Country",
             style="Hospital",
-            data=timeline_dat)
+            data=timeline_dat,
+            palette=palette)
+        plot.grid(axis='x')
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')

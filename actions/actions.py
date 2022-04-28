@@ -40,7 +40,6 @@ class PlotTimelineOfDNT(Action):#1
         dispatcher.utter_message(text="Here is the timeline for DNT!")
         #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
         plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, "Lyon", "Hospital")
-
         return []
 
 class PlotlocalComparisonsTimelineOfDNT(Action): #2
