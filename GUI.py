@@ -1,6 +1,6 @@
 from tkinter import *
 from VA import RASA
-
+import Logging
 import os
 from Plots import plotting
 import glob
@@ -52,6 +52,7 @@ if __name__ == "__main__":
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
 
+
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
         for va in va_msg:
@@ -61,6 +62,8 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(newestFigure()) #updates the dashboard aUtOmAtIcLy
+        Logging.reply_logger.append(msg1)  # logging
+        #Logging.reply_logger.append(msg2)  # logging
 
 
     def _insert_message(msg, sender):
@@ -74,19 +77,21 @@ if __name__ == "__main__":
         text_widget.see(END)
         _insert_va_message(msg1)
         updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
+        Logging.reply_logger.append(msg1)  # logging
 
 
     def _insert_va_message(msg):
-        print("BOOP")
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
         for va in va_msg:
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
             RASA.VAspeak(va)
+            Logging.reply_logger.append(msg2)  # logging
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
+
 
     def btn_clicked():
         print("Button Clicked")
@@ -277,6 +282,7 @@ if __name__ == "__main__":
     ####################    On exit #################################################################
     def on_closing():
         print('close')
+        Logging.logToCSV()
         folder.RenameLogFolder()
         window.destroy()
 
