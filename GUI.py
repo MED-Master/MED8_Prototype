@@ -221,7 +221,8 @@ if __name__ == "__main__":
     ##############################################
 
     def plotDisplay(filename):
-        img = PhotoImage(file=filename)
+        img = PhotoImage(file=filename, master=window)
+        print(img)
         return img
 
 
@@ -234,6 +235,7 @@ if __name__ == "__main__":
 
     def newestFigure():
         list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
+        print(list_of_files)
         return max(list_of_files, key=os.path.getctime)
 
 #    def clock():
