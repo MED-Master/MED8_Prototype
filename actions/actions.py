@@ -38,8 +38,7 @@ class PlotTimelineOfDNT(Action):#1
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT!")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-        plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, "Lyon", "Hospital")
+        plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 
 class PlotlocalComparisonsTimelineOfDNT(Action): #2
@@ -52,7 +51,7 @@ class PlotlocalComparisonsTimelineOfDNT(Action): #2
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT with other local hospitals!")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["France", "Lyon (your hospital)"], "Country")
 
         return []
 

@@ -5,6 +5,7 @@ from matplotlib import rc
 import matplotlib.pyplot as plt
 import time
 from datetime import datetime
+import numpy as np
 
 class plotting():
     #if not os.path.exists("images"):
@@ -73,7 +74,7 @@ class plotting():
         timeline_dat = pd.DataFrame(data)
 
         if plot_filter is not None:
-            timeline_dat = timeline_dat[timeline_dat[filter_category] == plot_filter]
+            timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
         palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
                    timeline_dat.Country.unique()}
@@ -83,8 +84,30 @@ class plotting():
             hue="Country",
             style="Hospital",
             data=timeline_dat,
-            palette=palette)
+            palette=palette,
+            legend=False)
         plot.grid(axis='x')
+        names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
+        mysanity = []
+        for test in names:
+            for test2 in test:
+                mysanity.append(test2)
+
+        for line, name in zip(plot.lines, mysanity):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            plot.annotate(name,
+                          xy=(x, y),
+                          xytext=(0, 0),
+                          color=line.get_color(),
+                          xycoords=(plot.get_xaxis_transform(),
+                                    plot.get_yaxis_transform()),
+                                    textcoords="offset points")
+
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
