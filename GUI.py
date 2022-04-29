@@ -232,8 +232,8 @@ if __name__ == "__main__":
 
     def plotDisplay(filename):
         img = PhotoImage(file=filename, master=window)
-        print(img)
-        return img
+        imgFilename = filename
+        return img, imgFilename
 
 
     def updatePlot(filename):
@@ -248,7 +248,18 @@ if __name__ == "__main__":
         print(list_of_files)
         return max(list_of_files, key=os.path.getctime)
 
-    img = plotDisplay(newestFigure())
+    def CurrentPlot(img):
+        list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
+        return list_of_files.index(img)
+        # for file in list_of_files:
+        #     if file == img:
+        #         return file
+
+    file = newestFigure()
+    img, imgFilename = plotDisplay(file)
+    print('current plot', CurrentPlot(imgFilename))
+
+
     imageoutline = round_rectangle(
         400 - 3,
         25 - 3,
