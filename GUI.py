@@ -1,10 +1,13 @@
 from tkinter import *
+
 from VA import RASA
 import Logging
 import os
 from Plots import plotting
 import glob
 import threading
+import numpy as np
+from Figure import figure
 
 
 from foldercreation import folder
@@ -13,6 +16,7 @@ if __name__ == "__main__":
     folder.Create()
     plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
     RASA = RASA()
+    figure = figure()
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
         points = [x1+radius, y1,
@@ -60,7 +64,7 @@ if __name__ == "__main__":
         _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-        updatePlot(newestFigure()) #updates the dashboard aUtOmAtIcLy
+        updatePlot(figure.newestFigure()) #updates the dashboard aUtOmAtIcLy
         Logging.reply_logger.append(msg1)  # logging
         #Logging.reply_logger.append(msg2)  # logging
 
@@ -75,7 +79,6 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         _insert_va_message(msg1)
-        updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
         Logging.reply_logger.append(msg1)  # logging
 
 
@@ -87,7 +90,7 @@ if __name__ == "__main__":
         _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-        updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
+        updatePlot(figure.newestFigure())  # updates the dashboard aUtOmAtIcLy
 
     def _read_out_VA_message(va_msg):
         for va in va_msg:
@@ -230,9 +233,12 @@ if __name__ == "__main__":
     scrollbar.configure(command=text_widget.yview)
     ##############################################
 
+    def firstFigure():
+        list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
+        return max(list_of_files, key=os.path.getctime)
+
     def plotDisplay(filename):
         img = PhotoImage(file=filename, master=window)
-        imgFilename = filename
         return img
 
     def updatePlot(filename):
@@ -242,21 +248,9 @@ if __name__ == "__main__":
            image=img)
         canvas.imgref = img
 
-    def newestFigure():
-        list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
-        print(list_of_files)
-        return max(list_of_files, key=os.path.getctime)
+    img = plotDisplay(firstFigure())
 
-    def CurrentPlot(img):
-        list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
-        return list_of_files.index(img)
-        # for file in list_of_files:
-        #     if file == img:
-        #         return file
-
-    file = newestFigure()
-    img = plotDisplay(file)
-    print('current plot', CurrentPlot())
+    #print('current plot', CurrentPlot())
 
 
     imageoutline = round_rectangle(
@@ -275,17 +269,11 @@ if __name__ == "__main__":
         fill="#FFFFFF")
     plotCanvas = canvas.create_image(1100, 450, image=img)
 
-    button = Button(window, text="Update", command=lambda: updatePlot(newestFigure()))
-    button.place(x=0, y=0)
-
-    button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
-    button2.place(x=100, y=0)
-
-    # button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
-    # button3.place(x=200, y=0)
+    button_Forward = Button(window, text="Forward", command=lambda: updatePlot(figure.newestFigure("Forward")))
+    button_Forward.place(x=300, y=0)
     #
-    # button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
-    # button4.place(x=300, y=0)
+    button_Backwards = Button(window, text="Backwards", command=lambda: updatePlot(figure.newestFigure("Backward")))
+    button_Backwards.place(x=200, y=0)
 
     ####################    On exit #################################################################
     def on_closing():
