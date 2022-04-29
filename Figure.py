@@ -35,8 +35,8 @@ class figure:
                 filename = self.Piclist[self.currentPlot]
                 print(filename)
                 return filename
-            except:
-                print("nope")
+            except Exception as e:
+                print(e)
 
 
 
