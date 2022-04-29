@@ -248,13 +248,6 @@ if __name__ == "__main__":
         print(list_of_files)
         return max(list_of_files, key=os.path.getctime)
 
-#    def clock():
-#        time = datetime.now().strftime("Time: %H:%M:%S")
-#        # lab['text'] = time
-#        #if img == newestFigure()
-#        updatePlot(newestFigure())
-#        window.after(1000, clock)  # run itself again after 1000 ms
-
     img = plotDisplay(newestFigure())
     imageoutline = round_rectangle(
         400 - 3,
