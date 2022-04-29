@@ -46,7 +46,8 @@ class plotting():
                            ha='center', va='center',
                            size=15,
                            xytext=(0, -20),
-                           textcoords='offset points')
+                           textcoords='offset points',
+                           fontsize=10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -68,6 +69,7 @@ class plotting():
     def annotate_timeline_event(self, x, y, data, folder, plot_filter=None, filter_category=None):
         plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
 
+        plot.axvline('2021 Q1', ls='--', linewidth=3, color='red')
         plot.annotate('Large intake of patients',
                     xy=('2021 Q1', 53),
                     xycoords='data',
@@ -122,8 +124,63 @@ class plotting():
                           color=line.get_color(),
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
-                                    textcoords="offset points")
+                          textcoords="offset points")
         return plot
+
+    @staticmethod
+    def create_international_timeline_plot(x, y, data, folder, plot_filter=None, filter_category=None, annotate=None):
+        timeline_dat = pd.DataFrame(data)
+
+        if plot_filter is not None:
+            timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
+
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+                   timeline_dat.Country.unique()}
+        plot = sns.lineplot(
+            x=x,
+            y=y,
+            hue="Country",
+            style="Country",
+            data=timeline_dat,
+            palette=palette,
+            legend=False,
+            ci=None)
+        plot.grid(axis='x')
+        names = timeline_dat.Country.unique()
+        for line, name in zip(plot.lines, names):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            plot.annotate(name,
+                          xy=(x, y),
+                          xytext=(0, 0),
+                          color=line.get_color(),
+                          xycoords=(plot.get_xaxis_transform(),
+                                    plot.get_yaxis_transform()),
+                          textcoords="offset points")
+
+        if annotate:
+            plot.axvline('2021 Q1', ls='--', linewidth=3, color='red')
+            plot.annotate('Large intake of patients',
+                          xy=('2021 Q1', 53),
+                          xycoords='data',
+                          xytext=(-200, 0),
+                          textcoords='offset points',
+                          arrowprops=dict(arrowstyle='->', color='black'),
+                          ha='center',
+                          va='center',
+                          fontsize=15)
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
+
+
 #plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
 

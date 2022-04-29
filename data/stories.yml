@@ -51,7 +51,7 @@ stories:
   steps:
   - action: utter_PlotAnnotateDNTLocalHospitals_response
   - intent: compare_to_another_country
-  - action: PlotCompareToCounty
+  - action: PlotCompareToCountry_alt
   - action: utter_ReadyForGoalSetting_response #7
 
 - story: Another performance indicator #8 : from 3 or 8
