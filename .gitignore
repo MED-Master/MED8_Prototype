@@ -1,4 +1,5 @@
 /logs
 __pycache__
 *.pyc
+/.rasa/cache
 actions/__pycache__/actions.cpython-38.pyc
