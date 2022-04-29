@@ -1,3 +1,4 @@
+
 # This files contains your custom actions which can be used to run
 # custom Python code.
 #
@@ -38,8 +39,7 @@ class PlotTimelineOfDNT(Action):#1
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT!")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 
 class PlotlocalComparisonsTimelineOfDNT(Action): #2
@@ -52,7 +52,8 @@ class PlotlocalComparisonsTimelineOfDNT(Action): #2
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT with other local hospitals!")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                              ["France", "Lyon (your hospital)"], "Country")
 
         return []
 
@@ -67,7 +68,8 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the annotations with the DNT of local hospitals")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.annotate_timeline_event(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                                         ["France", "Lyon (your hospital)"], "Country")
 
 
         return []
@@ -82,12 +84,11 @@ class PlotCompareToCounty(Action): #6
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
-        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
         return []
 
-class PlotPatientOfImpact(Action): #9
+class PlotPatientOfImpact_Timeline(Action): #9
 
     def name(self) -> Text:
         return "PlotPatientOfImpact"
@@ -97,9 +98,22 @@ class PlotPatientOfImpact(Action): #9
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
-        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
+        return []
+
+class PlotPatientOfImpact_Barplot(Action): #9
+
+    def name(self) -> Text:
+        return "PlotPatientOfImpact_barplot"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
+        #plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        #MAKE A BARPLOT
         return []
 
 class PlotCompareLocalHospitals(Action): #10
@@ -112,7 +126,63 @@ class PlotCompareLocalHospitals(Action): #10
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Your Mean DNT is 5 min higher than the average of local hospitals.")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
+        return []
+
+
+class PlotTimelineOfPatientsinCare(Action):#12
+
+    def name(self) -> Text:
+        return "PlotTimelineOfPatients"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is the timeline for Patients in care!")
+        return []
+
+
+class PlotTimelineOfInVsOut(Action):#13
+
+    def name(self) -> Text:
+        return "PlotTimelineOfInVsOut"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is the timeline for Patient intake against discharge!")
+        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        #MAKE PLOT FOR THIS
+        return []
+
+
+class CompareInVsOutLocal(Action):#14
+
+    def name(self) -> Text:
+        return "CompareInVsOutLocal"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is a comparison with local hospitals!")
+        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        #MAKE PLOT FOR THIS
+        return []
+
+class CompareInVsOutInternational(Action):#15
+
+    def name(self) -> Text:
+        return "CompareInVsOutInternational"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is a comparison with International hospitals!")
+        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        #MAKE PLOT FOR THIS
         return []

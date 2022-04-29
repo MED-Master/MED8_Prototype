@@ -11,7 +11,7 @@ from foldercreation import folder
 #on the second day God created time by importing
 if __name__ == "__main__":
     folder.Create()
-    plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+    plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
     RASA = RASA()
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
@@ -119,14 +119,14 @@ if __name__ == "__main__":
     RoundRectangleborder = round_rectangle(
         23,
         23,
-        25 + 247 + 2,
+        25 + 247 + 2 + 100,
         25 + 848 + 2,
         radius=20,
         fill="#000000")
     RoundRectangle = round_rectangle(
         25,
         25,
-        25 + 247,
+        25 + 247 + 100,
         25 + 848,
         radius=20,
         fill="#FFFFFF")
@@ -135,7 +135,7 @@ if __name__ == "__main__":
     send_box = round_rectangle(
         25,
         820 - 15,
-        25 + 123.5,
+        25 + 123.5 + 50,
         25 + 848,
         radius=20,
         fill="#ECEFF1")
@@ -143,7 +143,7 @@ if __name__ == "__main__":
         window,
         bg="#ECEFF1",
         height=68,
-        width=118.5,
+        width=118.5 + 50,
         bd=0,
         highlightthickness=0,
         relief="ridge")
@@ -155,9 +155,9 @@ if __name__ == "__main__":
 
     ##############################################This code creates a button for talking to VA
     record_box = round_rectangle(
-        25 + 123.5,
+        25 + 123.5 + 50,
         820 - 15,
-        25 + 123.5 + 123.5,
+        25 + 123.5 + 123.5 + 50,
         25 + 848,
         radius=20,
         fill="#ECEFF1")
@@ -165,11 +165,11 @@ if __name__ == "__main__":
         window,
         bg="#ECEFF1",
         height=68,
-        width=118.5,
+        width=118.5 + 50,
         bd=0,
         highlightthickness=0,
         relief="ridge")
-    record_canvas.place(x=25 + 123.5, y=805)
+    record_canvas.place(x=25 + 123.5 + 50, y=805)
     record_button = Button(record_canvas, text="Talk", font="RobotoRoman-ExtraBold", borderwidth=0,
                            bg="#ECEFF1", command=lambda: _talk_to_va(None))
     record_button.place(x=0, y=0, relheight=1, relwidth=1)
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     msg_entry_box = round_rectangle(
         25,
         750,
-        25 + 247,
+        25 + 247 + 100,
         820,
         radius=20,
         fill="#ECEFF1")
@@ -190,7 +190,7 @@ if __name__ == "__main__":
         window,
         bg="#ECEFF1",
         height=55,
-        width=237,
+        width=237 + 100,
         bd=0,
         highlightthickness=0,
         relief="ridge")
@@ -205,7 +205,8 @@ if __name__ == "__main__":
 
     ##############################################This code creates the chat log.
     canvas.create_text(
-        148.5, 62.5,
+        148.5 + 50,
+        62.5,
         text="Chat Log",
         fill="#b7bbc5",
         font=("RobotoRoman-ExtraBold", int(24.0)))
@@ -214,13 +215,13 @@ if __name__ == "__main__":
         window,
         bg="#FFFFFF",
         height=650,
-        width=243,
+        width=243 + 100,
         bd=0,
         highlightthickness=0,
         relief="ridge")
     text_canvas.place(x=27, y=100)
 
-    text_widget = Text(text_canvas, width=20, height=1, bg="#FFFFFF", fg="#b7bbc5",
+    text_widget = Text(text_canvas, width=20 + 100, height=1, bg="#FFFFFF", fg="#000000",
                        font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0)
     text_widget.place(relheight=1, relwidth=0.95)
     text_widget.configure(cursor="arrow", state=DISABLED)
@@ -263,19 +264,7 @@ if __name__ == "__main__":
         25 + 848,
         radius=20,
         fill="#FFFFFF")
-    plotCanvas = canvas.create_image(1100, 450, image=img)
-
-    button = Button(window, text="Update", command=lambda: updatePlot(newestFigure()))
-    button.place(x=0, y=0)
-
-    button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
-    button2.place(x=100, y=0)
-
-    # button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
-    # button3.place(x=200, y=0)
-    #
-    # button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
-    # button4.place(x=300, y=0)
+    plotCanvas = canvas.create_image(1150, 425, image=img)
 
     ####################    On exit #################################################################
     def on_closing():
