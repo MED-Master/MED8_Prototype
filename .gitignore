@@ -1,3 +1,4 @@
 /logs
 __pycache__
 *.pyc
+actions/__pycache__/actions.cpython-38.pyc

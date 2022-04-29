@@ -233,8 +233,7 @@ if __name__ == "__main__":
     def plotDisplay(filename):
         img = PhotoImage(file=filename, master=window)
         imgFilename = filename
-        return img, imgFilename
-
+        return img
 
     def updatePlot(filename):
         img = plotDisplay(filename)
@@ -256,8 +255,8 @@ if __name__ == "__main__":
         #         return file
 
     file = newestFigure()
-    img, imgFilename = plotDisplay(file)
-    print('current plot', CurrentPlot(imgFilename))
+    img = plotDisplay(file)
+    print('current plot', CurrentPlot())
 
 
     imageoutline = round_rectangle(
