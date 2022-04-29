@@ -11,7 +11,7 @@ from foldercreation import folder
 #on the second day God created time by importing
 if __name__ == "__main__":
     folder.Create()
-    plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
+    plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
     RASA = RASA()
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     canvas.place(x=0, y=0)
 
     canvas.pack()
-     RoundRectangleborder = round_rectangle(
+    RoundRectangleborder = round_rectangle(
         23,
         23,
         25 + 247 + 2 + 100,
@@ -264,19 +264,7 @@ if __name__ == "__main__":
         25 + 848,
         radius=20,
         fill="#FFFFFF")
-    plotCanvas = canvas.create_image(1100, 450, image=img)
-
-    button = Button(window, text="Update", command=lambda: updatePlot(newestFigure()))
-    button.place(x=0, y=0)
-
-    button2 = Button(window, text="Reverse", command=lambda: updatePlot(1))
-    button2.place(x=100, y=0)
-
-    # button3 = Button(window, text="RASA", command=lambda: RASA.VAIntro())
-    # button3.place(x=200, y=0)
-    #
-    # button4 = Button(window, text="RASA", command=lambda: _talk_to_va(None))
-    # button4.place(x=300, y=0)
+    plotCanvas = canvas.create_image(1150, 425, image=img)
 
     ####################    On exit #################################################################
     def on_closing():
