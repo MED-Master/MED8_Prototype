@@ -4,8 +4,8 @@ import Logging
 import os
 from Plots import plotting
 import glob
-import time
-from datetime import datetime, timezone
+import threading
+
 
 from foldercreation import folder
 #on the second day God created time by importing
@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     def _on_enter_pressed(event):
         msg = msg_entry.get()
-        _insert_message(msg, "You")
+        _enter_user_message(msg, "You")
 
 
     def _talk_to_va(event):
@@ -55,11 +55,9 @@ if __name__ == "__main__":
 
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
-        for va in va_msg:
-            msg2 = f"Assistant: {va}\n\n"
-            text_widget.insert(END, msg2)
-            RASA.VAspeak(va)
-            Logging.reply_logger.append(msg2)  # logging
+        t = threading.Thread(target=_read_out_VA_message, args=[va_msg])
+        t.start()
+        _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(newestFigure()) #updates the dashboard aUtOmAtIcLy
@@ -67,7 +65,7 @@ if __name__ == "__main__":
         #Logging.reply_logger.append(msg2)  # logging
 
 
-    def _insert_message(msg, sender):
+    def _enter_user_message(msg, sender):
         if not msg:
             return
         msg_entry.delete(0, END)
@@ -84,16 +82,22 @@ if __name__ == "__main__":
     def _insert_va_message(msg):
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
-        for va in va_msg:
-            msg2 = f"Assistant: {va}\n\n"
-            text_widget.insert(END, msg2)
-            RASA.VAspeak(va)
-            Logging.reply_logger.append(msg2)  # logging
+        t = threading.Thread(target=_read_out_VA_message, args=[va_msg])
+        t.start()
+        _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(newestFigure())  # updates the dashboard aUtOmAtIcLy
 
+    def _read_out_VA_message(va_msg):
+        for va in va_msg:
+            RASA.VAspeak(va)
 
+    def _reply_to_text_widget(va_msg):
+        for va in va_msg:
+            msg2 = f"Assistant: {va}\n\n"
+            text_widget.insert(END, msg2)
+            Logging.reply_logger.append(msg2)  # logging
     def btn_clicked():
         print("Button Clicked")
 
