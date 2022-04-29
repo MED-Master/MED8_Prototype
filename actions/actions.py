@@ -125,7 +125,6 @@ class PlotCompareLocalHospitals(Action): #10
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Your Mean DNT is 5 min higher than the average of local hospitals.")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
         return []
@@ -141,8 +140,6 @@ class PlotTimelineOfPatientsinCare(Action):#12
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for Patients in care!")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-        #MAKE PLOT FOR THIS
         return []
 
 
