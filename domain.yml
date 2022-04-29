@@ -59,6 +59,7 @@ actions:
   - PlotlocalComparisonsTimelineOfDNT #2
   - PlotAnnotateDNTLocalHospitals #4 and 5
   - PlotCompareToCountry #6
+  - PlotCompareToCountry_alt #6alt
   - PlotPatientOfImpact #9
   - PlotCompareLocalHospitals #10
 session_config:
