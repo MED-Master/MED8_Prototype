@@ -22,14 +22,14 @@ class figure:
             return filename
         print("THIS IS THE LENGTH OF FILE:", len(self.Piclist))
         print("THIS IS THE FUNCTION:", self.Piclist)
-        if button_pressed == "Forward":
+        if button_pressed == "Forward" and not (self.currentPlot ==len(self.Piclist)-1):
             try:
                 self.currentPlot += 1
                 filename = self.Piclist[self.currentPlot]
                 return filename
             except:
                 print("Bad boi")
-        if button_pressed == "Backward":
+        if button_pressed == "Backward" and not (self.currentPlot == 0):
             try:
                 self.currentPlot -= 1
                 filename = self.Piclist[self.currentPlot]
