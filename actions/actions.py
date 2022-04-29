@@ -74,17 +74,19 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
 
         return []
 
-class PlotCompareToCounty(Action): #6
+
+class PlotCompareToCountry(Action): #6
 
     def name(self) -> Text:
-        return "PlotCompareToCounty"
+        return "PlotCompareToCountry"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
-
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                              ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country")
 
         return []
 

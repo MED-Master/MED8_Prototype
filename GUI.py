@@ -222,7 +222,7 @@ if __name__ == "__main__":
     text_canvas.place(x=27, y=100)
 
     text_widget = Text(text_canvas, width=20 + 100, height=1, bg="#FFFFFF", fg="#000000",
-                       font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0)
+                       font="RobotoRoman-ExtraBold", padx=5, pady=5, highlightthickness=0, borderwidth=0, wrap = WORD)
     text_widget.place(relheight=1, relwidth=0.95)
     text_widget.configure(cursor="arrow", state=DISABLED)
 

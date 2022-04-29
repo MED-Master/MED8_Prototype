@@ -95,7 +95,7 @@ nlu:
 
 - intent: compare_to_another_country #6
   examples: |
-    - compare to another country
+    - compare my DNT to another country
     - another country
 
 - intent: Another_performance_indicator #8

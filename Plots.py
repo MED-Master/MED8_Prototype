@@ -46,7 +46,8 @@ class plotting():
                            ha='center', va='center',
                            size=15,
                            xytext=(0, -20),
-                           textcoords='offset points')
+                           textcoords='offset points',
+                           fontsize=10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -68,6 +69,7 @@ class plotting():
     def annotate_timeline_event(self, x, y, data, folder, plot_filter=None, filter_category=None):
         plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
 
+        plot.axvline('2021 Q1', ls='--', linewidth=3, color='red')
         plot.annotate('Large intake of patients',
                     xy=('2021 Q1', 53),
                     xycoords='data',
@@ -122,8 +124,10 @@ class plotting():
                           color=line.get_color(),
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
-                                    textcoords="offset points")
+                          textcoords="offset points")
         return plot
+
+
 #plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
 

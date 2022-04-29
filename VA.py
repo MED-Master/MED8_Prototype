@@ -23,7 +23,7 @@ class RASA:
     #RASA setup
     engine = pyttsx3.init()
     bot_message = ""
-    message=""
+    message = ""
     r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": "Hello"})
 
     def VArecord(self):

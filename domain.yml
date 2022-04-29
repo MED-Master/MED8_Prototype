@@ -30,13 +30,13 @@ responses:
   - text: "I am a bot, powered by Rasa."
 
   utter_Intro_response: #0
-  - text: "Welcome back, here is the mean DNT of your hospital compared to other countries. Your DNT is higher by 5 minutes compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
+  - text: "Welcome back, the figure here shows the mean DNT of your hospital compared to other countries. Your DNT is 5 minutes higher compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
 
   utter_PlotTimelineOfDNT_response: #1
   - text: "Your DNT has been going up recently, do you want to compare to other local hospitals or would you like to talk about some other performance indicator?"
 
   utter_local_compare_timeline_of_DNT_response: #2
-    - text: "I can see there's a big bump in 20XX which coincides with REASON, would you like me to annotate it?"
+    - text: "I can see there's a big bump in 2021 which coincides with a large intake of patients, would you like me to annotate it?"
 
   utter_ReasonsForDNTIncrease_response: #3
     - text: "Would you like me to show you what might have impacted your DNT?"
@@ -58,7 +58,7 @@ actions:
   - PlotTimelineOfDNT #1
   - PlotlocalComparisonsTimelineOfDNT #2
   - PlotAnnotateDNTLocalHospitals #4 and 5
-  - PlotCompareToCounty #6
+  - PlotCompareToCountry #6
   - PlotPatientOfImpact #9
   - PlotCompareLocalHospitals #10
 session_config:
