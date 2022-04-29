@@ -269,7 +269,7 @@ if __name__ == "__main__":
         radius=20,
         fill="#FFFFFF")
 
-    plotCanvas = canvas.create_image(1100, 450, image=img)
+    plotCanvas = canvas.create_image(1150, 425, image=img)
 
     button_Forward = Button(window, text="Forward", command=lambda: updatePlot(figure.newestFigure("Forward")))
     button_Forward.place(x=300, y=0)
