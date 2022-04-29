@@ -38,7 +38,7 @@ class PlotTimelineOfDNT(Action):#1
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT!")
-        plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 
 class PlotlocalComparisonsTimelineOfDNT(Action): #2
@@ -51,7 +51,8 @@ class PlotlocalComparisonsTimelineOfDNT(Action): #2
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for DNT with other local hospitals!")
-        plotting.dnt_timeline("Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["France", "Lyon (your hospital)"], "Country")
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                              ["France", "Lyon (your hospital)"], "Country")
 
         return []
 
@@ -66,7 +67,8 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the annotations with the DNT of local hospitals")
-        plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.annotate_timeline_event(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                                         ["France", "Lyon (your hospital)"], "Country")
 
 
         return []
@@ -81,7 +83,6 @@ class PlotCompareToCounty(Action): #6
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
-        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
         return []
@@ -96,7 +97,6 @@ class PlotPatientOfImpact_Timeline(Action): #9
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
-        plotting.linePlot("Dates", "DNT (Mean)", "Country", "Hospital", plotting.df, folder.baseFolder)
 
 
         return []

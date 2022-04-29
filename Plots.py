@@ -28,21 +28,6 @@ class plotting():
     # Plot the responses for different events and regions
 
     @staticmethod
-    def linePlot(x, y, hue, style, data, folder):
-        plot = sns.lineplot(
-            x=x,
-            y=y,
-            hue=hue,
-            style=style,
-            data=data)
-        now = time.time()
-        dt = datetime.fromtimestamp(now)
-        dt = str(dt).split('.')[0].replace(":", '-')
-        FigureID = folder + dt + ' figure.png'
-        plot.figure.savefig(FigureID)
-        plt.clf()
-
-    @staticmethod
     def dnt_barplot_bycountry(x, y, data, folder):
         barplot_dat = pd.DataFrame(data)
         barplot_dat = barplot_dat[barplot_dat["Dates"] == "2022 Q1"]
@@ -69,8 +54,39 @@ class plotting():
         plot.figure.savefig(FigureID)
         plt.clf()
 
+
+    def dnt_timeline(self, x, y, data, folder, plot_filter=None, filter_category=None):
+        plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
+
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
+
+    def annotate_timeline_event(self, x, y, data, folder, plot_filter=None, filter_category=None):
+        plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
+
+        plot.annotate('Large intake of patients',
+                    xy=('2021 Q1', 53),
+                    xycoords='data',
+                    xytext=(-200, 0),
+                    textcoords='offset points',
+                    arrowprops=dict(arrowstyle='->', color='black'),
+                    ha='center',
+                    va='center',
+                    fontsize=15)
+
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
+
     @staticmethod
-    def dnt_timeline(x, y, data, folder, plot_filter=None, filter_category=None):
+    def create_timeline_plot(x, y, data, plot_filter=None, filter_category=None):
         timeline_dat = pd.DataFrame(data)
 
         if plot_filter is not None:
@@ -88,12 +104,12 @@ class plotting():
             legend=False)
         plot.grid(axis='x')
         names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
-        mysanity = []
-        for test in names:
-            for test2 in test:
-                mysanity.append(test2)
+        name_array = []
+        for i in names:
+            for j in i:
+                name_array.append(j)
 
-        for line, name in zip(plot.lines, mysanity):
+        for line, name in zip(plot.lines, name_array):
             y = line.get_ydata()[-1]
             x = line.get_xdata()[-1]
             if not np.isfinite(y):
@@ -107,14 +123,7 @@ class plotting():
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
                                     textcoords="offset points")
-
-        now = time.time()
-        dt = datetime.fromtimestamp(now)
-        dt = str(dt).split('.')[0].replace(":", '-')
-        FigureID = folder + dt + ' figure.png'
-        plot.figure.savefig(FigureID)
-        plt.clf()
-
+        return plot
 #plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
 
