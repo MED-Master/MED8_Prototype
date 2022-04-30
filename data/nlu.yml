@@ -86,6 +86,21 @@ nlu:
   examples: |
     - compare my DNT to another country
     - another country
+
+
+- intent: Ready_for_goal_setting #7
+  examples: |
+    - Goal
+    - Goals
+    - goal
+    - goals
+    - gaol
+    - gaols
+    - goal setting
+    - setting
+    - Setting
+
+
 - intent: Another_performance_indicator #8
   examples: |
     - other performance indicator
@@ -101,9 +116,28 @@ nlu:
   examples: |
     - compare to another hospital
     - another hospital
+ 
 - intent: Visualise_intake_timeline #11
   examples: |
     - patient intake
     - intake
     - intake timeline
     - intake over time
+
+- intent: Annotate_goal #16
+  examples: |
+    - My DNT goal is [6] (annotationForGoalSetting)
+    - DNT goal [8] (annotationForGoalSetting)
+    - [10] (annotationForGoalSetting)
+- lookup: annotationForGoalSetting
+  examples: |
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+
+
+
+

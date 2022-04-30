@@ -12,6 +12,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from Plots import plotting
 from foldercreation import folder
+import GUI
 
 
 class ActionHelloWorld(Action):
@@ -203,4 +204,23 @@ class CompareInVsOutInternational(Action):#15
         dispatcher.utter_message(text="Here is a comparison with International hospitals!")
         #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
         #MAKE PLOT FOR THIS
+
         return []
+
+class GoalSetting(Action):#16
+
+    def name(self) -> Text:
+        return "GoalSetting"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        DNT_Goal = next(tracker.get_latest_entity_values('annotationForGoalSetting'), None)
+        dispatcher.utter_message(text="GoalSetting")
+        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        #MAKE PLOT FOR THIS
+        print(DNT_Goal)
+        GUI.logOnRASAEnding()
+        return []
+
+
