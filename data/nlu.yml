@@ -38,6 +38,7 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - sure
 
 - intent: deny
   examples: |
@@ -116,3 +117,9 @@ nlu:
     - compare to another hospital
     - another hospital
 
+- intent: Visualise_intake_timeline #11
+  examples: |
+    - patient intake
+    - intake
+    - intake timeline
+    - intake over time

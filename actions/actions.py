@@ -148,16 +148,17 @@ class PlotCompareLocalHospitals(Action): #10
         return []
 
 
-class PlotTimelineOfPatientsinCare(Action):#12
+class PlotTimelineOfPatientsIn(Action):#12
 
     def name(self) -> Text:
-        return "PlotTimelineOfPatients"
+        return "PlotTimelineOfPatientsIn"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for Patients in care!")
+        plotting.dnt_timeline(plotting, "Dates", "Patient Intake", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 
 
@@ -171,7 +172,8 @@ class PlotTimelineOfInVsOut(Action):#13
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for Patient intake against discharge!")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.Plot_InVsOut_timeline(plotting, "Dates", "Patient Intake", "Discharge", plotting.df, folder.baseFolder,
+                                       ["Lyon"], "Hospital")
         #MAKE PLOT FOR THIS
         return []
 
