@@ -17,8 +17,8 @@ if __name__ == "__main__":
     plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
     RASA = RASA()
     figure = figure()
-    Logger = Logger()
-    Logger.startEnd_logger.append(Logger.dateTime())
+    LogObject = Logger()
+    LogObject.startEnd_logger.append(LogObject.dateTime())
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
         points = [x1+radius, y1,
@@ -48,8 +48,8 @@ if __name__ == "__main__":
     def _on_enter_pressed(event): #When you press the send button
         msg = msg_entry.get()
         _enter_user_message(msg, "You")
-        Logger.button_logger.append('send')
-        Logger.timerButton_logger.append(Logger.dateTime())
+        LogObject.button_logger.append('send')
+        LogObject.timerButton_logger.append(LogObject.dateTime())
 
 
     def _talk_to_va(event): #When you press the talk button
@@ -59,8 +59,8 @@ if __name__ == "__main__":
         text_widget.configure(state=NORMAL)
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
-        Logger.button_logger.append('talk')
-        Logger.timerButton_logger.append(Logger.dateTime())
+        LogObject.button_logger.append('talk')
+        LogObject.timerButton_logger.append(LogObject.dateTime())
 
 
         va_msg = RASA.VAnlu(msg)
@@ -70,8 +70,8 @@ if __name__ == "__main__":
         _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-        updatePlot(figure.newestFigure()) #updates the dashboard aUtOmAtIcLy
-        Logger.reply_logger.append(msg1)  # logging
+        updatePlot(figure.newestFigure()) # updates the dashboard aUtOmAtIcLy
+        LogObject.reply_logger.append(msg1)  # logging
 
 
 
@@ -85,7 +85,7 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         _insert_va_message(msg)
-        Logger.reply_logger.append(msg1)  # logging
+        LogObject.reply_logger.append(msg1)  # logging
 
 
     def _insert_va_message(msg): #prints the VA's message inside the text_widget
@@ -106,7 +106,7 @@ if __name__ == "__main__":
         for va in va_msg:
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
-            Logger.reply_logger.append(msg2)  # logging
+            LogObject.reply_logger.append(msg2)  # logging
 
     window = Tk()
 
@@ -275,17 +275,26 @@ if __name__ == "__main__":
 
     plotCanvas = canvas.create_image(1150, 425, image=img)
 
-    button_Forward = Button(window, text="Forward", command=lambda: updatePlot(figure.newestFigure("Forward")))
+    button_Forward = Button(window, text="Forward", command=lambda: forward())
     button_Forward.place(x=300, y=0)
     #
-    button_Backwards = Button(window, text="Backwards", command=lambda: updatePlot(figure.newestFigure("Backward")))
+    button_Backwards = Button(window, text="Backwards", command=lambda: backward())
     button_Backwards.place(x=200, y=0)
 
+    def forward():
+        updatePlot(figure.newestFigure("Forward"))
+        LogObject.button_logger.append("Forward")
+        LogObject.timerButton_logger.append(LogObject.dateTime())
+
+    def backward():
+        updatePlot(figure.newestFigure("Backward"))
+        LogObject.button_logger.append("Backward")
+        LogObject.timerButton_logger.append(LogObject.dateTime())
 
     ####################    On exit #################################################################
     def on_closing():
         print('close')
-        Logger.logToCSV()
+        LogObject.logToCSV()
         folder.RenameLogFolder()
         window.destroy()
 
