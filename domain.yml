@@ -15,6 +15,7 @@ intents:
   - Another_performance_indicator #8
   - Patient_impact #9
   - Compare_to_local_hospitals #10
+  - Visualise_intake_timeline #11
 
 responses:
   utter_greet:
@@ -42,7 +43,7 @@ responses:
     - text: "Would you like me to show you what might have impacted your DNT?"
 
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
-  - text: "Would you like to look at another country or talk about your patient intake?"
+  - text: "Would you like to look at another country or talk about some other performance indicator?"
 
   utter_ReadyForGoalSetting_response: # 7
   - text: "Do you feel like you have enough to talk about a goal or do you want to explore the data more?"
@@ -53,6 +54,14 @@ responses:
   utter_PlotCompareLocalHospitals_response: # 10
   - text: "Would you like me to suggest a reason for why?"
 
+  utter_PlotPatientOfImpact_barplot: #11
+  - text: "Would you like to see a timeline of patients in care at your hospital or a timeline of Door to needle times?"
+
+  utter_PlotTimelineIntake: #12
+  - text: "Should I also visualise your patient discharge?"
+
+  utter_PlotTimelineOfInVsOut: #13
+  - text: "Would you like me to compare this data with either local or international hospitals?"
 
 actions:
   - PlotTimelineOfDNT #1
@@ -62,6 +71,9 @@ actions:
   - PlotCompareToCountry_alt #6alt
   - PlotPatientOfImpact #9
   - PlotCompareLocalHospitals #10
+  - PlotPatientOfImpact_barplot #11
+  - PlotTimelineOfPatientsIn #12
+  - PlotTimelineOfInVsOut #13
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
