@@ -85,3 +85,10 @@ stories:
   - intent: Compare_to_local_hospitals
   - action: PlotCompareLocalHospitals
   - action: utter_PlotCompareLocalHospitals_response
+
+- story: Compare Patients in Care Locally #11 from 10 to 11
+  steps:
+  - action: utter_PlotCompareLocalHospitals_response
+  - intent: affirm
+  - action: PlotPatientOfImpact_barplot
+  - action: utter_PlotPatientOfImpact_barplot
