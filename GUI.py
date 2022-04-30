@@ -11,7 +11,9 @@ from Figure import figure
 
 
 from foldercreation import folder
-#on the second day God created time by importing
+
+# on the second day God created time by importing
+
 if __name__ == "__main__":
     folder.Create()
     plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
@@ -19,6 +21,7 @@ if __name__ == "__main__":
     figure = figure()
     LogObject = Logger()
     LogObject.startEnd_logger.append(LogObject.dateTime())
+    
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
         points = [x1+radius, y1,
@@ -47,6 +50,7 @@ if __name__ == "__main__":
 
     def _on_enter_pressed(event): #When you press the send button
         msg = msg_entry.get()
+        print(msg)
         _enter_user_message(msg, "You")
         LogObject.button_logger.append('send')
         LogObject.timerButton_logger.append(LogObject.dateTime())
@@ -63,7 +67,6 @@ if __name__ == "__main__":
         LogObject.button_logger.append('talk')
         LogObject.timerButton_logger.append(LogObject.dateTime())
 
-
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
         t = threading.Thread(target=_read_out_VA_message, args=[va_msg])
@@ -72,7 +75,6 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(figure.newestFigure()) # updates the dashboard aUtOmAtIcLy
-
 
 
 
@@ -87,7 +89,6 @@ if __name__ == "__main__":
         text_widget.see(END)
         LogObject.reply_logger.append(msg1)  # logging
         _insert_va_message(msg)
-        
 
 
     def _insert_va_message(msg): #prints the VA's message inside the text_widget
@@ -108,7 +109,8 @@ if __name__ == "__main__":
         for va in va_msg:
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
-            LogObject.reply_logger.append(msg2)  # logging
+            Logging.reply_logger.append(msg2)  # logging
+
 
     window = Tk()
 
@@ -140,7 +142,7 @@ if __name__ == "__main__":
         radius=20,
         fill="#FFFFFF")
 
-    ##############################################This code creates the button to send written messages
+    # #############################################This code creates the button to send written messages
     send_box = round_rectangle(
         25,
         820 - 15,
@@ -162,7 +164,7 @@ if __name__ == "__main__":
     send_button.place(x=0, y=0, relheight=1, relwidth=1)
     ##############################################
 
-    ##############################################This code creates a button for talking to VA
+    # #############################################This code creates a button for talking to VA
     record_box = round_rectangle(
         25 + 123.5 + 50,
         820 - 15,
@@ -187,7 +189,7 @@ if __name__ == "__main__":
     record_line.place(relwidth=0.012, relx=0.01, relheight=1)
     ##############################################
 
-    ##############################################This code creates the text box for users to write messages in
+    # #############################################This code creates the text box for users to write messages in
     msg_entry_box = round_rectangle(
         25,
         750,
@@ -212,7 +214,7 @@ if __name__ == "__main__":
     entry_line.place(relwidth=1, rely=0.99, relheight=0.012)
     ##############################################
 
-    ##############################################This code creates the chat log.
+    # #############################################This code creates the chat log.
     canvas.create_text(
         148.5 + 50,
         62.5,
@@ -256,9 +258,6 @@ if __name__ == "__main__":
         canvas.imgref = img
 
     img = plotDisplay(firstFigure())
-
-    #print('current plot', CurrentPlot())
-
 
     imageoutline = round_rectangle(
         400 - 3,
