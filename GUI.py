@@ -1,7 +1,7 @@
 from tkinter import *
 
 from VA import RASA
-import Logging
+from Logging import Logger
 import os
 from Plots import plotting
 import glob
@@ -17,6 +17,8 @@ if __name__ == "__main__":
     plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
     RASA = RASA()
     figure = figure()
+    Logger = Logger()
+    Logger.startEnd_logger.append(Logger.dateTime())
     def round_rectangle(x1, y1, x2, y2, radius=25, **kwargs):
 
         points = [x1+radius, y1,
@@ -43,18 +45,22 @@ if __name__ == "__main__":
         return canvas.create_polygon(points, **kwargs, smooth=True)
 
 
-    def _on_enter_pressed(event):
+    def _on_enter_pressed(event): #When you press the send button
         msg = msg_entry.get()
         _enter_user_message(msg, "You")
+        Logger.button_logger.append('send')
+        Logger.timerButton_logger.append(Logger.dateTime())
 
 
-    def _talk_to_va(event):
+    def _talk_to_va(event): #When you press the talk button
         msg = RASA.VArecord()
         msg_entry.delete(0, END)
         msg1 = f"You: {msg}\n\n"
         text_widget.configure(state=NORMAL)
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
+        Logger.button_logger.append('talk')
+        Logger.timerButton_logger.append(Logger.dateTime())
 
 
         va_msg = RASA.VAnlu(msg)
@@ -65,11 +71,11 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(figure.newestFigure()) #updates the dashboard aUtOmAtIcLy
-        Logging.reply_logger.append(msg1)  # logging
-        #Logging.reply_logger.append(msg2)  # logging
+        Logger.reply_logger.append(msg1)  # logging
 
 
-    def _enter_user_message(msg, sender):
+
+    def _enter_user_message(msg, sender): #prints the message inside the text_widget
         if not msg:
             return
         msg_entry.delete(0, END)
@@ -78,11 +84,11 @@ if __name__ == "__main__":
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-        _insert_va_message(msg1)
-        Logging.reply_logger.append(msg1)  # logging
+        _insert_va_message(msg)
+        Logger.reply_logger.append(msg1)  # logging
 
 
-    def _insert_va_message(msg):
+    def _insert_va_message(msg): #prints the VA's message inside the text_widget
         va_msg = RASA.VAnlu(msg)
         text_widget.configure(state=NORMAL)
         t = threading.Thread(target=_read_out_VA_message, args=[va_msg])
@@ -100,9 +106,7 @@ if __name__ == "__main__":
         for va in va_msg:
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
-            Logging.reply_logger.append(msg2)  # logging
-    def btn_clicked():
-        print("Button Clicked")
+            Logger.reply_logger.append(msg2)  # logging
 
     window = Tk()
 
@@ -281,7 +285,7 @@ if __name__ == "__main__":
     ####################    On exit #################################################################
     def on_closing():
         print('close')
-        Logging.logToCSV()
+        Logger.logToCSV()
         folder.RenameLogFolder()
         window.destroy()
 
