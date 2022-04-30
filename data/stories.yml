@@ -86,6 +86,27 @@ stories:
   - action: PlotCompareLocalHospitals
   - action: utter_PlotCompareLocalHospitals_response
 
+- story: Compare Patients in Care Locally #11 from 10 to 11
+  steps:
+  - action: utter_PlotCompareLocalHospitals_response
+  - intent: affirm
+  - action: PlotPatientOfImpact_barplot
+  - action: utter_PlotPatientOfImpact_barplot
+
+- story: Visualise patient intake timeline #12 from 11 to 12
+  steps:
+  - action: utter_PlotPatientOfImpact_barplot
+  - intent: Visualise_intake_timeline
+  - action: PlotTimelineOfPatientsIn
+  - action: utter_PlotTimelineIntake
+
+- story: Compare intake and discharge #13 from 12 to 13
+  steps:
+  - action: utter_PlotTimelineIntake
+  - intent: affirm
+  - action: PlotTimelineOfInVsOut
+  - action: utter_PlotTimelineOfInVsOut
+
 - story: time of DNT #16 from 7 to 16
   steps:
   - action: utter_ReadyForGoalSetting_response
