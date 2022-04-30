@@ -294,9 +294,12 @@ if __name__ == "__main__":
         LogObject.timerButton_logger.append(LogObject.dateTime())
 
     ####################    On exit #################################################################
+
+    def logOnRASAEnding():
+        LogObject.logToCSV()
+
     def on_closing():
         print('close')
-        LogObject.logToCSV()
         folder.RenameLogFolder()
         window.destroy()
 

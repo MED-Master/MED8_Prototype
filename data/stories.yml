@@ -85,3 +85,11 @@ stories:
   - intent: Compare_to_local_hospitals
   - action: PlotCompareLocalHospitals
   - action: utter_PlotCompareLocalHospitals_response
+
+- story: time of DNT #16 from 7 to 16
+  steps:
+  - action: utter_ReadyForGoalSetting_response
+  - intent: Ready_for_goal_setting
+  - action: utter_SetAnnotationGoal_response
+  - intent: Annotate_goal
+  - action: GoalSetting

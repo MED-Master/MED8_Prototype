@@ -98,6 +98,20 @@ nlu:
     - compare my DNT to another country
     - another country
 
+- intent: Ready_for_goal_setting #7
+  examples: |
+    - Goal
+    - Goals
+    - goal
+    - goals
+    - gaol
+    - gaols
+    - goal setting
+    - setting
+    - Setting
+
+    - another hospital
+
 - intent: Another_performance_indicator #8
   examples: |
     - other performance indicator
@@ -115,3 +129,8 @@ nlu:
   examples: |
     - compare to another hospital
     - another hospital
+
+- intent: Annotate_goal #16
+  examples: |
+    -
+
