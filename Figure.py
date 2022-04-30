@@ -10,20 +10,15 @@ class figure:
 
     def __init__(self):
         self.Piclist = glob.glob('logs/images/*')  # instantiation of the list of images
-        print("THIS IS IN INIT, INNIT?", len(self.Piclist))
         self.currentPlot = 0
 
     def newestFigure(self, button_pressed=None):
         list_of_files = glob.glob('logs/images/*')  # * means all if need specific format then *.csv
-        print("PICLIST:", len(self.Piclist), "LIST:", len(list_of_files))
         if len(self.Piclist) != len(list_of_files):
             self.Piclist = list_of_files
             filename = max(self.Piclist, key=os.path.getctime)
             self.currentPlot += 1
-            print("THIS IS THE NEW  IMAGE", len(self.Piclist))
             return filename
-        print("THIS IS THE LENGTH OF FILE:", len(self.Piclist))
-        print("THIS IS THE FUNCTION:", self.Piclist)
         if button_pressed == "Forward" and not (self.currentPlot ==len(self.Piclist)-1):
             try:
                 self.currentPlot += 1
