@@ -1,188 +1,188 @@
-Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Mortality
-2018 Q1,Estonia,Estonia,40,31,10,12,1
-2018 Q2,Estonia,Estonia,27,23,11,12,0
-2018 Q3,Estonia,Estonia,27,35,11,14,1
-2018 Q4,Estonia,Estonia,21,24,15,11,1
-2019 Q1,Estonia,Estonia,32,26,10,14,1
-2019 Q2,Estonia,Estonia,31,20,12,12,0
-2019 Q3,Estonia,Estonia,33,23,15,12,2
-2019 Q4,Estonia,Estonia,30,26,10,12,2
-2020 Q1,Estonia,Estonia,22,40,15,13,1
-2020 Q2,Estonia,Estonia,28,36,13,10,1
-2020 Q3,Estonia,Estonia,37,38,10,13,0
-2020 Q4,Estonia,Estonia,21,26,15,15,1
-2021 Q1,Estonia,Estonia,31,33,11,13,2
-2021 Q2,Estonia,Estonia,40,38,15,15,1
-2021 Q3,Estonia,Estonia,26,20,12,11,2
-2021 Q4,Estonia,Estonia,33,40,10,10,2
-2022 Q1,Estonia,Estonia,39,25,14,13,1
-2018 Q1,Slovakia,Slovakia,35,35,13,11,4
-2018 Q2,Slovakia,Slovakia,31,30,14,12,3
-2018 Q3,Slovakia,Slovakia,35,37,15,15,2
-2018 Q4,Slovakia,Slovakia,33,30,15,10,0
-2019 Q1,Slovakia,Slovakia,27,26,14,13,1
-2019 Q2,Slovakia,Slovakia,31,31,13,12,5
-2019 Q3,Slovakia,Slovakia,38,30,13,10,5
-2019 Q4,Slovakia,Slovakia,34,38,15,15,0
-2020 Q1,Slovakia,Slovakia,26,30,10,15,0
-2020 Q2,Slovakia,Slovakia,36,31,14,12,5
-2020 Q3,Slovakia,Slovakia,35,27,12,10,0
-2020 Q4,Slovakia,Slovakia,29,34,10,11,0
-2021 Q1,Slovakia,Slovakia,34,36,15,13,2
-2021 Q2,Slovakia,Slovakia,33,28,11,10,4
-2021 Q3,Slovakia,Slovakia,27,27,12,10,1
-2021 Q4,Slovakia,Slovakia,26,26,14,12,5
-2022 Q1,Slovakia,Slovakia,38,34,13,11,5
-2018 Q1,Paris,France,21,24,12,11,7
-2018 Q2,Paris,France,33,27,15,11,0
-2018 Q3,Paris,France,30,23,11,15,2
-2018 Q4,Paris,France,31,31,11,12,9
-2019 Q1,Paris,France,32,36,13,13,0
-2019 Q2,Paris,France,23,23,13,13,0
-2019 Q3,Paris,France,21,27,10,14,1
-2019 Q4,Paris,France,36,22,11,15,2
-2020 Q1,Paris,France,34,24,11,15,6
-2020 Q2,Paris,France,35,28,15,11,9
-2020 Q3,Paris,France,32,21,13,10,0
-2020 Q4,Paris,France,24,36,10,11,8
-2021 Q1,Paris,France,34,28,12,12,3
-2021 Q2,Paris,France,29,27,11,15,0
-2021 Q3,Paris,France,32,34,10,12,2
-2021 Q4,Paris,France,27,28,10,15,7
-2022 Q1,Paris,France,30,33,12,13,5
-2018 Q1,Iran,Iran,27,20,14,12,8
-2018 Q2,Iran,Iran,26,22,12,14,6
-2018 Q3,Iran,Iran,26,23,12,14,1
-2018 Q4,Iran,Iran,33,31,13,11,2
-2019 Q1,Iran,Iran,36,21,12,15,5
-2019 Q2,Iran,Iran,34,34,13,14,1
-2019 Q3,Iran,Iran,36,34,10,11,3
-2019 Q4,Iran,Iran,23,24,14,12,0
-2020 Q1,Iran,Iran,39,21,12,10,5
-2020 Q2,Iran,Iran,39,21,13,14,2
-2020 Q3,Iran,Iran,30,28,12,13,8
-2020 Q4,Iran,Iran,40,30,11,11,0
-2021 Q1,Iran,Iran,35,22,13,15,2
-2021 Q2,Iran,Iran,24,26,15,12,6
-2021 Q3,Iran,Iran,37,25,15,13,10
-2021 Q4,Iran,Iran,24,27,12,11,6
-2022 Q1,Iran,Iran,23,25,12,10,4
-2018 Q1,South Korea,South Korea,16,10,12,11,10
-2018 Q2,South Korea,South Korea,16,10,15,14,2
-2018 Q3,South Korea,South Korea,28,34,12,15,2
-2018 Q4,South Korea,South Korea,22,35,13,10,1
-2019 Q1,South Korea,South Korea,18,24,11,13,10
-2019 Q2,South Korea,South Korea,15,16,11,12,6
-2019 Q3,South Korea,South Korea,27,33,13,12,1
-2019 Q4,South Korea,South Korea,26,35,13,10,7
-2020 Q1,South Korea,South Korea,21,13,10,14,4
-2020 Q2,South Korea,South Korea,16,29,10,13,3
-2020 Q3,South Korea,South Korea,15,28,12,14,5
-2020 Q4,South Korea,South Korea,22,21,13,15,8
-2021 Q1,South Korea,South Korea,16,25,15,14,8
-2021 Q2,South Korea,South Korea,20,31,10,12,10
-2021 Q3,South Korea,South Korea,15,15,14,15,7
-2021 Q4,South Korea,South Korea,25,20,14,14,10
-2022 Q1,South Korea,South Korea,22,12,12,10,5
-2018 Q1,Kazakhstan,Kazakhstan,37,29,11,10,1
-2018 Q2,Kazakhstan,Kazakhstan,40,45,14,11,4
-2018 Q3,Kazakhstan,Kazakhstan,31,46,15,12,1
-2018 Q4,Kazakhstan,Kazakhstan,35,31,10,10,5
-2019 Q1,Kazakhstan,Kazakhstan,25,49,15,13,0
-2019 Q2,Kazakhstan,Kazakhstan,28,33,15,13,3
-2019 Q3,Kazakhstan,Kazakhstan,34,35,14,15,4
-2019 Q4,Kazakhstan,Kazakhstan,21,42,10,13,0
-2020 Q1,Kazakhstan,Kazakhstan,45,38,15,15,1
-2020 Q2,Kazakhstan,Kazakhstan,38,43,13,12,3
-2020 Q3,Kazakhstan,Kazakhstan,24,41,12,14,0
-2020 Q4,Kazakhstan,Kazakhstan,26,27,13,15,3
-2021 Q1,Kazakhstan,Kazakhstan,44,28,13,15,3
-2021 Q2,Kazakhstan,Kazakhstan,30,42,15,10,1
-2021 Q3,Kazakhstan,Kazakhstan,33,26,12,15,3
-2021 Q4,Kazakhstan,Kazakhstan,44,40,10,15,5
-2022 Q1,Kazakhstan,Kazakhstan,30,28,10,12,2
-2018 Q1,South Africa,South Africa,35,44,15,13,0
-2018 Q2,South Africa,South Africa,22,42,10,12,4
-2018 Q3,South Africa,South Africa,35,49,11,15,3
-2018 Q4,South Africa,South Africa,24,46,11,15,0
-2019 Q1,South Africa,South Africa,20,41,15,10,5
-2019 Q2,South Africa,South Africa,17,49,15,12,3
-2019 Q3,South Africa,South Africa,17,26,10,11,2
-2019 Q4,South Africa,South Africa,12,42,11,12,4
-2020 Q1,South Africa,South Africa,27,26,11,12,0
-2020 Q2,South Africa,South Africa,42,40,13,10,3
-2020 Q3,South Africa,South Africa,23,26,14,12,1
-2020 Q4,South Africa,South Africa,13,50,14,11,5
-2021 Q1,South Africa,South Africa,21,26,12,11,2
-2021 Q2,South Africa,South Africa,14,46,14,10,2
-2021 Q3,South Africa,South Africa,36,33,14,13,1
-2021 Q4,South Africa,South Africa,32,34,14,13,3
-2022 Q1,South Africa,South Africa,10,26,13,14,5
-2018 Q1,Egypt,Egypt,27,30,10,15,5
-2018 Q2,Egypt,Egypt,41,16,10,11,0
-2018 Q3,Egypt,Egypt,39,30,12,10,0
-2018 Q4,Egypt,Egypt,11,18,14,10,3
-2019 Q1,Egypt,Egypt,43,11,10,14,4
-2019 Q2,Egypt,Egypt,22,22,10,11,3
-2019 Q3,Egypt,Egypt,20,20,15,14,0
-2019 Q4,Egypt,Egypt,19,19,10,15,1
-2020 Q1,Egypt,Egypt,33,22,11,15,4
-2020 Q2,Egypt,Egypt,41,12,15,14,4
-2020 Q3,Egypt,Egypt,9,13,10,11,1
-2020 Q4,Egypt,Egypt,27,30,15,13,5
-2021 Q1,Egypt,Egypt,9,29,10,15,1
-2021 Q2,Egypt,Egypt,21,14,11,11,0
-2021 Q3,Egypt,Egypt,9,20,14,15,1
-2021 Q4,Egypt,Egypt,45,17,13,10,0
-2022 Q1,Egypt,Egypt,38,25,13,15,5
-2018 Q1,Peru,Peru,10,26,11,15,0
-2018 Q2,Peru,Peru,45,34,10,10,5
-2018 Q3,Peru,Peru,29,35,15,10,1
-2018 Q4,Peru,Peru,38,30,13,12,2
-2019 Q1,Peru,Peru,51,29,11,13,4
-2019 Q2,Peru,Peru,21,28,10,10,2
-2019 Q3,Peru,Peru,23,34,14,13,1
-2019 Q4,Peru,Peru,40,36,15,12,5
-2020 Q1,Peru,Peru,53,28,12,11,3
-2020 Q2,Peru,Peru,25,33,14,10,1
-2020 Q3,Peru,Peru,20,31,12,11,3
-2020 Q4,Peru,Peru,55,30,15,11,4
-2021 Q1,Peru,Peru,43,25,10,14,3
-2021 Q2,Peru,Peru,60,32,15,15,4
-2021 Q3,Peru,Peru,32,27,11,15,1
-2021 Q4,Peru,Peru,54,30,13,12,1
-2022 Q1,Peru,Peru,59,37,12,11,0
-2018 Q1,Lyon,Lyon (your hospital),27,33,16,10,0
-2018 Q2,Lyon,Lyon (your hospital),14,47,18,10,1
-2018 Q3,Lyon,Lyon (your hospital),10,48,19,11,5
-2018 Q4,Lyon,Lyon (your hospital),17,42,17,15,0
-2019 Q1,Lyon,Lyon (your hospital),30,39,18,16,5
-2019 Q2,Lyon,Lyon (your hospital),31,43,19,18,3
-2019 Q3,Lyon,Lyon (your hospital),16,35,16,16,3
-2019 Q4,Lyon,Lyon (your hospital),20,33,18,13,4
-2020 Q1,Lyon,Lyon (your hospital),16,40,17,15,2
-2020 Q2,Lyon,Lyon (your hospital),18,45,16,13,1
-2020 Q3,Lyon,Lyon (your hospital),27,42,18,10,1
-2020 Q4,Lyon,Lyon (your hospital),22,38,20,8,3
-2021 Q1,Lyon,Lyon (your hospital),7,53,23,9,0
-2021 Q2,Lyon,Lyon (your hospital),34,56,24,11,2
-2021 Q3,Lyon,Lyon (your hospital),28,42,18,11,5
-2021 Q4,Lyon,Lyon (your hospital),19,44,19,8,3
-2022 Q1,Lyon,Lyon (your hospital),34,49,20,9,5
-2018 Q1,Caen,France,14,10,14,12,1
-2018 Q2,Caen,France,21,33,14,13,0
-2018 Q3,Caen,France,13,30,11,14,4
-2018 Q4,Caen,France,15,15,13,12,1
-2019 Q1,Caen,France,10,32,15,13,3
-2019 Q2,Caen,France,27,8,15,11,2
-2019 Q3,Caen,France,14,22,15,13,1
-2019 Q4,Caen,France,18,22,15,12,1
-2020 Q1,Caen,France,17,21,13,15,5
-2020 Q2,Caen,France,9,24,13,14,5
-2020 Q3,Caen,France,28,24,10,11,1
-2020 Q4,Caen,France,14,26,15,11,2
-2021 Q1,Caen,France,22,26,13,10,5
-2021 Q2,Caen,France,18,33,15,13,4
-2021 Q3,Caen,France,24,33,11,13,3
-2021 Q4,Caen,France,20,13,13,15,0
-2022 Q1,Caen,France,14,17,11,14,5
+Dates,Hospital,Country,DNT (Mean),DNT (Median),Ischemic,transient ischemic,Discharge,Mortality
+2018 Q1,Estonia,Estonia,40,31,75,25,15,1
+2018 Q2,Estonia,Estonia,27,23,85,15,6,0
+2018 Q3,Estonia,Estonia,27,35,72,28,15,1
+2018 Q4,Estonia,Estonia,21,24,71,29,6,1
+2019 Q1,Estonia,Estonia,32,26,76,24,12,1
+2019 Q2,Estonia,Estonia,31,20,79,21,5,0
+2019 Q3,Estonia,Estonia,33,23,85,15,5,2
+2019 Q4,Estonia,Estonia,30,26,88,12,7,2
+2020 Q1,Estonia,Estonia,22,40,83,17,7,1
+2020 Q2,Estonia,Estonia,28,36,87,13,11,1
+2020 Q3,Estonia,Estonia,37,38,74,26,5,0
+2020 Q4,Estonia,Estonia,21,26,85,15,13,1
+2021 Q1,Estonia,Estonia,31,33,75,25,11,2
+2021 Q2,Estonia,Estonia,40,38,88,12,15,1
+2021 Q3,Estonia,Estonia,26,20,77,23,8,2
+2021 Q4,Estonia,Estonia,33,40,77,23,5,2
+2022 Q1,Estonia,Estonia,39,25,82,18,8,1
+2018 Q1,Slovakia,Slovakia,35,35,82,18,25,4
+2018 Q2,Slovakia,Slovakia,31,30,82,18,27,3
+2018 Q3,Slovakia,Slovakia,35,37,90,10,19,2
+2018 Q4,Slovakia,Slovakia,33,30,77,23,21,0
+2019 Q1,Slovakia,Slovakia,27,26,80,20,18,1
+2019 Q2,Slovakia,Slovakia,31,31,76,24,27,5
+2019 Q3,Slovakia,Slovakia,38,30,89,11,30,5
+2019 Q4,Slovakia,Slovakia,34,38,88,12,30,0
+2020 Q1,Slovakia,Slovakia,26,30,89,11,15,0
+2020 Q2,Slovakia,Slovakia,36,31,85,15,22,5
+2020 Q3,Slovakia,Slovakia,35,27,75,25,17,0
+2020 Q4,Slovakia,Slovakia,29,34,85,15,18,0
+2021 Q1,Slovakia,Slovakia,34,36,88,12,21,2
+2021 Q2,Slovakia,Slovakia,33,28,88,12,24,4
+2021 Q3,Slovakia,Slovakia,27,27,83,17,24,1
+2021 Q4,Slovakia,Slovakia,26,26,78,22,24,5
+2022 Q1,Slovakia,Slovakia,38,34,84,16,30,5
+2018 Q1,Paris,France,21,24,85,15,31,7
+2018 Q2,Paris,France,33,27,84,16,26,0
+2018 Q3,Paris,France,30,23,85,15,39,2
+2018 Q4,Paris,France,31,31,85,15,41,9
+2019 Q1,Paris,France,32,36,87,13,27,0
+2019 Q2,Paris,France,23,23,77,23,49,0
+2019 Q3,Paris,France,21,27,82,18,43,1
+2019 Q4,Paris,France,36,22,86,14,44,2
+2020 Q1,Paris,France,34,24,86,14,42,6
+2020 Q2,Paris,France,35,28,82,18,29,9
+2020 Q3,Paris,France,32,21,80,20,32,0
+2020 Q4,Paris,France,24,36,79,21,25,8
+2021 Q1,Paris,France,34,28,86,14,42,3
+2021 Q2,Paris,France,29,27,76,24,35,0
+2021 Q3,Paris,France,32,34,79,21,31,2
+2021 Q4,Paris,France,27,28,85,15,28,7
+2022 Q1,Paris,France,30,33,80,20,28,5
+2018 Q1,Iran,Iran,27,20,84,16,34,8
+2018 Q2,Iran,Iran,26,22,70,30,34,6
+2018 Q3,Iran,Iran,26,23,80,20,27,1
+2018 Q4,Iran,Iran,33,31,71,29,36,2
+2019 Q1,Iran,Iran,36,21,77,23,29,5
+2019 Q2,Iran,Iran,34,34,80,20,30,1
+2019 Q3,Iran,Iran,36,34,82,18,37,3
+2019 Q4,Iran,Iran,23,24,72,28,21,0
+2020 Q1,Iran,Iran,39,21,80,20,18,5
+2020 Q2,Iran,Iran,39,21,82,18,32,2
+2020 Q3,Iran,Iran,30,28,80,20,21,8
+2020 Q4,Iran,Iran,40,30,70,30,28,0
+2021 Q1,Iran,Iran,35,22,83,17,16,2
+2021 Q2,Iran,Iran,24,26,81,19,35,6
+2021 Q3,Iran,Iran,37,25,80,20,22,10
+2021 Q4,Iran,Iran,24,27,83,17,17,6
+2022 Q1,Iran,Iran,23,25,87,13,16,4
+2018 Q1,South Korea,South Korea,16,10,80,20,20,10
+2018 Q2,South Korea,South Korea,16,10,80,20,35,2
+2018 Q3,South Korea,South Korea,28,34,71,29,18,2
+2018 Q4,South Korea,South Korea,22,35,79,21,33,1
+2019 Q1,South Korea,South Korea,18,24,79,21,20,10
+2019 Q2,South Korea,South Korea,15,16,88,12,23,6
+2019 Q3,South Korea,South Korea,27,33,70,30,20,1
+2019 Q4,South Korea,South Korea,26,35,79,21,26,7
+2020 Q1,South Korea,South Korea,21,13,82,18,26,4
+2020 Q2,South Korea,South Korea,16,29,70,30,15,3
+2020 Q3,South Korea,South Korea,15,28,81,19,35,5
+2020 Q4,South Korea,South Korea,22,21,77,23,23,8
+2021 Q1,South Korea,South Korea,16,25,86,14,32,8
+2021 Q2,South Korea,South Korea,20,31,88,12,28,10
+2021 Q3,South Korea,South Korea,15,15,70,30,39,7
+2021 Q4,South Korea,South Korea,25,20,81,19,38,10
+2022 Q1,South Korea,South Korea,22,12,88,12,28,5
+2018 Q1,Kazakhstan,Kazakhstan,37,29,75,25,30,1
+2018 Q2,Kazakhstan,Kazakhstan,40,45,72,28,35,4
+2018 Q3,Kazakhstan,Kazakhstan,31,46,85,15,28,1
+2018 Q4,Kazakhstan,Kazakhstan,35,31,87,13,18,5
+2019 Q1,Kazakhstan,Kazakhstan,25,49,77,23,25,0
+2019 Q2,Kazakhstan,Kazakhstan,28,33,76,24,15,3
+2019 Q3,Kazakhstan,Kazakhstan,34,35,86,14,24,4
+2019 Q4,Kazakhstan,Kazakhstan,21,42,80,20,33,0
+2020 Q1,Kazakhstan,Kazakhstan,45,38,77,23,33,1
+2020 Q2,Kazakhstan,Kazakhstan,38,43,78,22,21,3
+2020 Q3,Kazakhstan,Kazakhstan,24,41,87,13,30,0
+2020 Q4,Kazakhstan,Kazakhstan,26,27,88,12,18,3
+2021 Q1,Kazakhstan,Kazakhstan,44,28,82,18,18,3
+2021 Q2,Kazakhstan,Kazakhstan,30,42,88,12,15,1
+2021 Q3,Kazakhstan,Kazakhstan,33,26,79,21,20,3
+2021 Q4,Kazakhstan,Kazakhstan,44,40,78,22,19,5
+2022 Q1,Kazakhstan,Kazakhstan,30,28,87,13,35,2
+2018 Q1,South Africa,South Africa,35,44,78,22,14,0
+2018 Q2,South Africa,South Africa,22,42,87,13,23,4
+2018 Q3,South Africa,South Africa,35,49,73,27,25,3
+2018 Q4,South Africa,South Africa,24,46,75,25,19,0
+2019 Q1,South Africa,South Africa,20,41,72,28,21,5
+2019 Q2,South Africa,South Africa,17,49,80,20,16,3
+2019 Q3,South Africa,South Africa,17,26,72,28,17,2
+2019 Q4,South Africa,South Africa,12,42,88,12,10,4
+2020 Q1,South Africa,South Africa,27,26,69,31,13,0
+2020 Q2,South Africa,South Africa,42,40,80,20,19,3
+2020 Q3,South Africa,South Africa,23,26,68,32,10,1
+2020 Q4,South Africa,South Africa,13,50,72,28,19,5
+2021 Q1,South Africa,South Africa,21,26,80,20,19,2
+2021 Q2,South Africa,South Africa,14,46,68,32,18,2
+2021 Q3,South Africa,South Africa,36,33,75,25,23,1
+2021 Q4,South Africa,South Africa,32,34,84,16,16,3
+2022 Q1,South Africa,South Africa,10,26,75,25,23,5
+2018 Q1,Egypt,Egypt,27,30,82,18,23,5
+2018 Q2,Egypt,Egypt,41,16,73,27,24,0
+2018 Q3,Egypt,Egypt,39,30,85,15,25,0
+2018 Q4,Egypt,Egypt,11,18,78,22,18,3
+2019 Q1,Egypt,Egypt,43,11,81,19,21,4
+2019 Q2,Egypt,Egypt,22,22,75,25,17,3
+2019 Q3,Egypt,Egypt,20,20,73,27,20,0
+2019 Q4,Egypt,Egypt,19,19,83,17,21,1
+2020 Q1,Egypt,Egypt,33,22,82,18,15,4
+2020 Q2,Egypt,Egypt,41,12,82,18,15,4
+2020 Q3,Egypt,Egypt,9,13,79,21,24,1
+2020 Q4,Egypt,Egypt,27,30,76,24,17,5
+2021 Q1,Egypt,Egypt,9,29,68,32,17,1
+2021 Q2,Egypt,Egypt,21,14,82,18,18,0
+2021 Q3,Egypt,Egypt,9,20,82,18,23,1
+2021 Q4,Egypt,Egypt,45,17,88,12,24,0
+2022 Q1,Egypt,Egypt,38,25,77,23,16,5
+2018 Q1,Peru,Peru,10,26,78,22,25,0
+2018 Q2,Peru,Peru,45,34,81,19,15,5
+2018 Q3,Peru,Peru,29,35,83,17,25,1
+2018 Q4,Peru,Peru,38,30,84,16,19,2
+2019 Q1,Peru,Peru,51,29,72,28,24,4
+2019 Q2,Peru,Peru,21,28,85,15,25,2
+2019 Q3,Peru,Peru,23,34,87,13,20,1
+2019 Q4,Peru,Peru,40,36,69,31,23,5
+2020 Q1,Peru,Peru,53,28,86,14,19,3
+2020 Q2,Peru,Peru,25,33,87,13,23,1
+2020 Q3,Peru,Peru,20,31,85,15,24,3
+2020 Q4,Peru,Peru,55,30,85,15,18,4
+2021 Q1,Peru,Peru,43,25,79,21,20,3
+2021 Q2,Peru,Peru,60,32,78,22,15,4
+2021 Q3,Peru,Peru,32,27,68,32,21,1
+2021 Q4,Peru,Peru,54,30,86,14,17,1
+2022 Q1,Peru,Peru,59,37,84,16,23,0
+2018 Q1,Lyon,Lyon (your hospital),27,33,75,25,27,0
+2018 Q2,Lyon,Lyon (your hospital),14,47,72,28,33,1
+2018 Q3,Lyon,Lyon (your hospital),10,48,71,29,15,5
+2018 Q4,Lyon,Lyon (your hospital),17,42,85,15,31,0
+2019 Q1,Lyon,Lyon (your hospital),30,39,74,26,31,5
+2019 Q2,Lyon,Lyon (your hospital),31,43,77,23,22,3
+2019 Q3,Lyon,Lyon (your hospital),16,35,74,26,25,3
+2019 Q4,Lyon,Lyon (your hospital),20,33,76,24,24,4
+2020 Q1,Lyon,Lyon (your hospital),16,40,84,16,23,2
+2020 Q2,Lyon,Lyon (your hospital),18,45,70,30,32,1
+2020 Q3,Lyon,Lyon (your hospital),27,42,76,24,22,1
+2020 Q4,Lyon,Lyon (your hospital),22,38,84,16,33,3
+2021 Q1,Lyon,Lyon (your hospital),7,53,73,27,22,0
+2021 Q2,Lyon,Lyon (your hospital),34,56,75,25,15,2
+2021 Q3,Lyon,Lyon (your hospital),28,42,72,28,31,5
+2021 Q4,Lyon,Lyon (your hospital),19,44,85,15,35,3
+2022 Q1,Lyon,Lyon (your hospital),34,49,68,32,18,5
+2018 Q1,Caen,France,14,10,88,12,16,1
+2018 Q2,Caen,France,21,33,77,23,20,0
+2018 Q3,Caen,France,13,30,76,24,14,4
+2018 Q4,Caen,France,15,15,69,31,11,1
+2019 Q1,Caen,France,10,32,87,13,14,3
+2019 Q2,Caen,France,27,8,71,29,14,2
+2019 Q3,Caen,France,14,22,86,14,23,1
+2019 Q4,Caen,France,18,22,86,14,17,1
+2020 Q1,Caen,France,17,21,87,13,18,5
+2020 Q2,Caen,France,9,24,81,19,24,5
+2020 Q3,Caen,France,28,24,79,21,20,1
+2020 Q4,Caen,France,14,26,70,30,20,2
+2021 Q1,Caen,France,22,26,71,29,13,5
+2021 Q2,Caen,France,18,33,75,25,24,4
+2021 Q3,Caen,France,24,33,77,23,22,3
+2021 Q4,Caen,France,20,13,75,25,24,0
+2022 Q1,Caen,France,14,17,80,20,19,5
