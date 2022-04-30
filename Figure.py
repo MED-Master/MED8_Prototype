@@ -2,8 +2,6 @@ import os
 import glob
 
 
-
-
 class figure:
     Piclist = None  # instantiation of the list of images
     currentPlot = None
