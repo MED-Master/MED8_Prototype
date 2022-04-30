@@ -180,50 +180,6 @@ class plotting():
         plot.figure.savefig(FigureID)
         plt.clf()
 
-    def Plot_InVsOut_timeline(self, x, y, y2, data, folder, plot_filter=None, filter_category=None):
-        timeline_dat = pd.DataFrame(data)
-
-        if plot_filter is not None:
-            timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
-
-        plot = sns.lineplot(
-            x=x,
-            y=y,
-            color="Red",
-            data=timeline_dat,
-            legend=False,
-            ci=None)
-
-        plot2 = sns.lineplot(
-            x=x,
-            y=y2,
-            color="b",
-            data=timeline_dat,
-            legend=False,
-            ci=None).grid(axis="x")
-        plot.set_ylabel("Number of Patients")
-        for line, name in zip(plot.lines, ["Patient intake", "Discharge"]):
-            y = line.get_ydata()[-1]
-            x = line.get_xdata()[-1]
-            if not np.isfinite(y):
-                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
-            if not np.isfinite(y) or not np.isfinite(x):
-                continue
-            plot.annotate(name,
-                          xy=(x, y),
-                          xytext=(0, 0),
-                          color=line.get_color(),
-                          xycoords=(plot.get_xaxis_transform(),
-                                    plot.get_yaxis_transform()),
-                          textcoords="offset points")
-        now = time.time()
-        dt = datetime.fromtimestamp(now)
-        dt = str(dt).split('.')[0].replace(":", '-')
-        FigureID = folder + dt + ' figure.png'
-        plot.figure.savefig(FigureID)
-        plt.clf()
-
-
 
 #plotting.boxPlot("Country","DNT (Mean)", plotting.df, plotting.i)
 
