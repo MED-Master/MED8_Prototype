@@ -16,7 +16,8 @@ intents:
   - Another_performance_indicator #8
   - Patient_impact #9
   - Compare_to_local_hospitals #10
-
+entities:
+  - annotationForGoalSetting #16
 responses:
   utter_greet:
   - text: "Hey! How are you?"

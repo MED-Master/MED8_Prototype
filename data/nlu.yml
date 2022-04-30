@@ -132,5 +132,6 @@ nlu:
 
 - intent: Annotate_goal #16
   examples: |
-    -
+    - My DNT goal is (annotationForGoalSetting)
+- lookup: annotationForGoalSetting
 
