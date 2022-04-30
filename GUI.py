@@ -59,6 +59,7 @@ if __name__ == "__main__":
         text_widget.configure(state=NORMAL)
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
+        LogObject.reply_logger.append(msg1)  # logging
         LogObject.button_logger.append('talk')
         LogObject.timerButton_logger.append(LogObject.dateTime())
 
@@ -71,7 +72,7 @@ if __name__ == "__main__":
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
         updatePlot(figure.newestFigure()) # updates the dashboard aUtOmAtIcLy
-        LogObject.reply_logger.append(msg1)  # logging
+
 
 
 
@@ -84,8 +85,9 @@ if __name__ == "__main__":
         text_widget.insert(END, msg1)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-        _insert_va_message(msg)
         LogObject.reply_logger.append(msg1)  # logging
+        _insert_va_message(msg)
+        
 
 
     def _insert_va_message(msg): #prints the VA's message inside the text_widget
