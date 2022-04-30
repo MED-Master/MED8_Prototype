@@ -16,6 +16,7 @@ intents:
   - Another_performance_indicator #8
   - Patient_impact #9
   - Compare_to_local_hospitals #10
+  - Annotate_goal #16
 entities:
   - annotationForGoalSetting #16
 responses:

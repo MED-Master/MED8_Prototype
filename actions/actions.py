@@ -213,9 +213,10 @@ class GoalSetting(Action):#16
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+        DNT_Goal = next(tracker.get_latest_entity_values('annotationForGoalSetting'), None)
         dispatcher.utter_message(text="GoalSetting")
         #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
         #MAKE PLOT FOR THIS
+        print(DNT_Goal)
         GUI.logOnRASAEnding()
         return []

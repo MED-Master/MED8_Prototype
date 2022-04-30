@@ -110,8 +110,6 @@ nlu:
     - setting
     - Setting
 
-    - another hospital
-
 - intent: Another_performance_indicator #8
   examples: |
     - other performance indicator
@@ -134,4 +132,11 @@ nlu:
   examples: |
     - My DNT goal is (annotationForGoalSetting)
 - lookup: annotationForGoalSetting
+  examples: |
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
 
