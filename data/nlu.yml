@@ -130,7 +130,9 @@ nlu:
 
 - intent: Annotate_goal #16
   examples: |
-    - My DNT goal is (annotationForGoalSetting)
+    - My DNT goal is [6] (annotationForGoalSetting)
+    - DNT goal [8] (annotationForGoalSetting)
+    - [10] (annotationForGoalSetting)
 - lookup: annotationForGoalSetting
   examples: |
     - 5

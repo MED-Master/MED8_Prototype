@@ -12,7 +12,6 @@ pipeline:
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
    - name: WhitespaceTokenizer
    - name: RegexFeaturizer
-     use_lookup_tables: True
    - name: LexicalSyntacticFeaturizer
    - name: CountVectorsFeaturizer
    - name: CountVectorsFeaturizer
@@ -29,7 +28,8 @@ pipeline:
    - name: FallbackClassifier
      threshold: 0.3
      ambiguity_threshold: 0.1
-   #- name: RegexEntityExtrator
+   - name: RegexEntityExtractor
+     use_lookup_tables: True
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
