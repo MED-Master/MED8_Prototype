@@ -43,7 +43,7 @@ responses:
     - text: "Would you like me to show you what might have impacted your DNT?"
 
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
-  - text: "Would you like to look at another country or talk about some other performance indicator?"
+  - text: "Would you like to look at another country or talk about your patient intake?"
 
   utter_ReadyForGoalSetting_response: # 7
   - text: "Do you feel like you have enough to talk about a goal or do you want to explore the data more?"
