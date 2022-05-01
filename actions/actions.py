@@ -12,7 +12,6 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from Plots import plotting
 from foldercreation import folder
-import GUI
 
 
 class ActionHelloWorld(Action):
@@ -226,7 +225,7 @@ class GoalSetting(Action):#16
             #MAKE PLOT FOR THIS
             print(DNT_Goal)
             dispatcher.utter_message(text="Your DNT goal is " + DNT_Goal)
-            #GUI.logOnRASAEnding()
+            dispatcher.utter_message(text="Thanks for the discussion, looking forward to the next session!")
             return []
 
 
