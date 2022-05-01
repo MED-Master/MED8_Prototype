@@ -223,5 +223,190 @@ class plotting():
         plot.figure.savefig(FigureID)
         plt.clf()
 
+    @staticmethod
+    def Plot_InVsOut_notcombined_local(x_axis, y, y2, data, folder, plot_filter=None, filter_category=None):
+        timeline_dat = pd.DataFrame(data)
 
+        if plot_filter is not None:
+            timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
+
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+                   timeline_dat.Country.unique()}
+        fig, axs = plt.subplots(ncols=2)
+        sns.lineplot(
+            x=x_axis,
+            y=y,
+            hue="Country",
+            style="Hospital",
+            data=timeline_dat,
+            palette=palette,
+            legend=False,
+            ax=axs[0])
+        axs[0].grid(axis='x')
+        for ind, label in enumerate(axs[0].get_xticklabels()):
+            if ind % 4 == 0:  # every 10th label is kept
+                label.set_visible(True)
+            else:
+                label.set_visible(False)
+        names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
+        name_array = []
+        for i in names:
+            for j in i:
+                name_array.append(j)
+        for line, name in zip(axs[0].lines, name_array):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            axs[0].annotate(name,
+                          xy=(x, y),
+                          xytext=(0, 0),
+                          color=line.get_color(),
+                          xycoords=(axs[0].get_xaxis_transform(),
+                                    axs[0].get_yaxis_transform()),
+                          textcoords="offset points")
+        sns.lineplot(
+            x=x_axis,
+            y=y2,
+            hue="Country",
+            style="Hospital",
+            data=timeline_dat,
+            palette=palette,
+            legend=False,
+            ax=axs[1])
+        axs[1].grid(axis='x')
+        for ind, label in enumerate(axs[1].get_xticklabels()):
+            if ind % 4 == 0:  # every 10th label is kept
+                label.set_visible(True)
+            else:
+                label.set_visible(False)
+        names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
+        name_array = []
+        for i in names:
+            for j in i:
+                name_array.append(j)
+        for line, name in zip(axs[1].lines, name_array):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            axs[1].annotate(name,
+                            xy=(x, y),
+                            xytext=(0, 0),
+                            color=line.get_color(),
+                            xycoords=(axs[1].get_xaxis_transform(),
+                                      axs[1].get_yaxis_transform()),
+                            textcoords="offset points")
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plt.savefig(FigureID)
+        plt.clf()
+
+    @staticmethod
+    def Plot_InVsOut_notcombined_international(x_axis, y, y2, data, folder, plot_filter=None, filter_category=None):
+        timeline_dat = pd.DataFrame(data)
+
+        if plot_filter is not None:
+            timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
+
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+                   timeline_dat.Country.unique()}
+        fig, axs = plt.subplots(ncols=2)
+        sns.lineplot(
+            x=x_axis,
+            y=y,
+            hue="Country",
+            style="Hospital",
+            data=timeline_dat,
+            palette=palette,
+            legend=False,
+            ax=axs[0])
+        axs[0].grid(axis='x')
+        for ind, label in enumerate(axs[0].get_xticklabels()):
+            if ind % 4 == 0:  # every 10th label is kept
+                label.set_visible(True)
+            else:
+                label.set_visible(False)
+        names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
+        name_array = []
+        for i in names:
+            for j in i:
+                name_array.append(j)
+        for line, name in zip(axs[0].lines, name_array):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            axs[0].annotate(name,
+                            xy=(x, y),
+                            xytext=(0, 0),
+                            color=line.get_color(),
+                            xycoords=(axs[0].get_xaxis_transform(),
+                                      axs[0].get_yaxis_transform()),
+                            textcoords="offset points")
+        sns.lineplot(
+            x=x_axis,
+            y=y2,
+            hue="Country",
+            style="Hospital",
+            data=timeline_dat,
+            palette=palette,
+            legend=False,
+            ax=axs[1])
+        axs[1].grid(axis='x')
+        for ind, label in enumerate(axs[1].get_xticklabels()):
+            if ind % 4 == 0:  # every 10th label is kept
+                label.set_visible(True)
+            else:
+                label.set_visible(False)
+        names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
+        name_array = []
+        for i in names:
+            for j in i:
+                name_array.append(j)
+        for line, name in zip(axs[1].lines, name_array):
+            y = line.get_ydata()[-1]
+            x = line.get_xdata()[-1]
+            if not np.isfinite(y):
+                y = next(reversed(line.get_ydata()[~line.get_ydata().mask]), float("nan"))
+            if not np.isfinite(y) or not np.isfinite(x):
+                continue
+            axs[1].annotate(name,
+                            xy=(x, y),
+                            xytext=(0, 0),
+                            color=line.get_color(),
+                            xycoords=(axs[1].get_xaxis_transform(),
+                                      axs[1].get_yaxis_transform()),
+                            textcoords="offset points")
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plt.savefig(FigureID)
+        plt.clf()
+
+    def annotate_goal(self, x, y, data, folder, goal, plot_filter=None, filter_category=None):
+        plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
+
+        plot.axhline(goal, ls='--', linewidth=3, color='red')
+        plot.text(-1,
+                  goal + 1,
+                  "GOAL",
+                  fontsize=18,
+                  color="red")
+
+        now = time.time()
+        dt = datetime.fromtimestamp(now)
+        dt = str(dt).split('.')[0].replace(":", '-')
+        FigureID = folder + dt + ' figure.png'
+        plot.figure.savefig(FigureID)
+        plt.clf()
 

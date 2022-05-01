@@ -114,14 +114,14 @@ stories:
   - action: CombineInVsOut
   - action: utter_CompareInOut
 
-- story: Combine intake and discharge #17 from 9 to 17
+- story: Combine intake and discharge local #17 from 9 to 17
   steps:
   - action: utter_CompareInOut
   - intent: Compare_to_local_hospitals
   - action: CombineInVsOut_local
   - action: utter_CompareInOutinternational
 
-- story: Combine intake and discharge #18 from 9 to 18
+- story: Combine intake and discharge international #18 from 9 to 18
   steps:
   - action: utter_CompareInOut
   - intent: compare_to_another_country
@@ -135,3 +135,13 @@ stories:
   - action: utter_SetAnnotationGoal_response
   - intent: Annotate_goal
   - action: GoalSetting
+
+- story: Do Not Combine intake and discharge Local #14 from 13 to 14
+  steps:
+  - action: utter_PlotTimelineOfInVsOut
+  - intent: deny
+  - action: CompareInVsOutLocal_notcombine
+  - action: utter_CompareInOutinternational
+  - intent: affirm
+  - action: CompareInVsOutInternational_notcombine
+
