@@ -276,8 +276,6 @@ class GoalSetting(Action):#16
 
             plotting.annotate_goal(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
                                                                 DNT_Goal, ["France", "Lyon (your hospital)"], "Country")
-
-
             dispatcher.utter_message(text="Thanks for the discussion, looking forward to the next session!")
             return []
 
