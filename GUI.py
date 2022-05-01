@@ -280,12 +280,42 @@ if __name__ == "__main__":
 
     plotCanvas = canvas.create_image(1150, 425, image=img)
 
-    button_Forward = Button(window, text="Forward", command=lambda: forward())
-    button_Forward.place(x=300, y=0)
-    #
-    button_Backwards = Button(window, text="Backwards", command=lambda: backward())
-    button_Backwards.place(x=200, y=0)
+# #####################################################THIS code draws the box for the forward/backwards buttons
+    image_movement_box_border = round_rectangle(
+        825-3,
+        890-3,
+        1400+3,
+        990+3,
+        radius=20,
+        fill="#000000")
+    image_movement_box = round_rectangle(
+        825,
+        890,
+        1400,
+        990,
+        radius=20,
+        fill="#FFFFFF")
+    image_movement_canvas = Canvas(
+        window,
+        bg="#ECEFF1",
+        height=95,
+        width=570,
+        bd=0,
+        highlightthickness=0,
+        relief="ridge")
+    image_movement_canvas.place(x=830-2, y=895-3)
+    button_line = Label(image_movement_canvas, width=450, bg="#000000")
+    button_line.place(relwidth=0.001, relx=0.5, relheight=1)
 
+    button_Backward = Button(image_movement_canvas, text="Previous Figure", font="RobotoRoman-ExtraBold", borderwidth=0,
+                           bg="#ECEFF1", command=lambda: backward())
+    button_Backward.place(relwidth=0.499, relx=0, relheight=1)
+    #
+    button_Forward = Button(image_movement_canvas, text="Next Figure", font="RobotoRoman-ExtraBold", borderwidth=0,
+                           bg="#ECEFF1", command=lambda: forward())
+    button_Forward.place(relwidth=0.499, relx=0.505, relheight=1)
+    button_line = Label(image_movement_canvas, width=450, bg="#000000")
+    button_line.place(relwidth=0.003, relx=0.5, relheight=1)
     def forward():
         updatePlot(figure.newestFigure("Forward"))
         LogObject.button_logger.append("Forward")
@@ -295,6 +325,7 @@ if __name__ == "__main__":
         updatePlot(figure.newestFigure("Backward"))
         LogObject.button_logger.append("Backward")
         LogObject.timerButton_logger.append(LogObject.dateTime())
+    # #####################################################
 
     ####################    On exit #################################################################
 

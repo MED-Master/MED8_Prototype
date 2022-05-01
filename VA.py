@@ -21,7 +21,11 @@ class RASA:
     #API setup
     WIT_AI_KEY = 'IQAXGNZQWIAZL5VAI7GUT6JK3P3RJ3TZ' #wit API key
     #RASA setup
-    engine = pyttsx3.init()
+    engine = pyttsx3.init(driverName='sapi5')
+    engine.setProperty("rate", 200)
+    voices = engine.getProperty("voices")
+    engine.setProperty('voice',"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0")
+    #engine.setProperty("voice", voices[1].id)
     bot_message = ""
     message = ""
     r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": "Hello"})
@@ -59,7 +63,10 @@ class RASA:
         return va_msg
 
     def VAspeak(self, va_msg):
-        myobj = gTTS(text=va_msg)
-        myobj.save("welcome.mp3")
-        playsound("welcome.mp3")
-        os.remove("welcome.mp3")
+        #myobj = gTTS(text=va_msg, slow=False)
+        #myobj.save("welcome.mp3")
+        #playsound("welcome.mp3")
+        #os.remove("welcome.mp3")
+        self.engine.say(va_msg)
+        self.engine.runAndWait()
+        self.engine.stop()
