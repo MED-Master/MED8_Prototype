@@ -221,32 +221,35 @@ class CombineInVsOut_international(Action):#18
         #MAKE PLOT FOR THIS
         return []
 
-class CompareInVsOutLocal(Action):#14
+class CompareInVsOutLocal_notcombine(Action):#14
 
     def name(self) -> Text:
-        return "CompareInVsOutLocal"
+        return "CompareInVsOutLocal_notcombine"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is a comparison with local hospitals!")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+        plotting.Plot_InVsOut_notcombined_local("Dates", "Patient Intake", "Discharge", plotting.df, folder.baseFolder,
+                                                ["France", "Lyon (your hospital)"], "Country")
         #MAKE PLOT FOR THIS
         return []
 
-class CompareInVsOutInternational(Action):#15
+class CompareInVsOutInternational_notcombine(Action):#15
 
     def name(self) -> Text:
-        return "CompareInVsOutInternational"
+        return "CompareInVsOutInternational_notcombine"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is a comparison with International hospitals!")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-        #MAKE PLOT FOR THIS
+        plotting.Plot_InVsOut_notcombined_international("Dates", "Patient Intake", "Discharge", plotting.df,
+                                                        folder.baseFolder, ["France", "Lyon (your hospital)",
+                                                                            "Slovakia", "South Africa"], "Country",)
+
 
         return []
 
@@ -270,9 +273,11 @@ class GoalSetting(Action):#16
                 DNT_Goal = str(DNT_Goal)
             dispatcher.utter_message(text="Your DNT goal is " + DNT_Goal)
             DNT_Goal = int(DNT_Goal)
-            int(DNT_Goal)
-            # plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-            # MAKE PLOT FOR THIS
+
+            plotting.annotate_goal(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
+                                                                DNT_Goal, ["France", "Lyon (your hospital)"], "Country")
+
+
             dispatcher.utter_message(text="Thanks for the discussion, looking forward to the next session!")
             return []
 

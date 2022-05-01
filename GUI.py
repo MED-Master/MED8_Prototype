@@ -95,11 +95,12 @@ if __name__ == "__main__":
         text_widget.configure(state=NORMAL)
         t = threading.Thread(target=_read_out_VA_message, args=[va_msg])
         t.start()
-        _reply_to_text_widget(va_msg)
+        end_trigger = _reply_to_text_widget(va_msg)
         text_widget.configure(state=DISABLED)
         text_widget.see(END)
-
         updatePlot(figure.newestFigure())  # updates the dashboard aUtOmAtIcLy
+        if end_trigger:
+            LogObject.logToCSV()
 
     def _read_out_VA_message(va_msg):
         for va in va_msg:
@@ -108,10 +109,13 @@ if __name__ == "__main__":
     def _reply_to_text_widget(va_msg):
         for va in va_msg:
             if va == "Thanks for the discussion, looking forward to the next session!":
-                LogObject.logToCSV()
+                end_trigger = True
+            else:
+                end_trigger = False
             msg2 = f"Assistant: {va}\n\n"
             text_widget.insert(END, msg2)
             LogObject.reply_logger.append(msg2)  # logging
+        return end_trigger
 
     window = Tk()
 
