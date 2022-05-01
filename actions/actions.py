@@ -216,11 +216,18 @@ class GoalSetting(Action):#16
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         DNT_Goal = next(tracker.get_latest_entity_values('annotationForGoalSetting'), None)
-        dispatcher.utter_message(text="GoalSetting")
-        #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-        #MAKE PLOT FOR THIS
-        print(DNT_Goal)
-        GUI.logOnRASAEnding()
-        return []
+
+        if not DNT_Goal:
+            dispatcher.utter_message(text="I need a number for your DNT goal")
+            return []
+
+        else:
+            #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+            #MAKE PLOT FOR THIS
+            print(DNT_Goal)
+            dispatcher.utter_message(text="Your DNT goal is " + DNT_Goal)
+            #GUI.logOnRASAEnding()
+            return []
+
 
 
