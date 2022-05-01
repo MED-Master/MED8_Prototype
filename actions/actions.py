@@ -12,7 +12,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from Plots import plotting
 from foldercreation import folder
-
+from text2num import text2num
 
 class ActionHelloWorld(Action):
 
@@ -221,10 +221,13 @@ class GoalSetting(Action):#16
             return []
 
         else:
-            #plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
-            #MAKE PLOT FOR THIS
-            print(DNT_Goal)
+            if str.isdecimal(DNT_Goal) == False:
+                DNT_Goal = text2num(DNT_Goal)
+                DNT_Goal = str(DNT_Goal)
             dispatcher.utter_message(text="Your DNT goal is " + DNT_Goal)
+            int(DNT_Goal)
+            # plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
+            # MAKE PLOT FOR THIS
             dispatcher.utter_message(text="Thanks for the discussion, looking forward to the next session!")
             return []
 

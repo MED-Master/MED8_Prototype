@@ -133,6 +133,10 @@ nlu:
     - Goal [7](annotationForGoalSetting)
     - DNT goal [9](annotationForGoalSetting)
     - DNT goal [10](annotationForGoalSetting)
+    - DNT goal [fourteen](annotationForGoalSetting)
+    - DNT goal [sixteen](annotationForGoalSetting)
+    - set goal to [thirteen](annotationForGoalSetting)
+    - Goal [nineteen](annotationForGoalSetting)
 - lookup: annotationForGoalSetting
   examples: |
     - 5
@@ -141,6 +145,29 @@ nlu:
     - 8
     - 9
     - 10
+    - five
+    - six
+    - seven
+    - eight
+    - nine
+    - ten
+    - eleven
+    - twelve
+    - thirteen
+    - fourteen
+    - fifteen
+    - sixteen
+    - seventeen
+    - eighteen
+    - nineteen
+    - twenty
+    - thirty
+    - forty
+    - fifty
+    - sixty
+    - seventy two
+
+
 
 
 

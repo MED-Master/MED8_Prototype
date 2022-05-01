@@ -111,3 +111,14 @@ if __name__ == "__main__":
     assert 123456789012 == text2num(
         "one hundred twenty three billion four hundred fifty six million seven hundred eighty nine thousand twelve")
     assert 4000000000000000000000000000000000 == text2num("four decillion")
+
+
+#print(text2num("seventy six"))
+
+DNT_goal = "ten"
+if str.isdecimal(DNT_goal) == False:
+    converted_DNT_goal = text2num(DNT_goal)
+    print(converted_DNT_goal)
+    converted_DNT_goal = str(converted_DNT_goal)
+    print(type(converted_DNT_goal))
+
