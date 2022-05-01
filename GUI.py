@@ -303,8 +303,6 @@ if __name__ == "__main__":
     image_movement_canvas.place(x=830-2, y=895-3)
     button_line = Label(image_movement_canvas, width=450, bg="#000000")
     button_line.place(relwidth=0.001, relx=0.5, relheight=1)
-    # #####################################################
-
 
     button_Backward = Button(image_movement_canvas, text="Previous Figure", font="RobotoRoman-ExtraBold", borderwidth=0,
                            bg="#ECEFF1", command=lambda: backward())
@@ -324,6 +322,7 @@ if __name__ == "__main__":
         updatePlot(figure.newestFigure("Backward"))
         LogObject.button_logger.append("Backward")
         LogObject.timerButton_logger.append(LogObject.dateTime())
+    # #####################################################
 
     ####################    On exit #################################################################
 
