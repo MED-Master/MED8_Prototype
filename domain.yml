@@ -64,7 +64,17 @@ responses:
   - text: "Should I also visualise your patient discharge?"
 
   utter_PlotTimelineOfInVsOut: #13
-  - text: "Would you like me to compare this data with either local or international hospitals?"
+  - text: "Should I subtract your discharge from the patient intake to visualise the difference in one line?"
+
+  utter_CompareInOut: #9
+    - text: "would you like me to add a comparison for local or international hospitals?"
+
+  utter_CompareInOutinternational: #17 and #14
+    - text: "would you like me to add a comparison for international hospitals?"
+
+  utter_CompareInOutlocal: #18 and #15
+    - text: "would you like me to add a comparison for local hospitals?"
+
   utter_SetAnnotationGoal_response: # 16
   - text: "What goal would you like to set for DNT?"
 
@@ -80,6 +90,9 @@ actions:
   - PlotTimelineOfPatientsIn #12
   - PlotTimelineOfInVsOut #13
   - GoalSetting #16
+  - CombineInVsOut #9
+  - CombineInVsOut_local #17
+  - CombineInVsOut_international #18
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

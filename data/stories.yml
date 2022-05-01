@@ -107,6 +107,27 @@ stories:
   - action: PlotTimelineOfInVsOut
   - action: utter_PlotTimelineOfInVsOut
 
+- story: Combine intake and discharge #9 from 13 to 9
+  steps:
+  - action: utter_PlotTimelineOfInVsOut
+  - intent: affirm
+  - action: CombineInVsOut
+  - action: utter_CompareInOut
+
+- story: Combine intake and discharge #17 from 9 to 17
+  steps:
+  - action: utter_CompareInOut
+  - intent: Compare_to_local_hospitals
+  - action: CombineInVsOut_local
+  - action: utter_CompareInOutinternational
+
+- story: Combine intake and discharge #18 from 9 to 18
+  steps:
+  - action: utter_CompareInOut
+  - intent: compare_to_another_country
+  - action: CombineInVsOut_international
+  - action: utter_CompareInOutlocal
+
 - story: time of DNT #16 from 7 to 16
   steps:
   - action: utter_ReadyForGoalSetting_response
