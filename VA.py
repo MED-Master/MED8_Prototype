@@ -24,7 +24,8 @@ class RASA:
     engine = pyttsx3.init(driverName='sapi5')
     engine.setProperty("rate", 200)
     voices = engine.getProperty("voices")
-    engine.setProperty("voice", voices[2].id)
+    engine.setProperty('voice',"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0")
+    #engine.setProperty("voice", voices[1].id)
     bot_message = ""
     message = ""
     r = requests.post('http://localhost:5002/webhooks/rest/webhook', json={"message": "Hello"})
