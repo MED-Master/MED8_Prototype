@@ -269,6 +269,7 @@ class GoalSetting(Action):#16
                 DNT_Goal = text2num(DNT_Goal)
                 DNT_Goal = str(DNT_Goal)
             dispatcher.utter_message(text="Your DNT goal is " + DNT_Goal)
+            DNT_Goal = int(DNT_Goal)
             int(DNT_Goal)
             # plotting.linePlot("Dates", "DNT (Median)", "Country", "Hospital", plotting.df, folder.baseFolder)
             # MAKE PLOT FOR THIS
