@@ -177,6 +177,50 @@ class PlotTimelineOfInVsOut(Action):#13
         #MAKE PLOT FOR THIS
         return []
 
+class CombineInVsOut(Action):#9
+
+    def name(self) -> Text:
+        return "CombineInVsOut"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is the timeline for the difference between Patient intake and discharge!")
+        plotting.dnt_timeline(plotting, "Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
+                                       ["Lyon"], "Hospital")
+        #MAKE PLOT FOR THIS
+        return []
+
+class CombineInVsOut_local(Action):#17
+
+    def name(self) -> Text:
+        return "CombineInVsOut_local"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is the comparison with local hospitals!")
+        plotting.dnt_timeline(plotting, "Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
+                                       ["France", "Lyon (your hospital)"], "Country")
+        #MAKE PLOT FOR THIS
+        return []
+
+class CombineInVsOut_international(Action):#18
+
+    def name(self) -> Text:
+        return "CombineInVsOut_international"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Here is the comparison with international hospitals!")
+        plotting.create_international_timeline_plot("Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
+                                       ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", False)
+        #MAKE PLOT FOR THIS
+        return []
 
 class CompareInVsOutLocal(Action):#14
 
