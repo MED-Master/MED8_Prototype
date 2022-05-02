@@ -74,16 +74,39 @@ stories:
   steps:
   - action: utter_local_compare_timeline_of_DNT_response
   - intent: no_annotation_of_DNT_with_local_hospitals
-  - action: utter_PlotAnnotateDNTLocalHospitals_response
+  - action: utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE
 
 - story: annotatations and time of DNT with local hospitals ALT #5 ALT : from 2 to 5
   steps:
   - action: utter_local_compare_timeline_of_DNT_response
   - intent: deny
-  - action: utter_PlotAnnotateDNTLocalHospitals_response
+  - action: utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE
 
-- story: Compare DNT to other countries #6 : from 4 or 5 to 6
+- story: Compare DNT to other countries without annotations #6 : from 4 or 5 to 6
   steps:
+  - action: utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE
+  - intent: compare_to_another_country
+  - action: PlotCompareToCountry
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Compare DNT to other countries without annotations ALT #6 : from 4 or 5 to 6
+  steps:
+  - action: utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE
+  - intent: compare_to_another_country
+  - action: PlotCompareToCountry
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Compare DNT to other countries with annotations #6 : from 4 or 5 to 6
+  steps:
+  - action: affirm
+  - action: utter_PlotAnnotateDNTLocalHospitals_response
+  - intent: compare_to_another_country
+  - action: PlotCompareToCountry_alt
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Compare DNT to other countries with annotations ALT #6 : from 4 or 5 to 6
+  steps:
+  - action: annotate_DNT_with_local_hospitals
   - action: utter_PlotAnnotateDNTLocalHospitals_response
   - intent: compare_to_another_country
   - action: PlotCompareToCountry_alt
@@ -129,6 +152,12 @@ stories:
   - action: PlotPatientOfImpact_barplot
   - action: utter_PlotPatientOfImpact_barplot
 
+- story: Deny giving a reason
+  steps:
+  - action: utter_PlotCompareLocalHospitals_response
+  - intent: deny
+  - action: utter_PlotPatientOfImpact_barplot
+
 - story: Visualise patient intake timeline #12 from 11 to 12
   steps:
   - action: utter_PlotPatientOfImpact_barplot
@@ -153,9 +182,31 @@ stories:
 - story: Combine intake and discharge local #17 from 9 to 17
   steps:
   - action: utter_CompareInOut
-  - intent: Compare_to_local_hospitals
+  - intent: local_compare_timeline_of_DNT
   - action: CombineInVsOut_local
   - action: utter_CompareInOutinternational
+  - intent: affirm
+  - action: CombineInVsOut_international
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Combine intake and discharge local Alt #17 from 9 to 17
+  steps:
+  - action: utter_CompareInOut
+  - intent: local_compare_timeline_of_DNT
+  - action: CombineInVsOut_local
+  - action: utter_CompareInOutinternational
+  - intent: compare_to_another_country
+  - action: CombineInVsOut_international
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Combine intake and discharge local NEGATIVE #17 from 9 to 17
+  steps:
+  - action: utter_CompareInOut
+  - intent: local_compare_timeline_of_DNT
+  - action: CombineInVsOut_local
+  - action: utter_CompareInOutinternational
+  - intent: deny
+  - action: utter_ReadyForGoalSetting_response #7
 
 - story: Combine intake and discharge international #18 from 9 to 18
   steps:
@@ -163,6 +214,28 @@ stories:
   - intent: compare_to_another_country
   - action: CombineInVsOut_international
   - action: utter_CompareInOutlocal
+  - intent: affirm
+  - action: CombineInVsOut_local
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Combine intake and discharge international ALT #18 from 9 to 18
+  steps:
+  - action: utter_CompareInOut
+  - intent: compare_to_another_country
+  - action: CombineInVsOut_international
+  - action: utter_CompareInOutlocal
+  - intent: local_compare_timeline_of_DNT
+  - action: CombineInVsOut_local
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Combine intake and discharge international #18 from 9 to 18
+  steps:
+  - action: utter_CompareInOut
+  - intent: compare_to_another_country
+  - action: CombineInVsOut_international
+  - action: utter_CompareInOutlocal
+  - intent: deny
+  - action: utter_ReadyForGoalSetting_response #7
 
 - story: time of DNT #16 from 7 to 16
   steps:
