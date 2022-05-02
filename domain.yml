@@ -55,7 +55,7 @@ responses:
   - text: "Would you like to look at another country or talk about patient intake?"
 
   utter_ReadyForGoalSetting_response: # 7
-  - text: "Do you feel like you have enough to talk about a goal or do you want to explore the data more?"
+  - text: "Do you feel ready to set a goal and end this session or would you rather keep exploring data??"
 
   utter_AnotherPerformanceIndicator_response: # 8
   - text: "Would you like me to show you what might have impacted your DNT??"
@@ -64,22 +64,22 @@ responses:
   - text: "Would you like me to suggest a reason for why?"
 
   utter_PlotPatientOfImpact_barplot: #11
-  - text: "Would you like to see a timeline of patients in care at your hospital or should I show a timeline of Door to needle times?"
+  - text: "Would you like to see a timeline of patient intake at your hospital or should we return to a door to needle times timeline?"
 
   utter_PlotTimelineIntake: #12
   - text: "Should I also visualise your patient discharge?"
 
   utter_PlotTimelineOfInVsOut: #13
-  - text: "Should I make a timeline for the net loss or gain to the number of patients in your care?"
+  - text: "Would you like to see a timeline showing the increase of patients in your care?"
 
   utter_CompareInOut: #9
-    - text: "would you like me to add a comparison for local or international hospitals?"
+  - text: "would you like me to add a comparison for local or international hospitals?"
 
   utter_CompareInOutinternational: #17 and #14
-    - text: "would you like me to add a comparison for international hospitals?"
+  - text: "would you like me to add a comparison for international hospitals?"
 
   utter_CompareInOutlocal: #18 and #15
-    - text: "would you like me to add a comparison for local hospitals?"
+  - text: "would you like me to add a comparison for local hospitals?"
 
   utter_SetAnnotationGoal_response: # 16
   - text: "What goal would you like to set for DNT?"

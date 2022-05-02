@@ -114,7 +114,7 @@ class PlotPatientOfImpact_barplot(Action): #11
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="The biggest reason I can see is the increased amount of patients you have received recently.")
+        dispatcher.utter_message(text="As you can see here, your hospital recieves more patients than others. This can likely explain your hospital's longer door to needle times.")
         plotting.dnt_barplot_bycountry("Hospital", "Patient Intake", plotting.df, folder.baseFolder)
         return []
 
@@ -127,7 +127,7 @@ class PlotCompareLocalHospitals(Action): #10
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         plotting.dnt_barplot_bycountry("Hospital", "DNT (Mean)", plotting.df, folder.baseFolder)
-        dispatcher.utter_message(text="Your Mean DNT is 5 min higher than the average of local hospitals.")
+        dispatcher.utter_message(text="Your Mean DNT is 5 minutes higher than the average of local hospitals.")
 
 
         return []

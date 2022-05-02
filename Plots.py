@@ -20,7 +20,7 @@ class plotting():
     sns.set_theme(style="whitegrid")
     sns.set(rc={"figure.figsize":(17, 10)}) #width, height
     plt.rcParams['axes.grid'] = True
-    plt.rcParams['grid.color'] = "#000000"
+    plt.rcParams['grid.color'] = "#DCDCDC"
     plt.rcParams['savefig.transparent'] = True
 
 
@@ -47,7 +47,7 @@ class plotting():
                            size=15,
                            xytext=(0, -20),
                            textcoords='offset points',
-                           fontsize=10)
+                           fontsize=10,)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -58,7 +58,7 @@ class plotting():
 
     def dnt_timeline(self, x, y, data, folder, plot_filter=None, filter_category=None):
         plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
-
+        plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -79,7 +79,7 @@ class plotting():
                     ha='center',
                     va='center',
                     fontsize=15)
-
+        plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -94,8 +94,9 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
+
         plot = sns.lineplot(
             x=x,
             y=y,
@@ -103,8 +104,11 @@ class plotting():
             style="Hospital",
             data=timeline_dat,
             palette=palette,
-            legend=False)
+            legend=False,
+            linewidth=3)
+
         plot.grid(axis='x')
+
         names = timeline_dat.groupby("Country")["Hospital"].apply(lambda x: list(np.unique(x)))
         name_array = []
         for i in names:
@@ -120,8 +124,8 @@ class plotting():
                 continue
             plot.annotate(name,
                           xy=(x, y),
-                          xytext=(0, 0),
-                          color=line.get_color(),
+                          xytext=(4, 4),
+                          color="#000000",
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
                           textcoords="offset points")
@@ -134,8 +138,9 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
+
         plot = sns.lineplot(
             x=x,
             y=y,
@@ -144,7 +149,8 @@ class plotting():
             data=timeline_dat,
             palette=palette,
             legend=False,
-            ci=None)
+            ci=None,
+            linewidth=3)
         plot.grid(axis='x')
         names = timeline_dat.Country.unique()
         for line, name in zip(plot.lines, names):
@@ -157,7 +163,7 @@ class plotting():
             plot.annotate(name,
                           xy=(x, y),
                           xytext=(0, 0),
-                          color=line.get_color(),
+                          color="#000000",
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
                           textcoords="offset points")
@@ -173,6 +179,7 @@ class plotting():
                           ha='center',
                           va='center',
                           fontsize=15)
+        plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -192,7 +199,8 @@ class plotting():
             color="Red",
             data=timeline_dat,
             legend=False,
-            ci=None)
+            ci=None,
+            linewidth=3)
 
         plot2 = sns.lineplot(
             x=x,
@@ -200,7 +208,8 @@ class plotting():
             color="b",
             data=timeline_dat,
             legend=False,
-            ci=None).grid(axis="x")
+            ci=None,
+            linewidth=3).grid(axis="x")
         plot.set_ylabel("Number of Patients")
         for line, name in zip(plot.lines, ["Patient intake", "Discharge"]):
             y = line.get_ydata()[-1]
@@ -212,7 +221,7 @@ class plotting():
             plot.annotate(name,
                           xy=(x, y),
                           xytext=(0, 0),
-                          color=line.get_color(),
+                          color="#000000",
                           xycoords=(plot.get_xaxis_transform(),
                                     plot.get_yaxis_transform()),
                           textcoords="offset points")
@@ -230,7 +239,7 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
         fig, axs = plt.subplots(ncols=2)
         sns.lineplot(
@@ -241,7 +250,8 @@ class plotting():
             data=timeline_dat,
             palette=palette,
             legend=False,
-            ax=axs[0])
+            ax=axs[0],
+            linewidth=3)
         axs[0].grid(axis='x')
         for ind, label in enumerate(axs[0].get_xticklabels()):
             if ind % 4 == 0:  # every 10th label is kept
@@ -263,7 +273,7 @@ class plotting():
             axs[0].annotate(name,
                           xy=(x, y),
                           xytext=(0, 0),
-                          color=line.get_color(),
+                          color="#000000",
                           xycoords=(axs[0].get_xaxis_transform(),
                                     axs[0].get_yaxis_transform()),
                           textcoords="offset points")
@@ -275,7 +285,8 @@ class plotting():
             data=timeline_dat,
             palette=palette,
             legend=False,
-            ax=axs[1])
+            ax=axs[1],
+            linewidth=3)
         axs[1].grid(axis='x')
         for ind, label in enumerate(axs[1].get_xticklabels()):
             if ind % 4 == 0:  # every 10th label is kept
@@ -297,7 +308,7 @@ class plotting():
             axs[1].annotate(name,
                             xy=(x, y),
                             xytext=(0, 0),
-                            color=line.get_color(),
+                            color="#000000",
                             xycoords=(axs[1].get_xaxis_transform(),
                                       axs[1].get_yaxis_transform()),
                             textcoords="offset points")
@@ -315,7 +326,7 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else 'b' if c == "France" else "grey" for c in
+        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
         fig, axs = plt.subplots(ncols=2)
         sns.lineplot(
@@ -326,7 +337,8 @@ class plotting():
             data=timeline_dat,
             palette=palette,
             legend=False,
-            ax=axs[0])
+            ax=axs[0],
+            linewidth=3)
         axs[0].grid(axis='x')
         for ind, label in enumerate(axs[0].get_xticklabels()):
             if ind % 4 == 0:  # every 10th label is kept
@@ -348,7 +360,7 @@ class plotting():
             axs[0].annotate(name,
                             xy=(x, y),
                             xytext=(0, 0),
-                            color=line.get_color(),
+                            color="#000000",
                             xycoords=(axs[0].get_xaxis_transform(),
                                       axs[0].get_yaxis_transform()),
                             textcoords="offset points")
@@ -360,7 +372,8 @@ class plotting():
             data=timeline_dat,
             palette=palette,
             legend=False,
-            ax=axs[1])
+            ax=axs[1],
+            linewidth = 3)
         axs[1].grid(axis='x')
         for ind, label in enumerate(axs[1].get_xticklabels()):
             if ind % 4 == 0:  # every 10th label is kept
@@ -382,10 +395,11 @@ class plotting():
             axs[1].annotate(name,
                             xy=(x, y),
                             xytext=(0, 0),
-                            color=line.get_color(),
+                            color="#000000",
                             xycoords=(axs[1].get_xaxis_transform(),
                                       axs[1].get_yaxis_transform()),
                             textcoords="offset points")
+
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -402,7 +416,7 @@ class plotting():
                   "GOAL",
                   fontsize=18,
                   color="red")
-
+        plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')

@@ -331,5 +331,8 @@ stories:
     - intent: deny
     - action: utter_ReadyForGoalSetting_response #7
 
-
+- story: explore
+  steps:
+  - action: utter_ReadyForGoalSetting_response #7
+  - action: utter_PlotPatientOfImpact_barplot
 
