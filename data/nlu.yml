@@ -145,7 +145,14 @@ nlu:
   examples: |
     - My DNT goal is [6](annotationForGoalSetting)
     - DNT goal [8](annotationForGoalSetting)
-    - [10](annotationForGoalSetting)
+    - [seventy five](annotationForGoalSetting)
+    - [seventy-five](annotationForGoalSetting)
+    - [forty-two](annotationForGoalSetting)
+    - [forty two](annotationForGoalSetting)
+    - [forty five](annotationForGoalSetting)
+    - [forty-five](annotationForGoalSetting)
+    - [sixty two](annotationForGoalSetting)
+    - [sixty-two](annotationForGoalSetting)
     - set goal to [5](annotationForGoalSetting)
     - Goal [7](annotationForGoalSetting)
     - DNT goal [9](annotationForGoalSetting)
@@ -154,6 +161,17 @@ nlu:
     - DNT goal [sixteen](annotationForGoalSetting)
     - set goal to [thirteen](annotationForGoalSetting)
     - Goal [nineteen](annotationForGoalSetting)
+    - My DNT goal is [forty three](annotationForGoalSetting)
+    - DNT goal [fifty nine](annotationForGoalSetting)
+    - [sixty six](annotationForGoalSetting)
+    - set goal to [seventy nine](annotationForGoalSetting)
+    - Goal [sixty seven](annotationForGoalSetting)
+    - DNT goal [fifty eight](annotationForGoalSetting)
+    - DNT goal [forty-three](annotationForGoalSetting)
+    - DNT goal [fifty seven](annotationForGoalSetting)
+    - DNT goal [sixty-three](annotationForGoalSetting)
+    - set goal to [seventy-four](annotationForGoalSetting)
+    - Goal [seventy-four](annotationForGoalSetting)
 - lookup: annotationForGoalSetting
   examples: |
     - 5
@@ -180,9 +198,81 @@ nlu:
     - twenty
     - thirty
     - forty
-    - fifty
+    - forty one
+    - forty two
+    - forty three
+    - forty four
+    - forty five
+    - forty six
+    - forty seven
+    - forty eight
+    - forty nine
+    - fifty one
+    - fifty two
+    - fifty three
+    - fifty four
+    - fifty five
+    - fifty six
+    - fifty seven
+    - fifty eight
+    - fifty nine
     - sixty
+    - sixty one
+    - sixty two
+    - sixty three
+    - sixty four
+    - sixty five
+    - sixty six
+    - sixty seven
+    - sixty eight
+    - sixty nine
+    - seventy
+    - seventy one
     - seventy two
+    - seventy three
+    - seventy four
+    - seventy five
+    - seventy six
+    - seventy seven
+    - seventy eight
+    - seventy nine
+    - forty-one
+    - forty-two
+    - forty-three
+    - forty-four
+    - forty-five
+    - forty-six
+    - forty-seven
+    - forty-eight
+    - forty-nine
+    - fifty-one
+    - fifty-two
+    - fifty-three
+    - fifty-four
+    - fifty-five
+    - fifty-six
+    - fifty-seven
+    - fifty-eight
+    - fifty-nine
+    - sixty-one
+    - sixty-two
+    - sixty-three
+    - sixty-four
+    - sixty-five
+    - sixty-six
+    - sixty-seven
+    - sixty-eight
+    - sixty-nine
+    - seventy-one
+    - seventy-two
+    - seventy-three
+    - seventy-four
+    - seventy-five
+    - seventy-six
+    - seventy-seven
+    - seventy-eight
+    - seventy-nine
+
 
 
 

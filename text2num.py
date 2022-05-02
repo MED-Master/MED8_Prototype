@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
 #print(text2num("seventy six"))
 
-DNT_goal = "ten"
+DNT_goal = "seventytwo"
 if str.isdecimal(DNT_goal) == False:
     converted_DNT_goal = text2num(DNT_goal)
     print(converted_DNT_goal)
