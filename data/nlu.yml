@@ -106,7 +106,6 @@ nlu:
     - international
     - international hospital
 
-
 - intent: Ready_for_goal_setting #7
   examples: |
     - Goal
