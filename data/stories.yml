@@ -237,6 +237,13 @@ stories:
   - intent: deny
   - action: utter_ReadyForGoalSetting_response #7
 
+- story: Combine intake and discharge international #18 from 9 to 18
+  steps:
+  - action: utter_CompareInOut
+  - intent: deny
+  - action: utter_ReadyForGoalSetting_response #7
+
+
 - story: time of DNT #16 from 7 to 16
   steps:
   - action: utter_ReadyForGoalSetting_response
@@ -245,12 +252,84 @@ stories:
   - intent: Annotate_goal
   - action: GoalSetting
 
-- story: Do Not Combine intake and discharge Local #14 from 13 to 14
+- story: Do Not Combine intake and discharge international first #14 from 13 to 14
   steps:
   - action: utter_PlotTimelineOfInVsOut
   - intent: deny
+  - action: utter_CompareInVsOut_NoCombine
+  - intent: compare_to_another_country
+  - action: CompareInVsOutInternational_notcombine
+  - action: utter_CompareInOutlocal_NoCombine
+  - intent: affirm
   - action: CompareInVsOutLocal_notcombine
-  - action: utter_CompareInOutinternational
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Do Not Combine intake and discharge international first alt #14 from 13 to 14
+  steps:
+  - action: utter_PlotTimelineOfInVsOut
+  - intent: deny
+  - action: utter_CompareInVsOut_NoCombine
+  - intent: compare_to_another_country
+  - action: CompareInVsOutInternational_notcombine
+  - action: utter_CompareInOutlocal_NoCombine
+  - intent: local_compare_timeline_of_DNT
+  - action: CompareInVsOutLocal_notcombine
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Do Not Combine intake and discharge international NEGATIVE #14 from 13 to 14
+  steps:
+    - action: utter_PlotTimelineOfInVsOut
+    - intent: deny
+    - action: utter_CompareInVsOut_NoCombine
+    - intent: compare_to_another_country
+    - action: CompareInVsOutInternational_notcombine
+    - action: utter_CompareInOutlocal_NoCombine
+    - intent: deny
+    - action: utter_ReadyForGoalSetting_response #7
+
+
+- story: Do Not Combine intake and discharge local first #14 from 13 to 14
+  steps:
+  - action: utter_PlotTimelineOfInVsOut
+  - intent: deny
+  - action: utter_CompareInVsOut_NoCombine
+  - intent: local_compare_timeline_of_DNT
+  - action: CompareInVsOutLocal_notcombine
+  - action: utter_CompareInOutInternational_NoCombine
   - intent: affirm
   - action: CompareInVsOutInternational_notcombine
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Do Not Combine intake and discharge local first alt #14 from 13 to 14
+  steps:
+  - action: utter_PlotTimelineOfInVsOut
+  - intent: deny
+  - action: utter_CompareInVsOut_NoCombine
+  - intent: local_compare_timeline_of_DNT
+  - action: CompareInVsOutInternational_notcombine
+  - action: utter_CompareInOutlocal_NoCombine
+  - intent: compare_to_another_country
+  - action: CompareInVsOutLocal_notcombine
+  - action: utter_ReadyForGoalSetting_response #7
+
+- story: Do Not Combine intake and discharge international NEGATIVE #14 from 13 to 14
+  steps:
+    - action: utter_PlotTimelineOfInVsOut
+    - intent: deny
+    - action: utter_CompareInVsOut_NoCombine
+    - intent: local_compare_timeline_of_DNT
+    - action: CompareInVsOutInternational_notcombine
+    - action: utter_CompareInOutlocal_NoCombine
+    - intent: deny
+    - action: utter_ReadyForGoalSetting_response #7
+
+- story: Do Not Combine intake and discharge international NEGATIVE #14 from 13 to 14
+  steps:
+    - action: utter_PlotTimelineOfInVsOut
+    - intent: deny
+    - action: utter_CompareInVsOut_NoCombine
+    - intent: deny
+    - action: utter_ReadyForGoalSetting_response #7
+
+
 

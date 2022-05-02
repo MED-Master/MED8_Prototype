@@ -87,6 +87,12 @@ responses:
   utter_OrientUser:
   - text: "Please clarify which option you wanted to see."
 
+  utter_CompareInVsOut_NoCombine:
+    - text: "would you like me to add a comparison for local or international hospitals?"
+  utter_CompareInOutlocal_NoCombine: #18 and #15
+    - text: "would you like me to add a comparison for local hospitals?"
+  utter_CompareInOutInternational_NoCombine: #18 and #15
+    - text: "would you like me to add a comparison for local hospitals?"
 actions:
   - PlotTimelineOfDNT #1
   - PlotlocalComparisonsTimelineOfDNT #2
