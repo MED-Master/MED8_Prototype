@@ -142,7 +142,7 @@ class PlotTimelineOfPatientsIn(Action):#12
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Here is the timeline for Patients in care!")
+        dispatcher.utter_message(text="Here is the timeline for Patients intake!")
         plotting.dnt_timeline(plotting, "Dates", "Patient Intake", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 

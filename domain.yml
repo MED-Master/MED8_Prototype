@@ -75,6 +75,9 @@ responses:
   utter_SetAnnotationGoal_response: # 16
   - text: "What goal would you like to set for DNT?"
 
+  utter_OrientUser:
+  - text: "Please clarify which option you wanted to see."
+
 actions:
   - PlotTimelineOfDNT #1
   - PlotlocalComparisonsTimelineOfDNT #2
