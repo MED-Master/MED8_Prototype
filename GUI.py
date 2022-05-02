@@ -339,6 +339,6 @@ if __name__ == "__main__":
         window.destroy()
 
     window.protocol("WM_DELETE_WINDOW", on_closing)
-
+    window.bind('<Return>', lambda event: _on_enter_pressed(event))
     window.resizable(True, True)
     window.mainloop()
