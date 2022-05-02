@@ -32,7 +32,8 @@ stories:
   steps:
   - action: utter_PlotTimelineOfDNT_response
   - intent: brainstorm_reasons_for_increase_in_DNT
-  - action: utter_ReasonsForDNTIncrease_response
+  - action: PlotPatientOfImpact_barplot
+  - action: utter_PlotPatientOfImpact_barplot
 
 - story: annotatations and time of DNT with local hospitals #4 : from 2 to 4
   steps:
@@ -41,10 +42,23 @@ stories:
   - action: PlotAnnotateDNTLocalHospitals
   - action: utter_PlotAnnotateDNTLocalHospitals_response
 
+- story: annotatations and time of DNT with local hospitals ALT #4 ALT : from 2 to 4
+  steps:
+  - action: utter_local_compare_timeline_of_DNT_response
+  - intent: affirm
+  - action: PlotAnnotateDNTLocalHospitals
+  - action: utter_PlotAnnotateDNTLocalHospitals_response
+
 - story: annotatations and time of DNT with local hospitals #5 : from 2 to 5
   steps:
   - action: utter_local_compare_timeline_of_DNT_response
   - intent: no_annotation_of_DNT_with_local_hospitals
+  - action: utter_PlotAnnotateDNTLocalHospitals_response
+
+- story: annotatations and time of DNT with local hospitals ALT #5 ALT : from 2 to 5
+  steps:
+  - action: utter_local_compare_timeline_of_DNT_response
+  - intent: deny
   - action: utter_PlotAnnotateDNTLocalHospitals_response
 
 - story: Compare DNT to other countries #6 : from 4 or 5 to 6
@@ -60,11 +74,12 @@ stories:
   - intent: Another_performance_indicator
   - action: utter_AnotherPerformanceIndicator_response
 
-- story: Another performance indicator #8 : from 5 or 8
+- story: Another performance indicator #3 : from 4 or 5
   steps:
   - action: utter_PlotAnnotateDNTLocalHospitals_response
-  - intent: Another_performance_indicator
-  - action: utter_AnotherPerformanceIndicator_response
+  - intent: Visualise_intake_timeline
+  - action: PlotPatientOfImpact_barplot
+  - action: utter_PlotPatientOfImpact_barplot
 
 - story: No to more exploring #8 from 8 to 7
   steps:

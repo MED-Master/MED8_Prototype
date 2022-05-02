@@ -24,9 +24,6 @@ responses:
   utter_greet:
   - text: "Hey! How are you?"
 
-  utter_happy:
-  - text: "Great, carry on!"
-
   utter_goodbye:
   - text: "Bye"
 
@@ -34,19 +31,19 @@ responses:
   - text: "I am a bot, powered by Rasa."
 
   utter_Intro_response: #0
-  - text: "Welcome back, the figure here shows the mean DNT of your hospital compared to other countries. Your DNT is 5 minutes higher compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
+  - text: "Welcome back, this figure shows the mean door to needle time of your hospital compared to other countries. Your DNT is 5 minutes higher compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
 
   utter_PlotTimelineOfDNT_response: #1
-  - text: "Your DNT has been going up recently, do you want to compare to other local hospitals or would you like to talk about some other performance indicator?"
+  - text: "Your DNT has been going up recently. Do you want to compare with other local hospitals or should we look at possible causes?"
 
   utter_local_compare_timeline_of_DNT_response: #2
-    - text: "I can see there's a big bump in 2021 which coincides with a large intake of patients, would you like me to annotate it?"
+    - text: "There's a big jump in door to needle times in 2021 which coincides with a large intake of patients, would you like me to annotate it?"
 
   utter_ReasonsForDNTIncrease_response: #3
     - text: "Would you like me to show you what might have impacted your DNT?"
 
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
-  - text: "Would you like to look at another country or talk about some other performance indicator?"
+  - text: "Would you like to look at another country or talk about patient intake?"
 
   utter_ReadyForGoalSetting_response: # 7
   - text: "Do you feel like you have enough to talk about a goal or do you want to explore the data more?"
@@ -58,7 +55,7 @@ responses:
   - text: "Would you like me to suggest a reason for why?"
 
   utter_PlotPatientOfImpact_barplot: #11
-  - text: "Would you like to see a timeline of patients in care at your hospital or a timeline of Door to needle times?"
+  - text: "Would you like to see a timeline of patients in care at your hospital or should I show a timeline of Door to needle times?"
 
   utter_PlotTimelineIntake: #12
   - text: "Should I also visualise your patient discharge?"

@@ -37,7 +37,7 @@ class PlotTimelineOfDNT(Action):#1
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Here is the timeline for DNT!")
+        dispatcher.utter_message(text="Here is the timeline for door to needle times!")
         plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
         return []
 
@@ -50,7 +50,7 @@ class PlotlocalComparisonsTimelineOfDNT(Action): #2
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Here is the timeline for DNT with other local hospitals!")
+        dispatcher.utter_message(text="Here is the DNT timeline for other local hospitals!")
         plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
                               ["France", "Lyon (your hospital)"], "Country")
 
@@ -66,7 +66,7 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Here is the annotations with the DNT of local hospitals")
+        dispatcher.utter_message(text="Here is the annotation with the DNT of local hospitals")
         plotting.annotate_timeline_event(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
                                          ["France", "Lyon (your hospital)"], "Country")
 
@@ -104,19 +104,6 @@ class PlotCompareToCountry_alt(Action): #6_alt
 
         return []
 
-class PlotPatientOfImpact_Timeline(Action): #9
-
-    def name(self) -> Text:
-        return "PlotPatientOfImpact"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
-
-
-        return []
 
 class PlotPatientOfImpact_barplot(Action): #11
 
@@ -127,9 +114,8 @@ class PlotPatientOfImpact_barplot(Action): #11
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="The biggest reason I can see can be the increased amount of patients you have had recently.")
+        dispatcher.utter_message(text="The biggest reason I can see is the increased amount of patients you have received recently.")
         plotting.dnt_barplot_bycountry("Hospital", "Patient Intake", plotting.df, folder.baseFolder)
-        #MAKE A BARPLOT
         return []
 
 class PlotCompareLocalHospitals(Action): #10
