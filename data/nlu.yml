@@ -141,6 +141,9 @@ nlu:
     - intake
     - intake timeline
     - intake over time
+    - patient intake timeline
+    - timeline intake
+    - patient timeline
 
 - intent: explore #11
   examples: |

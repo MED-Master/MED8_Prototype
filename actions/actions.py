@@ -68,7 +68,7 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
 
         dispatcher.utter_message(text="Here is the annotation with the DNT of local hospitals")
         plotting.annotate_timeline_event(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                                         "Mean DNT over time with international hospitals", ["France", "Lyon"], "Country")
+                                          ["France", "Lyon"], "Country")
 
 
         return []

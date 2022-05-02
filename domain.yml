@@ -23,7 +23,7 @@ entities:
   - annotationForGoalSetting #16
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey! Welcome back!"
 
   utter_goodbye:
   - text: "Bye"
@@ -32,28 +32,28 @@ responses:
   - text: "I am a bot, powered by Rasa."
 
   utter_please_rephrase: #fallback response
-    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+    - text: "I'm sorry, I didn't understand that. Can you rephrase?"
 
   utter_Intro_response: #0
-  - text: "Welcome back, this figure shows the mean door to needle time of your hospital compared to other countries. Your DNT is 5 minutes higher compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
+  - text: "This figure shows the mean door to needle time of your hospital compared to other countries. Would you like to see a timeline of your DNT? Or would like me to compare to other local hospitals?"
 
   utter_PlotTimelineOfDNT_response: #1
-  - text: "Your DNT has been going up recently. Do you want to compare with other local hospitals or should we look at possible causes?"
+  - text: "Your DNT has been going up this year. Do you want to see local hospital timelines? Alternatively, we could look at possible causes. Let me know which to show you."
 
   utter_local_compare_timeline_of_DNT_response_insight: #2
-    - text: "Your door to needle times have risen over the past year well above the local average."
+    - text: "Your door to needle times have risen over the past year well above the national average."
 
   utter_local_compare_timeline_of_DNT_response: #2
-    - text: "The big jump in door to needle times in 2021 may be caused by the unusually large intake of patients at the time. Would you like me to annotate that?"
+    - text: "The big jump in door to needle times in 2021 may be caused by the large intake of patients that year. Would you like me to annotate that?"
 
   utter_ReasonsForDNTIncrease_response: #3
     - text: "Would you like me to show you what might have impacted your DNT?"
 
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
-  - text: "Would you like to look at another country or talk about patient intake?"
+  - text: "Would you like to look at another country? Or do we move on to patient intake? Let me know which one you want to see first."
 
   utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE: # 4 and 5
-  - text: "Would you like to look at another country or talk about patient intake?"
+  - text: "Would you like to look at another country or talk about patient intake? Pick one for me to show you."
 
   utter_ReadyForGoalSetting_response: # 7
   - text: "Do you feel ready to set a goal and end this session or would you rather keep exploring data??"
@@ -62,10 +62,10 @@ responses:
   - text: "Would you like me to show you what might have impacted your DNT??"
 
   utter_PlotCompareLocalHospitals_response: # 10
-  - text: "Would you like me to suggest a reason for why?"
+  - text: "Would you like me to suggest a reason for why you hospital's DNT has been rising?"
 
   utter_PlotPatientOfImpact_barplot: #11
-  - text: "Would you like to see a timeline of patient intake at your hospital or should we return to a door to needle times timeline?"
+  - text: "Would you like to see a timeline patient intake timeline or should we return to a door to needle times timeline? Let me know which timeline to show you."
 
   utter_PlotTimelineIntake: #12
   - text: "Should I also visualise your patient discharge?"
@@ -74,7 +74,7 @@ responses:
   - text: "Would you like to see a timeline showing the increase of patients in your care?"
 
   utter_CompareInOut: #9
-  - text: "would you like me to add a comparison for local or international hospitals?"
+  - text: "would you like me to add a comparison for local hospitals? I can also show you international hospitals. Let me know which to show first."
 
   utter_CompareInOutinternational: #17 and #14
   - text: "would you like me to add a comparison for international hospitals?"
