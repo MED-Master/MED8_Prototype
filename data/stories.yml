@@ -334,5 +334,6 @@ stories:
 - story: explore
   steps:
   - action: utter_ReadyForGoalSetting_response #7
-  - action: utter_PlotPatientOfImpact_barplot
+  - intent: explore
+  - action: utter_PlotPatientOfImpact_barplot #11
 

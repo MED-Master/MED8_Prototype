@@ -22,7 +22,7 @@ class RASA:
     WIT_AI_KEY = 'IQAXGNZQWIAZL5VAI7GUT6JK3P3RJ3TZ' #wit API key
     #RASA setup
     engine = pyttsx3.init(driverName='sapi5')
-    engine.setProperty("rate", 200)
+    engine.setProperty("rate", 190)
     voices = engine.getProperty("voices")
     engine.setProperty('voice',"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0")
     #engine.setProperty("voice", voices[1].id)

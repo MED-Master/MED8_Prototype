@@ -38,7 +38,7 @@ class PlotTimelineOfDNT(Action):#1
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for door to needle times!")
-        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
+        plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder, "Change in DNT over time", ["Lyon"], "Hospital")
         return []
 
 class PlotlocalComparisonsTimelineOfDNT(Action): #2
@@ -52,7 +52,7 @@ class PlotlocalComparisonsTimelineOfDNT(Action): #2
 
         dispatcher.utter_message(text="Here is the DNT timeline for other local hospitals!")
         plotting.dnt_timeline(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                              ["France", "Lyon (your hospital)"], "Country")
+                              "Mean DNT over time with local hospitals", ["France", "Lyon"], "Country")
 
         return []
 
@@ -68,7 +68,7 @@ class PlotAnnotateDNTLocalHospitals(Action): #4
 
         dispatcher.utter_message(text="Here is the annotation with the DNT of local hospitals")
         plotting.annotate_timeline_event(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                                         ["France", "Lyon (your hospital)"], "Country")
+                                         "Mean DNT over time with international hospitals", ["France", "Lyon"], "Country")
 
 
         return []
@@ -85,7 +85,7 @@ class PlotCompareToCountry(Action): #6
 
         dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                              ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", False)
+                              "Mean DNT compared internationally",["France", "Lyon", "Slovakia", "South Africa"], "Country", False)
 
         return []
 
@@ -100,7 +100,7 @@ class PlotCompareToCountry_alt(Action): #6_alt
 
         dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                              ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", True)
+                              "Mean DNT compared internationally", ["France", "Lyon", "Slovakia", "South Africa"], "Country", True)
 
         return []
 
@@ -115,7 +115,7 @@ class PlotPatientOfImpact_barplot(Action): #11
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="As you can see here, your hospital recieves more patients than others. This can likely explain your hospital's longer door to needle times.")
-        plotting.dnt_barplot_bycountry("Hospital", "Patient Intake", plotting.df, folder.baseFolder)
+        plotting.dnt_barplot_bycountry("Hospital", "Patient Intake", plotting.df, folder.baseFolder, "Comparing mean patient intake internationally (2022 Q1)")
         return []
 
 class PlotCompareLocalHospitals(Action): #10
@@ -126,7 +126,7 @@ class PlotCompareLocalHospitals(Action): #10
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        plotting.dnt_barplot_bycountry("Hospital", "DNT (Median)", plotting.df, folder.baseFolder)
+        plotting.dnt_barplot_bycountry("Hospital", "DNT (Median)", plotting.df, folder.baseFolder, "Comparing mean DNT with local hospitals (2022 Q1)")
         dispatcher.utter_message(text="Your Mean DNT is 5 minutes higher than the average of local hospitals.")
 
 
@@ -143,7 +143,7 @@ class PlotTimelineOfPatientsIn(Action):#12
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dispatcher.utter_message(text="Here is the timeline for Patients intake!")
-        plotting.dnt_timeline(plotting, "Dates", "Patient Intake", plotting.df, folder.baseFolder, ["Lyon"], "Hospital")
+        plotting.dnt_timeline(plotting, "Dates", "Patient Intake", plotting.df, folder.baseFolder, "Intake of patients over time", ["Lyon"], "Hospital")
         return []
 
 
@@ -173,7 +173,7 @@ class CombineInVsOut(Action):#9
 
         dispatcher.utter_message(text="Here is the timeline for the difference between Patient intake and discharge!")
         plotting.dnt_timeline(plotting, "Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
-                                       ["Lyon"], "Hospital")
+                                       "Patient intake - Discharge", ["Lyon"], "Hospital")
         #MAKE PLOT FOR THIS
         return []
 
@@ -188,7 +188,7 @@ class CombineInVsOut_local(Action):#17
 
         dispatcher.utter_message(text="Here is the comparison with local hospitals!")
         plotting.dnt_timeline(plotting, "Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
-                                       ["France", "Lyon (your hospital)"], "Country")
+                                       "Patient intake - Discharge compared with local hospitals", ["France", "Lyon"], "Country")
         #MAKE PLOT FOR THIS
         return []
 
@@ -203,7 +203,7 @@ class CombineInVsOut_international(Action):#18
 
         dispatcher.utter_message(text="Here is the comparison with international hospitals!")
         plotting.create_international_timeline_plot("Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
-                                       ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", False)
+                                       "Patient intake - Discharge compared internationally", ["France", "Lyon", "Slovakia", "South Africa"], "Country", False)
         #MAKE PLOT FOR THIS
         return []
 
@@ -218,7 +218,7 @@ class CompareInVsOutLocal_notcombine(Action):#14
 
         dispatcher.utter_message(text="Here is a comparison with local hospitals!")
         plotting.Plot_InVsOut_notcombined_local("Dates", "Patient Intake", "Discharge", plotting.df, folder.baseFolder,
-                                                ["France", "Lyon (your hospital)"], "Country")
+                                                ["France", "Lyon"], "Country")
         #MAKE PLOT FOR THIS
         return []
 
@@ -233,7 +233,7 @@ class CompareInVsOutInternational_notcombine(Action):#15
 
         dispatcher.utter_message(text="Here is a comparison with International hospitals!")
         plotting.Plot_InVsOut_notcombined_international("Dates", "Patient Intake", "Discharge", plotting.df,
-                                                        folder.baseFolder, ["France", "Lyon (your hospital)",
+                                                        folder.baseFolder, ["France", "Lyon",
                                                                             "Slovakia", "South Africa"], "Country",)
 
 
@@ -261,7 +261,7 @@ class GoalSetting(Action):#16
             DNT_Goal = int(DNT_Goal)
 
             plotting.annotate_goal(plotting, "Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                                                                DNT_Goal, ["France", "Lyon (your hospital)"], "Country")
+                                                                DNT_Goal, ["France", "Lyon"], "Country")
             dispatcher.utter_message(text="Thanks for the discussion, looking forward to the next session!")
             return []
 

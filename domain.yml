@@ -18,6 +18,7 @@ intents:
   - Compare_to_local_hospitals #10
   - Visualise_intake_timeline #11
   - Annotate_goal #16
+  - explore
 entities:
   - annotationForGoalSetting #16
 responses:

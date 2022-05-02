@@ -28,20 +28,21 @@ class plotting():
     # Plot the responses for different events and regions
 
     @staticmethod
-    def dnt_barplot_bycountry(x, y, data, folder):
+    def dnt_barplot_bycountry(x, y, data, folder, title):
         barplot_dat = pd.DataFrame(data)
         barplot_dat = barplot_dat[barplot_dat["Dates"] == "2022 Q1"]
         barplot_dat.groupby("Country").mean()
         if (x == "Hospitals"):
-            barplot_dat = barplot_dat[barplot_dat["Countries"] == "France" and barplot_dat["Countries"] == "Lyon (your hospital)" ]
+            barplot_dat = barplot_dat[barplot_dat["Countries"] == "France" and barplot_dat["Countries"] == "Lyon" ]
         plot = sns.barplot(
             x=x,
             y=y,
             data=barplot_dat,
-            palette=["grey" if (x!="France") and (x!="Lyon (your hospital)") else "b" if (x=="France") else "orange" for
+            palette=["grey" if (x!="France") and (x!="Lyon") else "b" if (x=="France") else "orange" for
                      x in barplot_dat.Country],
             ci=None
         )
+        plot.set_title(title, y =0.97, fontdict= {'fontsize': 24, 'fontweight':'bold'})
         for p in plot.patches:
             plot.annotate(format(p.get_height(), '.1f'),
                            (p.get_x() + p.get_width() / 2., p.get_height()),
@@ -58,8 +59,9 @@ class plotting():
         plt.clf()
 
 
-    def dnt_timeline(self, x, y, data, folder, plot_filter=None, filter_category=None):
+    def dnt_timeline(self, x, y, data, folder, title, plot_filter=None, filter_category=None):
         plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
+        plot.set_title(title, y =0.97, fontdict= {'fontsize': 24, 'fontweight':'bold'})
         plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
@@ -70,7 +72,7 @@ class plotting():
 
     def annotate_timeline_event(self, x, y, data, folder, plot_filter=None, filter_category=None):
         plot = self.create_timeline_plot(x, y, data, plot_filter, filter_category)
-
+        plot.set_title("Mean DNT over time with international hospitals", y =0.97, fontdict= {'fontsize': 24, 'fontweight':'bold'})
         plot.axvline('2021 Q1', ls='--', linewidth=3, color='red')
         plot.annotate('Large intake of patients',
                     xy=('2021 Q1', 53),
@@ -96,7 +98,7 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
+        palette = {c: 'orange' if c == 'Lyon' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
 
         plot = sns.lineplot(
@@ -134,13 +136,13 @@ class plotting():
         return plot
 
     @staticmethod
-    def create_international_timeline_plot(x, y, data, folder, plot_filter=None, filter_category=None, annotate=None):
+    def create_international_timeline_plot(x, y, data, folder, title, plot_filter=None, filter_category=None, annotate=None):
         timeline_dat = pd.DataFrame(data)
 
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
+        palette = {c: 'orange' if c == 'Lyon' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
 
         plot = sns.lineplot(
@@ -154,6 +156,9 @@ class plotting():
             ci=None,
             linewidth=3)
         plot.grid(axis='x')
+        plt.ylim(min(timeline_dat[y]), max(timeline_dat[y]) + 10)
+        plot.set_title(title, y =0.97, fontdict= {'fontsize': 24, 'fontweight':'bold'})
+
         names = timeline_dat.Country.unique()
         for line, name in zip(plot.lines, names):
             y = line.get_ydata()[-1]
@@ -181,7 +186,6 @@ class plotting():
                           ha='center',
                           va='center',
                           fontsize=15)
-        plt.ylim(min(data[y]), max(data[y]) + 10)
         now = time.time()
         dt = datetime.fromtimestamp(now)
         dt = str(dt).split('.')[0].replace(":", '-')
@@ -203,7 +207,7 @@ class plotting():
             legend=False,
             ci=None,
             linewidth=3)
-
+        plot.set_title("Patient Intake compared to Discharge", y =0.97, fontdict= {'fontsize': 24, 'fontweight':'bold'})
         plot2 = sns.lineplot(
             x=x,
             y=y2,
@@ -241,7 +245,7 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
+        palette = {c: 'orange' if c == 'Lyon' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
         fig, axs = plt.subplots(ncols=2)
         sns.lineplot(
@@ -328,7 +332,7 @@ class plotting():
         if plot_filter is not None:
             timeline_dat = timeline_dat[timeline_dat[filter_category].isin(plot_filter)]
 
-        palette = {c: 'orange' if c == 'Lyon (your hospital)' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
+        palette = {c: 'orange' if c == 'Lyon' else (0, 0.5, 1, 0.3) if c == "France" else (0.8, 0.8, 0.8, 0.3) for c in
                    timeline_dat.Country.unique()}
         fig, axs = plt.subplots(ncols=2)
         sns.lineplot(

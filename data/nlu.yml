@@ -105,6 +105,7 @@ nlu:
     - another country
     - international
     - international hospital
+    - other countries
 
 - intent: Ready_for_goal_setting #7
   examples: |
@@ -140,6 +141,12 @@ nlu:
     - intake
     - intake timeline
     - intake over time
+
+- intent: explore #11
+  examples: |
+    - I want to explore
+    - explore
+
 
 - intent: Annotate_goal #16
   examples: |

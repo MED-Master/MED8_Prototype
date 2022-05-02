@@ -14,7 +14,7 @@ from foldercreation import folder
 #on the second day God created time by importing
 if __name__ == "__main__":
     folder.Create()
-    plotting.dnt_barplot_bycountry("Country", "DNT (Mean)", plotting.df, folder.baseFolder)
+    plotting.dnt_barplot_bycountry("Country", "DNT (Median)", plotting.df, folder.baseFolder, "Comparing mean DNT internationally (2022 Q1)")
     RASA = RASA()
     figure = figure()
     LogObject = Logger()
