@@ -30,6 +30,9 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
+  utter_please_rephrase: #fallback response
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+
   utter_Intro_response: #0
   - text: "Welcome back, this figure shows the mean door to needle time of your hospital compared to other countries. Your DNT is 5 minutes higher compared to last time we spoke. Would you like to see a timeline or would like me to compare to other local hospitals?"
 

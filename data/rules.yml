@@ -23,6 +23,10 @@ rules:
   - action: PlotTimelineOfDNT
   - action: utter_PlotTimelineOfDNT_response
 
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
 
 #- rule: show a local timeline of DNT with a reply
 #  steps:
