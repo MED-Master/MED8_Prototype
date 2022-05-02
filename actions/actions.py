@@ -126,7 +126,7 @@ class PlotCompareLocalHospitals(Action): #10
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        plotting.dnt_barplot_bycountry("Hospital", "DNT (Mean)", plotting.df, folder.baseFolder)
+        plotting.dnt_barplot_bycountry("Hospital", "DNT (Median)", plotting.df, folder.baseFolder)
         dispatcher.utter_message(text="Your Mean DNT is 5 minutes higher than the average of local hospitals.")
 
 

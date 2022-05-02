@@ -2,15 +2,15 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2018 Q1,Estonia,Estonia,40,31,10,12,-2
 2018 Q2,Estonia,Estonia,27,23,11,12,-1
 2018 Q3,Estonia,Estonia,27,35,11,14,-3
-2018 Q4,Estonia,Estonia,21,24,15,11,4
+2018 Q4,Estonia,Estonia,30,24,15,11,4
 2019 Q1,Estonia,Estonia,32,26,10,14,-4
 2019 Q2,Estonia,Estonia,31,20,12,12,0
 2019 Q3,Estonia,Estonia,33,23,15,12,3
 2019 Q4,Estonia,Estonia,30,26,10,12,-2
-2020 Q1,Estonia,Estonia,22,40,15,13,2
+2020 Q1,Estonia,Estonia,32,40,15,13,2
 2020 Q2,Estonia,Estonia,28,36,13,10,3
 2020 Q3,Estonia,Estonia,37,38,10,13,-3
-2020 Q4,Estonia,Estonia,21,26,15,15,0
+2020 Q4,Estonia,Estonia,35,26,15,15,0
 2021 Q1,Estonia,Estonia,31,33,11,13,-2
 2021 Q2,Estonia,Estonia,40,38,15,15,0
 2021 Q3,Estonia,Estonia,26,20,12,11,1
@@ -50,57 +50,57 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2021 Q3,Paris,France,32,34,10,12,-2
 2021 Q4,Paris,France,27,28,10,15,-5
 2022 Q1,Paris,France,30,33,12,13,-1
-2018 Q1,Iran,Iran,27,20,14,12,2
-2018 Q2,Iran,Iran,26,22,12,14,-2
-2018 Q3,Iran,Iran,26,23,12,14,-2
-2018 Q4,Iran,Iran,33,31,13,11,2
-2019 Q1,Iran,Iran,36,21,12,15,-3
-2019 Q2,Iran,Iran,34,34,13,14,-1
-2019 Q3,Iran,Iran,36,34,10,11,-1
-2019 Q4,Iran,Iran,23,24,14,12,2
-2020 Q1,Iran,Iran,39,21,12,10,2
-2020 Q2,Iran,Iran,39,21,13,14,-1
-2020 Q3,Iran,Iran,30,28,12,13,-1
-2020 Q4,Iran,Iran,40,30,11,11,0
-2021 Q1,Iran,Iran,35,22,13,15,-2
-2021 Q2,Iran,Iran,24,26,15,12,3
-2021 Q3,Iran,Iran,37,25,15,13,2
-2021 Q4,Iran,Iran,24,27,12,11,1
-2022 Q1,Iran,Iran,23,25,12,10,2
-2018 Q1,South Korea,South Korea,16,10,12,11,1
-2018 Q2,South Korea,South Korea,16,10,15,14,1
-2018 Q3,South Korea,South Korea,28,34,12,15,-3
-2018 Q4,South Korea,South Korea,22,35,13,10,3
-2019 Q1,South Korea,South Korea,18,24,11,13,-2
-2019 Q2,South Korea,South Korea,15,16,11,12,-1
-2019 Q3,South Korea,South Korea,27,33,13,12,1
-2019 Q4,South Korea,South Korea,26,35,13,10,3
-2020 Q1,South Korea,South Korea,21,13,10,14,-4
-2020 Q2,South Korea,South Korea,16,29,10,13,-3
-2020 Q3,South Korea,South Korea,15,28,12,14,-2
-2020 Q4,South Korea,South Korea,22,21,13,15,-2
-2021 Q1,South Korea,South Korea,16,25,15,14,1
-2021 Q2,South Korea,South Korea,20,31,10,12,-2
-2021 Q3,South Korea,South Korea,15,15,14,15,-1
-2021 Q4,South Korea,South Korea,25,20,14,14,0
-2022 Q1,South Korea,South Korea,22,12,12,10,2
-2018 Q1,Kazakhstan,Kazakhstan,37,29,11,10,1
-2018 Q2,Kazakhstan,Kazakhstan,40,45,14,11,3
-2018 Q3,Kazakhstan,Kazakhstan,31,46,15,12,3
-2018 Q4,Kazakhstan,Kazakhstan,35,31,10,10,0
-2019 Q1,Kazakhstan,Kazakhstan,25,49,15,13,2
-2019 Q2,Kazakhstan,Kazakhstan,28,33,15,13,2
-2019 Q3,Kazakhstan,Kazakhstan,34,35,14,15,-1
-2019 Q4,Kazakhstan,Kazakhstan,21,42,10,13,-3
-2020 Q1,Kazakhstan,Kazakhstan,45,38,15,15,0
-2020 Q2,Kazakhstan,Kazakhstan,38,43,13,12,1
-2020 Q3,Kazakhstan,Kazakhstan,24,41,12,14,-2
-2020 Q4,Kazakhstan,Kazakhstan,26,27,13,15,-2
-2021 Q1,Kazakhstan,Kazakhstan,44,28,13,15,-2
-2021 Q2,Kazakhstan,Kazakhstan,30,42,15,10,5
-2021 Q3,Kazakhstan,Kazakhstan,33,26,12,15,-3
-2021 Q4,Kazakhstan,Kazakhstan,44,40,10,15,-5
-2022 Q1,Kazakhstan,Kazakhstan,30,28,10,12,-2
+2018 Q1,Denmark,Denmark,27,20,14,12,2
+2018 Q2,Denmark,Denmark,26,22,12,14,-2
+2018 Q3,Denmark,Denmark,26,23,12,14,-2
+2018 Q4,Denmark,Denmark,33,31,13,11,2
+2019 Q1,Denmark,Denmark,36,21,12,15,-3
+2019 Q2,Denmark,Denmark,34,34,13,14,-1
+2019 Q3,Denmark,Denmark,36,34,10,11,-1
+2019 Q4,Denmark,Denmark,23,24,14,12,2
+2020 Q1,Denmark,Denmark,39,21,12,10,2
+2020 Q2,Denmark,Denmark,39,21,13,14,-1
+2020 Q3,Denmark,Denmark,30,28,12,13,-1
+2020 Q4,Denmark,Denmark,40,30,11,11,0
+2021 Q1,Denmark,Denmark,35,22,13,15,-2
+2021 Q2,Denmark,Denmark,24,26,15,12,3
+2021 Q3,Denmark,Denmark,37,25,15,13,2
+2021 Q4,Denmark,Denmark,24,27,12,11,1
+2022 Q1,Denmark,Denmark,23,25,12,10,2
+2018 Q1,South Korea,South Korea,16,16,12,11,1
+2018 Q2,South Korea,South Korea,28,28,15,14,1
+2018 Q3,South Korea,South Korea,28,28,12,15,-3
+2018 Q4,South Korea,South Korea,30,30,13,10,3
+2019 Q1,South Korea,South Korea,31,31,11,13,-2
+2019 Q2,South Korea,South Korea,34,34,11,12,-1
+2019 Q3,South Korea,South Korea,27,27,13,12,1
+2019 Q4,South Korea,South Korea,26,26,13,10,3
+2020 Q1,South Korea,South Korea,30,30,10,14,-4
+2020 Q2,South Korea,South Korea,31,31,10,13,-3
+2020 Q3,South Korea,South Korea,30,30,12,14,-2
+2020 Q4,South Korea,South Korea,32,32,13,15,-2
+2021 Q1,South Korea,South Korea,36,36,15,14,1
+2021 Q2,South Korea,South Korea,30,30,10,12,-2
+2021 Q3,South Korea,South Korea,35,35,14,15,-1
+2021 Q4,South Korea,South Korea,25,25,14,14,0
+2022 Q1,South Korea,South Korea,28,28,12,10,2
+2018 Q1,Spain,Spain,37,29,11,10,1
+2018 Q2,Spain,Spain,40,45,14,11,3
+2018 Q3,Spain,Spain,31,46,15,12,3
+2018 Q4,Spain,Spain,35,31,10,10,0
+2019 Q1,Spain,Spain,25,49,15,13,2
+2019 Q2,Spain,Spain,28,33,15,13,2
+2019 Q3,Spain,Spain,34,35,14,15,-1
+2019 Q4,Spain,Spain,21,42,10,13,-3
+2020 Q1,Spain,Spain,45,38,15,15,0
+2020 Q2,Spain,Spain,38,43,13,12,1
+2020 Q3,Spain,Spain,24,41,12,14,-2
+2020 Q4,Spain,Spain,26,27,13,15,-2
+2021 Q1,Spain,Spain,44,28,13,15,-2
+2021 Q2,Spain,Spain,30,42,15,10,5
+2021 Q3,Spain,Spain,33,26,12,15,-3
+2021 Q4,Spain,Spain,44,40,10,15,-5
+2022 Q1,Spain,Spain,30,28,10,12,-2
 2018 Q1,South Africa,South Africa,35,44,15,13,2
 2018 Q2,South Africa,South Africa,22,42,10,12,-2
 2018 Q3,South Africa,South Africa,35,49,11,15,-4
@@ -117,7 +117,7 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2021 Q2,South Africa,South Africa,14,46,14,10,4
 2021 Q3,South Africa,South Africa,36,33,14,13,1
 2021 Q4,South Africa,South Africa,32,34,14,13,1
-2022 Q1,South Africa,South Africa,10,26,13,14,-1
+2022 Q1,South Africa,South Africa,37,26,13,14,-1
 2018 Q1,Egypt,Egypt,27,30,10,15,-5
 2018 Q2,Egypt,Egypt,41,16,10,11,-1
 2018 Q3,Egypt,Egypt,39,30,12,10,2
@@ -128,11 +128,11 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2019 Q4,Egypt,Egypt,19,19,10,15,-5
 2020 Q1,Egypt,Egypt,33,22,11,15,-4
 2020 Q2,Egypt,Egypt,41,12,15,14,1
-2020 Q3,Egypt,Egypt,9,13,10,11,-1
+2020 Q3,Egypt,Egypt,30,13,10,11,-1
 2020 Q4,Egypt,Egypt,27,30,15,13,2
-2021 Q1,Egypt,Egypt,9,29,10,15,-5
+2021 Q1,Egypt,Egypt,30,29,10,15,-5
 2021 Q2,Egypt,Egypt,21,14,11,11,0
-2021 Q3,Egypt,Egypt,9,20,14,15,-1
+2021 Q3,Egypt,Egypt,30,20,14,15,-1
 2021 Q4,Egypt,Egypt,45,17,13,10,3
 2022 Q1,Egypt,Egypt,38,25,13,15,-2
 2018 Q1,Peru,Peru,10,26,11,15,-4
@@ -164,7 +164,7 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2020 Q2,Lyon,Lyon (your hospital),18,45,16,13,3
 2020 Q3,Lyon,Lyon (your hospital),27,42,18,10,8
 2020 Q4,Lyon,Lyon (your hospital),22,38,20,8,12
-2021 Q1,Lyon,Lyon (your hospital),7,53,23,9,14
+2021 Q1,Lyon,Lyon (your hospital),27,53,23,9,14
 2021 Q2,Lyon,Lyon (your hospital),34,56,24,11,13
 2021 Q3,Lyon,Lyon (your hospital),28,42,18,11,7
 2021 Q4,Lyon,Lyon (your hospital),19,44,19,8,11
@@ -174,7 +174,7 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2018 Q3,Caen,France,13,30,11,14,-3
 2018 Q4,Caen,France,15,15,13,12,1
 2019 Q1,Caen,France,10,32,15,13,2
-2019 Q2,Caen,France,27,8,15,11,4
+2019 Q2,Caen,France,27,30,15,11,4
 2019 Q3,Caen,France,14,22,15,13,2
 2019 Q4,Caen,France,18,22,15,12,3
 2020 Q1,Caen,France,17,21,13,15,-2
@@ -184,5 +184,39 @@ Dates,Hospital,Country,DNT (Mean),DNT (Median),Patient Intake,Discharge,Patient 
 2021 Q1,Caen,France,22,26,13,10,3
 2021 Q2,Caen,France,18,33,15,13,2
 2021 Q3,Caen,France,24,33,11,13,-2
-2021 Q4,Caen,France,20,13,13,15,-2
-2022 Q1,Caen,France,14,17,11,14,-3
+2021 Q4,Caen,France,20,30,13,15,-2
+2022 Q1,Caen,France,14,27,11,14,-3
+2018 Q1,Nice,France,14,26,14,12,2
+2018 Q2,Nice,France,21,34,14,13,1
+2018 Q3,Nice,France,13,32,11,14,-3
+2018 Q4,Nice,France,15,33,13,12,1
+2019 Q1,Nice,France,10,31,15,13,2
+2019 Q2,Nice,France,27,32,15,11,4
+2019 Q3,Nice,France,14,35,15,13,2
+2019 Q4,Nice,France,18,27,15,12,3
+2020 Q1,Nice,France,17,26,13,15,-2
+2020 Q2,Nice,France,9,25,13,14,-1
+2020 Q3,Nice,France,28,30,10,11,-1
+2020 Q4,Nice,France,14,34,15,11,4
+2021 Q1,Nice,France,22,31,13,10,3
+2021 Q2,Nice,France,18,26,15,13,2
+2021 Q3,Nice,France,24,27,11,13,-2
+2021 Q4,Nice,France,20,32,13,15,-2
+2022 Q1,Nice,France,14,28,11,14,-3
+2018 Q1,Versailles,France,14,28,14,12,2
+2018 Q2,Versailles,France,21,35,14,13,1
+2018 Q3,Versailles,France,13,30,11,14,-3
+2018 Q4,Versailles,France,15,28,13,12,1
+2019 Q1,Versailles,France,10,30,15,13,2
+2019 Q2,Versailles,France,27,30,15,11,4
+2019 Q3,Versailles,France,14,29,15,13,2
+2019 Q4,Versailles,France,18,35,15,12,3
+2020 Q1,Versailles,France,17,27,13,15,-2
+2020 Q2,Versailles,France,9,26,13,14,-1
+2020 Q3,Versailles,France,28,25,10,11,-1
+2020 Q4,Versailles,France,14,32,15,11,4
+2021 Q1,Versailles,France,22,29,13,10,3
+2021 Q2,Versailles,France,18,34,15,13,2
+2021 Q3,Versailles,France,24,29,11,13,-2
+2021 Q4,Versailles,France,20,26,13,15,-2
+2022 Q1,Versailles,France,14,30,11,14,-3

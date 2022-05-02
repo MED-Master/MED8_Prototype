@@ -32,6 +32,8 @@ class plotting():
         barplot_dat = pd.DataFrame(data)
         barplot_dat = barplot_dat[barplot_dat["Dates"] == "2022 Q1"]
         barplot_dat.groupby("Country").mean()
+        if (x == "Hospitals"):
+            barplot_dat = barplot_dat[barplot_dat["Countries"] == "France" and barplot_dat["Countries"] == "Lyon (your hospital)" ]
         plot = sns.barplot(
             x=x,
             y=y,
