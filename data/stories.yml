@@ -21,6 +21,26 @@ stories:
   - action: PlotTimelineOfDNT
   - action: utter_PlotTimelineOfDNT_response
 
+- story: bread catch
+  steps:
+  - action: utter_Intro_response
+  - intent: affirm
+  - action: utter_OrientUser
+
+- story: bread catch to timeline #From 0 to 1
+  steps:
+  - action: utter_OrientUser
+  - intent: timeline_of_DNT
+  - action: PlotTimelineOfDNT
+  - action: utter_PlotTimelineOfDNT_response
+
+- story: bread catch to local compare #From 0 to 10
+  steps:
+  - action: utter_OrientUser
+  - intent: Compare_to_local_hospitals
+  - action: PlotCompareLocalHospitals
+  - action: utter_PlotCompareLocalHospitals_response
+
 - story: time of DNT with local hospitals #2 : from 1 to 2
   steps:
   - action: utter_PlotTimelineOfDNT_response
@@ -97,7 +117,7 @@ stories:
 - story: time of DNT #10 from 0 to 10
   steps:
   - action: utter_Intro_response
-  - intent: Compare_to_local_hospitals
+  - intent: local_compare_timeline_of_DNT
   - action: PlotCompareLocalHospitals
   - action: utter_PlotCompareLocalHospitals_response
 

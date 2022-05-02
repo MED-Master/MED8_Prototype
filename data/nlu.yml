@@ -133,6 +133,7 @@ nlu:
   examples: |
     - compare to another hospital
     - another hospital
+
  
 - intent: Visualise_intake_timeline #11
   examples: |
