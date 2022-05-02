@@ -51,6 +51,9 @@ responses:
   utter_PlotAnnotateDNTLocalHospitals_response: # 4 and 5
   - text: "Would you like to look at another country or talk about patient intake?"
 
+  utter_PlotAnnotateDNTLocalHospitals_response_NOANNOTATE: # 4 and 5
+  - text: "Would you like to look at another country or talk about patient intake?"
+
   utter_ReadyForGoalSetting_response: # 7
   - text: "Do you feel like you have enough to talk about a goal or do you want to explore the data more?"
 
@@ -67,7 +70,7 @@ responses:
   - text: "Should I also visualise your patient discharge?"
 
   utter_PlotTimelineOfInVsOut: #13
-  - text: "Should I subtract your discharge from the patient intake to visualise the difference in one line?"
+  - text: "Should I make a timeline for the net loss or gain to the number of patients in your care?"
 
   utter_CompareInOut: #9
     - text: "would you like me to add a comparison for local or international hospitals?"

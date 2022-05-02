@@ -162,7 +162,7 @@ class plotting():
                                     plot.get_yaxis_transform()),
                           textcoords="offset points")
 
-        if annotate:
+        if annotate == True:
             plot.axvline('2021 Q1', ls='--', linewidth=3, color='red')
             plot.annotate('Large intake of patients',
                           xy=('2021 Q1', 53),

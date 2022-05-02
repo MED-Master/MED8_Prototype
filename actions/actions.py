@@ -83,7 +83,7 @@ class PlotCompareToCountry(Action): #6
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
+        dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
                               ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", False)
 
@@ -98,7 +98,7 @@ class PlotCompareToCountry_alt(Action): #6_alt
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Your average DNT is similar to South Korea and higher than Iran by 3 procent point.")
+        dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
                               ["France", "Lyon (your hospital)", "Slovakia", "South Africa"], "Country", True)
 
