@@ -46,6 +46,7 @@ stories:
   - action: utter_PlotTimelineOfDNT_response
   - intent: local_compare_timeline_of_DNT
   - action: PlotlocalComparisonsTimelineOfDNT
+  - action: utter_local_compare_timeline_of_DNT_response_insight
   - action: utter_local_compare_timeline_of_DNT_response
 
 - story: time of DNT with local hospitals #3 : from 1 to 3

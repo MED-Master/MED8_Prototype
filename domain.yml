@@ -36,8 +36,11 @@ responses:
   utter_PlotTimelineOfDNT_response: #1
   - text: "Your DNT has been going up recently. Do you want to compare with other local hospitals or should we look at possible causes?"
 
+  utter_local_compare_timeline_of_DNT_response_insight: #2
+    - text: "Your door to needle times have risen over the past year well above the local average."
+
   utter_local_compare_timeline_of_DNT_response: #2
-    - text: "There's a big jump in door to needle times in 2021 which coincides with a large intake of patients, would you like me to annotate it?"
+    - text: "The big jump in door to needle times in 2021 may be caused by the unusually large intake of patients at the time. Would you like me to annotate that?"
 
   utter_ReasonsForDNTIncrease_response: #3
     - text: "Would you like me to show you what might have impacted your DNT?"
