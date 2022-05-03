@@ -38,7 +38,7 @@ class RASA:
             audio = r.listen(source)  # listen to the source
 
             try:
-                self.message = r.recognize_wit(audio, key=self.WIT_AI_KEY)  # use recognizer to convert our audio into text part.
+                self.message = r.recognize_google(audio)  # use recognizer to convert our audio into text part.key=self.WIT_AI_KEY
                 #Logging.reply_logger.append(self.message)  # storing message string
                 #print("You said : {}".format(self.message))
 
