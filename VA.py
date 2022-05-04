@@ -15,7 +15,7 @@ class RASA:
     #mircophone setup
     #print(s_r.__version__)
     #sr.Microphone.list_microphone_names()
-    # print(s_r.Microphone.list_microphone_names()) #print all the microphones connected to your machine
+    #print(sr.Microphone.list_microphone_names()) #print all the microphones connected to your machine
     my_mic = sr.Microphone(device_index=1)
 
     #API setup

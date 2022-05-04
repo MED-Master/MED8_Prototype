@@ -153,6 +153,20 @@ nlu:
     - I want to explore
     - explore
 
+- intent: false_notification #11
+  examples: |
+    - prenotification
+    - CT scans
+    - ct
+    - scans
+    - scan
+    - neurologists
+    - nurses
+    - doctors
+    - number of neurologists
+    - number of nurses
+    - number of doctors
+    
 
 - intent: Annotate_goal #16
   examples: |

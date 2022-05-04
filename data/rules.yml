@@ -28,6 +28,11 @@ rules:
   - intent: nlu_fallback
   - action: utter_please_rephrase
 
+- rule: Negative paths
+  steps:
+    - intent: false_notification
+    - action: utter_no_data
+
 #- rule: show a local timeline of DNT with a reply
 #  steps:
 #  - intent: local_compare_timeline_of_DNT
