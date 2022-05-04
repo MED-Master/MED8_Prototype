@@ -85,7 +85,7 @@ class PlotCompareToCountry(Action): #6
 
         dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                              "Mean DNT compared internationally",["France", "Lyon", "Slovakia", "South Africa"], "Country", False)
+                              "Mean DNT compared internationally",["France", "Lyon", "Slovakia", "South Africa", "Peru", "Denmark"], "Country", False)
 
         return []
 
@@ -100,7 +100,7 @@ class PlotCompareToCountry_alt(Action): #6_alt
 
         dispatcher.utter_message(text="Your DNT times are above most other hospitals both in and out of Europe. However, you have similar times to other hospitals who have a similar high intake of patients.")
         plotting.create_international_timeline_plot("Dates", "DNT (Median)", plotting.df, folder.baseFolder,
-                              "Mean DNT compared internationally", ["France", "Lyon", "Slovakia", "South Africa"], "Country", True)
+                              "Mean DNT compared internationally", ["France", "Lyon", "Slovakia", "South Africa", "Peru", "Denmark"], "Country", True)
 
         return []
 
@@ -203,7 +203,7 @@ class CombineInVsOut_international(Action):#18
 
         dispatcher.utter_message(text="Here is the comparison with international hospitals!")
         plotting.create_international_timeline_plot("Dates", "Patient Intake Vs Discharge", plotting.df, folder.baseFolder,
-                                       "Patient intake - Discharge compared internationally", ["France", "Lyon", "Slovakia", "South Africa"], "Country", False)
+                                       "Patient intake - Discharge compared internationally", ["France", "Lyon", "Slovakia", "South Africa", "Peru", "Denmark"], "Country", False)
         #MAKE PLOT FOR THIS
         return []
 
@@ -234,7 +234,7 @@ class CompareInVsOutInternational_notcombine(Action):#15
         dispatcher.utter_message(text="Here is a comparison with International hospitals!")
         plotting.Plot_InVsOut_notcombined_international("Dates", "Patient Intake", "Discharge", plotting.df,
                                                         folder.baseFolder, ["France", "Lyon",
-                                                                            "Slovakia", "South Africa"], "Country",)
+                                                                            "Slovakia", "South Africa", "Peru", "Denmark"], "Country",)
 
 
         return []

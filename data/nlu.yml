@@ -37,6 +37,7 @@ nlu:
     - that sounds good
     - correct
     - sure
+    - ok
 - intent: deny
   examples: |
     - no
@@ -62,6 +63,8 @@ nlu:
     - I would like to see a timeline
     - timeline
     - timeline of door to needle time
+    - dtn
+    - DTN
 - intent: local_compare_timeline_of_DNT #2
   examples: |
     - Comparisons
