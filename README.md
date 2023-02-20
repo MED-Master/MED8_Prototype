@@ -14,3 +14,4 @@
    1. `rasa run -m models --endpoints endpoints.yml --port 5002 --credentials credentials.yml` 
 2. and also run this in seperate terminal 
    1. `rasa run actions`
+3. Run the dashboard from the GUI.py file
